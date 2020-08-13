@@ -1,0 +1,63 @@
+html{
+    position: relative;
+}
+
+body{
+    margin-bottom: 80px;
+    
+}
+
+hr {
+    width: 50%;
+    border-top:2px solid #ee9b20;
+}
+
+
+ /* menu */
+ .img-fluid{
+    width: 200px;
+}
+.navbar{
+    background: rgba(255, 138, 4, 0.884);
+}
+ /* akhir menu */
+
+ /* pilihan informasi */
+.block__35630 {
+    border: 1px solid #ccc;
+    padding: 30px;
+    border-radius: 4px;
+    -webkit-transition: .3s all ease-in-out;
+    -o-transition: .3s all ease-in-out;
+    transition: .3s all ease-in-out;
+    background: #fff; 
+}
+
+.block__35630 .icon > span {
+      font-size: 3rem;
+      color: #ee9b20; 
+}
+
+.block__35630 h3 {
+      color: #000;
+      font-size: 1.6rem;
+}
+    
+.block__35630:hover {
+      background-color: #FCF7D3;
+      border-color: #ff8b00;
+}
+/* akhir pilihan informasi */
+
+/* footer */
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #ee9b20;
+    color: #fff;
+    font-size: 1em;
+    padding-top: 30px;
+}
+/* akhir footer */
