@@ -23,13 +23,25 @@ hr {
     background: rgba(255, 138, 4, 0.884);
 }
  /* akhir menu */
-.card-img{
-   background-color:#000;
-   opacity:.50;
-}
-.card-img-overlay{
-    margin-top: 10%;
-}
+
+
+ /* jumbotron */
+ .card-img{
+    background-color:#000;
+    opacity:.30;
+ }
+ .card-img-overlay{
+     margin-top: 10%;
+ }
+ @media (max-width: 768px){
+     .card-img-overlay{
+        margin-top: 1%;
+    }
+ }
+/* akhir jumbotron */
+
+
+
  /* pilihan informasi */
 .block__35630 {
     border: 1px solid #ccc;
