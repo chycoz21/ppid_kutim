@@ -1,48 +1,56 @@
-html{
+html {
     position: relative;
 }
-@media (max-width: 768px){
-    body{
+
+@media (max-width: 768px) {
+    body {
         margin-top: 85px;
-        
+
     }
 }
 
 
 hr {
     width: 50%;
-    border-top:2px solid #ee9b20;
+    border-top: 2px solid #ee9b20;
 }
 
 
- /* menu */
- .img-fluid{
+/* menu */
+.img-fluid {
     width: 200px;
 }
-.navbar{
+
+.navbar {
     background: rgba(255, 138, 4, 0.884);
 }
- /* akhir menu */
+
+/* akhir menu */
 
 
- /* jumbotron */
- .card-img{
-    background-color:#000;
-    opacity:.30;
- }
- .card-img-overlay{
-     margin-top: 10%;
- }
- @media (max-width: 768px){
-     .card-img-overlay{
+/* jumbotron */
+.card-img {
+    background-color: #000;
+    opacity: .30;
+}
+
+.card-img-overlay {
+    margin-top: 10%;
+}
+
+@media (max-width: 768px) {
+    .card-img-overlay {
         margin-top: 1%;
     }
- }
+}
+
+.statistik-fluid {
+    width: 100%;
+}
+
 /* akhir jumbotron */
 
-
-
- /* pilihan informasi */
+/* pilihan informasi */
 .block__35630 {
     border: 1px solid #ccc;
     padding: 30px;
@@ -50,21 +58,22 @@ hr {
     -webkit-transition: .3s all ease-in-out;
     -o-transition: .3s all ease-in-out;
     transition: .3s all ease-in-out;
-    background: #fff; 
+    background: #fff;
 }
 
-.block__35630 .icon > span {
-      font-size: 3rem;
-      color: #ee9b20; 
+.block__35630 .icon>span {
+    font-size: 3rem;
+    color: #ee9b20;
 }
 
 .block__35630 h3 {
-      color: #000;
-      font-size: 1.6rem;
+    color: #000;
+    font-size: 1.6rem;
 }
-    
+
 .block__35630:hover {
-      background-color: #FCF7D3;
-      border-color: #ff8b00;
+    background-color: #FCF7D3;
+    border-color: #ff8b00;
 }
+
 /* akhir pilihan informasi */
