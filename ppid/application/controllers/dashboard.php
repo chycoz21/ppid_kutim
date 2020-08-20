@@ -66,6 +66,15 @@ class Dashboard extends CI_controller {
 				$this->load->view('dashboard/v_footer');	
 		}
 	}
+
+
+
+	public function artikel()
+	{
+		$this->load->view('dashboard/v_header');
+		$this->load->view('dashboard/v_artikel');
+		$this->load->view('dashboard/v_footer');
+	}
 }
 
 

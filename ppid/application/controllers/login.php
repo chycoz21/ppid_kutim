@@ -38,8 +38,33 @@ class Login extends CI_controller {
 								);
 					$this->session->set_userdata($data_session);
 
+                    // Insert Riwayat Login
+					date_default_timezone_set('Asia/Jakarta');
+					$data_riwayat = array(
+						'username' => $data->user_usrnm,
+						'ip' => $this->input->ip_address(),
+						'sistem_oprasi' => $this->agent->platform(),
+						'browser' => $this->agent->browser(),
+						'tanggal_login' => date('d-m-Y'),
+						'jam' => date('h:i:sa'),
+						'level' => 1
+
+					);
+                    $this->db->insert('riwayat_login',$data_riwayat);
 					//ke halaman dashboard
-					redirect(base_url().'dashboard');
+
+
+					// Ke Masing Masing halaman user
+					if ($data->user_lvl == 1) {
+						redirect(base_url().'dashboard');
+					}elseif ($data->user_lvl == 2) {
+						redirect(base_url().'dashboard_editor');
+					}elseif ($data->user_lvl == 3) {
+						redirect(base_url().'dashboard_kontributor');
+					}else{
+                         echo 'Anda Siapa';
+					}
+					
 			}else{
 				redirect(base_url().'login?alert=gagal');
 			}
