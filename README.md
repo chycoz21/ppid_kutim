@@ -1,2 +1,2 @@
 # bawaslu_kab
-project-bawaslu-kab
+project-bawaslu-kab-kutim
