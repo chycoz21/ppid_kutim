@@ -68,12 +68,15 @@ hr {
 
 .block__35630 h3 {
     color: #000;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 }
 
 .block__35630:hover {
     background-color: #FCF7D3;
     border-color: #ff8b00;
+}
+.dropdown-item{
+    font-size: 14px;
 }
 
 /* akhir pilihan informasi */
