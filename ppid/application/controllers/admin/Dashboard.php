@@ -69,11 +69,30 @@ class Dashboard extends CI_controller {
 		}
 	}
 
-	public function artikel()
+	public function page()
+	{
+		$data['page'] = $this->db->get('page')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/page/v_index',$data);
+
+
+	}
+
+
+	public function tambah_page()
 	{
 		$this->load->view('admin/dashboard/v_header');
-		$this->load->view('admin/artikel/v_index');
+		$this->load->view('admin/page/v_tambah_page');
 		$this->load->view('admin/dashboard/v_footer');
 	}
+
+
+	function page_detail($id)
+	{
+    	$data['page_detail'] = $this->m_page->page_detail($id);
+		$this->load->view('admin/page/v_detail_page',$data);
+
+	}
+
 }
 ?>
