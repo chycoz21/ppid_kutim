@@ -48,7 +48,7 @@
                   <th>id</th>
                   <th>Judul</th>
                   <th>Deskripsi</th>
-                
+                  <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -58,7 +58,7 @@
                   <td><?php echo $pge->id ?></td>
                   <td><?php echo $pge->judul ?></td>
                   <td><a class="btn btn-sm btn-primary" href="<?= base_url('admin/dashboard/page_detail/')?><?php echo $pge->id ?>">View</a></td>
-                
+                  <td><a href="<?= base_url('admin/dashboard/page_edit/')?><?php echo $pge->id ?>" class="btn btn-sm btn-primary">Edit</a>  <a href="<?= base_url('admin/dashboard/page_hapus/')?><?php echo $pge->id ?>" class="btn btn-sm btn-danger ml-3">Delete</a></td>
                 </tr>
              <?php endforeach;?>
 
@@ -68,6 +68,7 @@
                 <th>id</th>
                   <th>Judul</th>
                   <th>Deskripsi</th>
+                  <th>Aksi</th>
                 </tr>
                 </tfoot>
               </table>
