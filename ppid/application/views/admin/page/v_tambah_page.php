@@ -33,7 +33,7 @@
           <!-- /.card-header -->
           <div class="card-body pad">
             <div class="mb-3">
-            <form action="<?php echo base_url('admin/backend/page/simpan'); ?>" method="post">
+            <form action="<?php echo base_url('admin/dashboard/simpan'); ?>" method="post">
                     <div class="form-group">
                         <label>Judul</label>
                         <input type="text" name="judul" class="form-control" placeholder="Judul" required>
@@ -75,7 +75,7 @@
                 var data = new FormData();
                 data.append("image", image);
                 $.ajax({
-                    url: "<?php echo site_url('admin/backend/page/upload_image') ?>",
+                    url: "<?php echo site_url('admin/dashboard/upload_image') ?>",
                     cache: false,
                     contentType: false,
                     processData: false,
@@ -96,7 +96,7 @@
                         src: src
                     },
                     type: "POST",
-                    url: "<?php echo site_url('admin/backend/page/upload_image/delete_image') ?>",
+                    url: "<?php echo site_url('admin/dashboard/delete_image') ?>",
                     cache: false,
                     success: function(response) {
                         console.log(response);
