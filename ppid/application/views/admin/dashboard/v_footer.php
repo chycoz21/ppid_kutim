@@ -48,5 +48,8 @@
 <script src="<?= base_url();?>assets/admin/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url();?>assets/admin/dist/js/demo.js"></script>
+<!-- DataTables -->
+<script src="<?= base_url();?>assets/admin/plugins/datatables/jquery.dataTables.js"></script>
+<script src="<?= base_url();?>assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 </body>
 </html>
