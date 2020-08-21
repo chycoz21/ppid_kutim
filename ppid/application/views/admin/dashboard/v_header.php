@@ -29,6 +29,13 @@
   <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+ 
+
+<link rel="stylesheet" href="<?= base_url('assets/admin/')?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="<?= base_url('assets/admin/')?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -122,7 +129,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard/pages'?>" class="nav-link">
+            <a href="<?php echo base_url().'admin/dashboard/page'?>" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
               <p>
                 PAGES
