@@ -40,7 +40,7 @@
                   <th class="text-center">No</th>
                   <th>Nama Kategori</th>
                   <th>Icon Kategori</th>
-                  <th>#</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
