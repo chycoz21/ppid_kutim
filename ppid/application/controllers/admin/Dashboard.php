@@ -143,6 +143,42 @@ class Dashboard extends CI_controller {
         {
             echo 'File Delete Successfully';
         }
+	}
+	
+
+	public function page_edit($id)
+	{
+		$data['page_edit'] = $this->m_page->page_detail($id);
+		
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/page/v_edit_page',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+	public function page_hapus($id)
+	{
+		
+		$this->db->where('id', $id);	
+		$this->db->delete('page');
+		redirect('admin/dashboard/page');
+		
+		
+	}
+
+	function simpan_edit($id){
+        $judul = $this->input->post('judul',TRUE);
+		$deskripsi = $this->input->post('deskripsi',TRUE);
+		$data = array(
+			'judul' => $judul,
+			'deskripsi' => $deskripsi
+		);
+		
+		
+		$this->db->where('id', $id);
+
+		$this->db->update('page', $data);
+		redirect('admin/dashboard/page');
+		
+        
     }
 }
 ?>
