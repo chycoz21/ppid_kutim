@@ -20,7 +20,7 @@ class Dashboard extends CI_controller {
 		$this->load->view('admin/dashboard/v_header');
 		$this->load->view('admin/dashboard/v_index');
 		$this->load->view('admin/dashboard/v_footer');
-	}
+	} 
 
 	public function keluar(){
 		$this->session->sess_destroy();
