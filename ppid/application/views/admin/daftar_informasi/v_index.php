@@ -89,7 +89,7 @@
                   </div>
                 </div>
                 <?php $no++; } ?>  
-              </tbody>  
+              </tbody>   
             </table>
           </div>
           <!-- /.card-body -->
