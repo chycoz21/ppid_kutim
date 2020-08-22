@@ -12,6 +12,11 @@ class M_data extends CI_Model
 		return $this->db->query("SELECT daftar_informasi.*,kategori.nama_kategori FROM daftar_informasi LEFT JOIN kategori ON daftar_informasi.id_kategori = kategori.id_kategori $where;");
 	}
 
+	function getpemohoninformasi($where = '')
+	{
+		return $this->db->query("SELECT * FROM pemohon_informasi $where;");
+	}
+
 	function cek_login($table,$where){
 		return $this->db->get_where($table,$where);
 	}

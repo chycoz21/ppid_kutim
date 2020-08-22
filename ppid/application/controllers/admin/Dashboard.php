@@ -319,8 +319,46 @@ class Dashboard extends CI_controller {
 
 		$this->db->update('page', $data);
 		redirect('admin/dashboard/page');
-		
-        
     }
+
+    public function pemohon_informasi()
+	{
+		$data = array(
+			'title' => 'Pemohon Informasi',
+			'subtitle' => 'Data Pemohon Informasi',
+			'listpemohoninformasi' => $this->m_data->getpemohoninformasi()->result_array()
+		);
+		$this->load->view('admin/pemohon_informasi/v_index', $data);
+	}
+
+	public function edit_pemohon_informasi($id_pemohon_informasi = '')
+	{
+		$pemohon_informasi = $this->m_data->getpemohoninformasi("WHERE id_pemohon_informasi='$id_pemohon_informasi' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Pemohon Informasi',
+			'id_pemohon_informasi' => $pemohon_informasi[0]['id_pemohon_informasi'],
+			'judul' => $pemohon_informasi[0]['judul'],
+			'deskripsi' => $pemohon_informasi[0]['deskripsi']
+		);
+		$this->load->view('admin/pemohon_informasi/v_edit_data', $data);
+	}
+
+	public function actionpemohoninformasi()
+	{
+		$judul = $this->input->post('judul');
+		$deskripsi = $this->input->post('deskripsi');
+		$statusdata = $this->input->post('statusdata');
+		if($statusdata == "Update Data")
+		{
+			$id_pemohon_informasi = $this->input->post('id_pemohon_informasi', TRUE);
+			$data = array(
+				'judul' => $judul,
+				'deskripsi' => $deskripsi
+			);
+			$this->m_data->UpdateData('pemohon_informasi', $data, array('id_pemohon_informasi' => $id_pemohon_informasi));
+			$this->session->set_flashdata('berhasil', 'Berhasil Update Pemohon Informasi');
+			redirect(base_url('admin/dashboard/pemohon_informasi'), 'refresh');
+		}
+	}
 }
 ?>

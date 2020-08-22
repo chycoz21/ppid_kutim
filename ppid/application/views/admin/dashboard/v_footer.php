@@ -49,5 +49,7 @@
 <script src="<?= base_url();?>assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <!-- Select2 -->
 <script src="<?= base_url();?>assets/admin/plugins/select2/js/select2.full.min.js"></script>
+<!-- Summernote -->
+<script src="<?= base_url();?>assets/admin/plugins/summernote/summernote-bs4.min.js"></script>
 </body>
 </html>

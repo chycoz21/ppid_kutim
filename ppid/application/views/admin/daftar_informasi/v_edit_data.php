@@ -30,7 +30,7 @@
             <div class="mb-3">
               <form method="post" action="<?= base_url('admin/dashboard/actiondaftarinformasi') ?>">
                   <div class="form-group">
-                    <label>Nama Fole</label>
+                    <label>Nama File</label>
                     <input type="hidden" name="statusdata" value="Update Data">
                     <input type="hidden" name="id_daftar_informasi" id="id_daftar_informasi" value="<?= (isset($id_daftar_informasi)) ? $id_daftar_informasi : "";?>">
                     <input type="text" name="nama_file" id="nama_file" class="form-control" value="<?= (isset($nama_file)) ? $nama_file : "";?>">
