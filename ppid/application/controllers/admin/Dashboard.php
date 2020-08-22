@@ -69,40 +69,40 @@ class Dashboard extends CI_controller {
 		}
 	}
 
-	public function kategori()
+	public function kategori_informasi()
 	{
 		$data = array(
-			'title' => 'kategori',
-			'subtitle' => 'Data Kategori',
-			'listdatakategori' => $this->m_data->getkategori()->result_array()
+			'title' => 'kategori Informasi',
+			'subtitle' => 'Data Kategori Informasi',
+			'listkategoriinformasi' => $this->m_data->getkategoriinformasi()->result_array()
 
 		);
-		$this->load->view('admin/kategori/v_index', $data);
+		$this->load->view('admin/kategori_informasi/v_index', $data);
 	}
 
-	public function tambah_kategori()
+	public function tambah_kategori_informasi()
 	{
 		$data = array(
-			'subtitle' => 'Tambah Kategori',
+			'subtitle' => 'Tambah Kategori Informasi',
 			'nama_kategori' => '',
 			'icon' => ''
 		);
-		$this->load->view('admin/kategori/v_tambah_data', $data);
+		$this->load->view('admin/kategori_informasi/v_tambah_data', $data);
 	}
 
-	public function edit_kategori($id_kategori = '')
+	public function edit_kategori_informasi($id_kategori = '')
 	{
-		$kategori = $this->m_data->getkategori("WHERE id_kategori='$id_kategori' ")->result_array();
+		$kategori = $this->m_data->getkategoriinformasi("WHERE id_kategori='$id_kategori' ")->result_array();
 		$data = array(
 			'subtitle' => 'Edit Kategori',
 			'id_kategori' => $kategori[0]['id_kategori'],
 			'nama_kategori' => $kategori[0]['nama_kategori'],
 			'icon' => $kategori[0]['icon']
 		);
-		$this->load->view('admin/kategori/v_edit_data', $data);
+		$this->load->view('admin/kategori_informasi/v_edit_data', $data);
 	}
 
-	public function actionkategori()
+	public function actionkategoriinformasi()
 	{
 		$nm_kategori = $this->input->post('nama_kategori', TRUE);
 		$icn_kategori = $this->input->post('icon_kategori', TRUE);
@@ -114,8 +114,8 @@ class Dashboard extends CI_controller {
 				'icon' => $icn_kategori
 			);
 			$this->m_data->InsertData('kategori',$data);
-			$this->session->set_flashdata('berhasil', 'Berhasil Tambah Kategori');
-			redirect(base_url('admin/dashboard/kategori'), 'refresh');
+			$this->session->set_flashdata('berhasil', 'Berhasil Tambah Kategori Informasi');
+			redirect(base_url('admin/dashboard/kategori_informasi'), 'refresh');
 		}
 		if($statusdata == "Update Data")
 		{
@@ -125,15 +125,95 @@ class Dashboard extends CI_controller {
 				'icon' => $icn_kategori
 			);
 			$this->m_data->UpdateData('kategori', $data, array('id_kategori' => $id_kategori));
-			$this->session->set_flashdata('berhasil', 'Berhasil Update Kategori');
-			redirect(base_url('admin/dashboard/kategori'), 'refresh');
+			$this->session->set_flashdata('berhasil', 'Berhasil Update Kategori Informasi');
+			redirect(base_url('admin/dashboard/kategori_informasi'), 'refresh');
 		}
 		if($statusdata == "Hapus Data")
 		{
 			$id_kategori = $this->input->post('id_kategori', TRUE);
 			$this->m_data->HapusData('kategori', array('id_kategori' => $id_kategori));
-			$this->session->set_flashdata('berhasil', 'Berhasil Hapus Kategori');
-			redirect(base_url('admin/dashboard/kategori'), 'refresh');
+			$this->session->set_flashdata('berhasil', 'Berhasil Hapus Kategori Informasi');
+			redirect(base_url('admin/dashboard/kategori_informasi'), 'refresh');
+		}
+	}
+
+	public function daftar_informasi()
+	{
+		$data = array(
+			'title' => 'Daftar Informasi',
+			'subtitle' => 'Data Daftar Informasi',
+			'listdaftarinformasi' => $this->m_data->getdaftarinformasi()->result_array()
+
+		);
+		$this->load->view('admin/daftar_informasi/v_index', $data);
+	}
+
+	public function tambah_daftar_informasi()
+	{
+		$data = array(
+			'subtitle' => 'Tambah Daftar Informasi',
+			'nama_file' => '',
+			'link_file' => '',
+			'id_kategori' => '',
+			'status' => '',
+			'listkategoriinformasi' => $this->m_data->getkategoriinformasi()->result_array()
+		);
+		$this->load->view('admin/daftar_informasi/v_tambah_data', $data);
+	}
+
+	public function edit_daftar_informasi($id_daftar_informasi = '')
+	{
+		$daftar_informasi = $this->m_data->getdaftarinformasi("WHERE id_daftar_informasi='$id_daftar_informasi' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Daftar Informasi',
+			'id_daftar_informasi' => $daftar_informasi[0]['id_daftar_informasi'],
+			'nama_file' => $daftar_informasi[0]['nama_file'],
+			'link_file' => $daftar_informasi[0]['link_file'],
+			'nama_kategori' => $daftar_informasi[0]['nama_kategori'],
+			'status' => $daftar_informasi[0]['status'],
+			'listkategoriinformasi' => $this->m_data->getkategoriinformasi()->result_array()
+		);
+		$this->load->view('admin/daftar_informasi/v_edit_data', $data);
+	}
+
+	public function actiondaftarinformasi()
+	{
+		$nama_file = $this->input->post('nama_file', TRUE);
+		$link_file = $this->input->post('link_file', TRUE);
+		$id_kategori = $this->input->post('id_kategori', TRUE);
+		$status = $this->input->post('status', TRUE);
+		$statusdata = $this->input->post('statusdata', TRUE);
+		if($statusdata == "Tambah Data")
+		{
+			$data = array(
+				'nama_file' => $nama_file,
+				'link_file' => $link_file,
+				'id_kategori' => $id_kategori,
+				'status' => $status
+			);
+			$this->m_data->InsertData('daftar_informasi', $data);
+			$this->session->set_flashdata('berhasil', 'Berhasil Tambah Daftar Informasi');
+			redirect(base_url('admin/dashboard/daftar_informasi'), 'refresh');
+		}
+		if($statusdata == "Update Data")
+		{
+			$id_daftar_informasi = $this->input->post('id_daftar_informasi', TRUE);
+			$data = array(
+				'nama_file' => $nama_file,
+				'link_file' => $link_file,
+				'id_kategori' => $id_kategori,
+				'status' => $status
+			);
+			$this->m_data->UpdateData('daftar_informasi', $data, array('id_daftar_informasi' => $id_daftar_informasi));
+			$this->session->set_flashdata('berhasil', 'Berhasil Update Daftar Informasi');
+			redirect(base_url('admin/dashboard/daftar_informasi'), 'refresh');
+		}
+		if($statusdata == "Hapus Data")
+		{
+			$id_daftar_informasi = $this->input->post('id_daftar_informasi', TRUE);
+			$this->m_data->HapusData('daftar_informasi', array('id_daftar_informasi' => $id_daftar_informasi));
+			$this->session->set_flashdata('berhasil', 'Berhasil Hapus Daftar Informasi');
+			redirect(base_url('admin/dashboard/daftar_informasi'), 'refresh');
 		}
 	}
 
@@ -142,8 +222,6 @@ class Dashboard extends CI_controller {
 		$data['page'] = $this->db->get('page')->result();
 		$this->load->view('admin/dashboard/v_header');
 		$this->load->view('admin/page/v_index',$data);
-
-
 	}
 
 

@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
@@ -107,15 +110,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= base_url('admin/dashboard/kategori');?>" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/kategori_informasi');?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kategori</p>
+                  <p>Kategori Informasi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/daftar_informasi');?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kategori Informasi</p>
+                  <p>Daftar Informasi</p>
                 </a>
               </li>
             </ul>

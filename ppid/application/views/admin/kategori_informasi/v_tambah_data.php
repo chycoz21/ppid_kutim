@@ -28,19 +28,18 @@
           <!-- /.card-header -->
           <div class="card-body pad">
             <div class="mb-3">
-              <form method="post" action="<?php echo base_url('admin/dashboard/actionkategori') ?>">
+              <form method="post" action="<?= base_url('admin/dashboard/actionkategoriinformasi') ?>">
                   <div class="form-group">
                     <label>Nama Kategori</label>
-                    <input type="hidden" name="statusdata" value="Update Data">
-                    <input type="hidden" name="id_kategori" id="id_kategori" value="<?= (isset($id_kategori)) ? $id_kategori : "";?>">
-                    <input type="text" name="nama_kategori" id="nama_kategori" class="form-control" value="<?= (isset($nama_kategori)) ? $nama_kategori : "";?>">
+                    <input type="hidden" name="statusdata" value="Tambah Data">
+                    <input type="text" name="nama_kategori" class="form-control" placeholder="Nama Kategori">
                   </div>
                   <div class="form-group">
                     <label>Icon Kategori</label>
-                    <input type="text" name="icon_kategori" id="icon_kategori" class="form-control" value="<?= (isset($icon)) ? $icon : "";?>">
+                    <input type="text" name="icon_kategori" class="form-control" placeholder="Icon Kategori">
                   </div>
                   <div class="form-group">
-                    <button type="submit" name="update" class="btn-sm btn-primary">Update Data</button>
+                    <button type="submit" class="btn-sm btn-primary">Simpan Data</button>
                   </div>  
               </form>
             </div>
