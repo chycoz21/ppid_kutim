@@ -17,6 +17,11 @@ class M_data extends CI_Model
 		return $this->db->query("SELECT * FROM pemohon_informasi $where;");
 	}
 
+	function getpelayananinformasi($where = '')
+	{
+		return $this->db->query("SELECT * FROM pelayanan_informasi $where;");
+	}
+
 	function cek_login($table,$where){
 		return $this->db->get_where($table,$where);
 	}

@@ -360,5 +360,45 @@ class Dashboard extends CI_controller {
 			redirect(base_url('admin/dashboard/pemohon_informasi'), 'refresh');
 		}
 	}
+
+	public function pelayanan_informasi()
+	{
+		$data = array(
+			'title' => 'Pelayanan Informasi',
+			'subtitle' => 'Data Pelayanan Informasi',
+			'listpelayananinformasi' => $this->m_data->getpelayananinformasi()->result_array()
+		);
+		$this->load->view('admin/pelayanan_informasi/v_index', $data);
+	}
+
+	public function edit_pelayanan_informasi($id_pelayanan_informasi = '')
+	{
+		$pelayanan_informasi = $this->m_data->getpelayananinformasi("WHERE id_pelayanan_informasi='$id_pelayanan_informasi' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Pelayanan Informasi',
+			'id_pelayanan_informasi' => $pelayanan_informasi[0]['id_pelayanan_informasi'],
+			'judul' => $pelayanan_informasi[0]['judul'],
+			'deskripsi' => $pelayanan_informasi[0]['deskripsi']
+		);
+		$this->load->view('admin/pelayanan_informasi/v_edit_data', $data);
+	}
+
+	public function actionpelayananinformasi()
+	{
+		$judul = $this->input->post('judul');
+		$deskripsi = $this->input->post('deskripsi');
+		$statusdata = $this->input->post('statusdata');
+		if($statusdata == "Update Data")
+		{
+			$id_pelayanan_informasi = $this->input->post('id_pelayanan_informasi', TRUE);
+			$data = array(
+				'judul' => $judul,
+				'deskripsi' => $deskripsi
+			);
+			$this->m_data->UpdateData('pelayanan_informasi', $data, array('id_pelayanan_informasi' => $id_pelayanan_informasi));
+			$this->session->set_flashdata('berhasil', 'Berhasil Update Pelayanan Informasi');
+			redirect(base_url('admin/dashboard/pelayanan_informasi'), 'refresh');
+		}
+	}
 }
 ?>
