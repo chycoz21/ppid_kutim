@@ -991,5 +991,241 @@ class Dashboard extends CI_controller {
 	      	redirect(base_url("admin/dashboard/slider_image"));
 	    }
 	}
+
+	public function user_management()
+	{
+		$data['user_management'] = $this->db->get('user_management')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/user_management/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+	public function tambah_user_management()
+	{
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/user_management/v_tambah_user_management');
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_user_management()
+	{
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'email' => $this->input->post('email'),
+			'password' => md5($this->input->post('password')),
+			'level' => $this->input->post('level')
+		);
+         $this->m_data->InsertData('user_management',$data);
+		redirect('admin/dashboard/user_management','refresh');
+	}
+
+	public function edit_user_management($id)
+	{
+		$data['user_management'] = $this->m_data->user_management_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/user_management/v_edit_user_management',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_user_management($id)
+	{
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'email' => $this->input->post('email'),
+			'password' => md5($this->input->post('password')),
+			'level' => $this->input->post('level')
+		);
+		$this->m_data->UpdateData('user_management', $data, array('id' => $id));
+		redirect('admin/dashboard/user_management','refresh');
+	}
+
+	public function blokir_user_management($id)
+	{
+		$data = array(	
+			'level' => 4
+		);
+		$this->m_data->UpdateData('user_management', $data, array('id' => $id));
+		redirect('admin/dashboard/user_management','refresh');
+	}
+	
+	public function unblokir_user_management($id)
+	{
+		$data = array(	
+			'level' => 3
+		);
+		$this->m_data->UpdateData('user_management', $data, array('id' => $id));
+		redirect('admin/dashboard/user_management','refresh');
+	}
+
+
+	public function visi_misi()
+	{
+		$data['visi_misi'] = $this->db->get('visi_misi')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/visi_misi/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function edit_visi_misi($id)
+	{
+		$data['visi_misi'] = $this->m_data->visi_misi_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/visi_misi/v_edit_visi_misi',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_misi($id)
+	{
+		$judul = $this->input->post('judul',TRUE);
+		$deskripsi = $this->input->post('deskripsi',TRUE);
+		$data = array(
+			'judul' => $judul,
+			'deskripsi' => $deskripsi
+		);
+		$this->m_data->UpdateData('visi_misi', $data, array('id' => $id));
+		redirect('admin/dashboard/visi_misi');
+	}
+
+	public function struktur_ppid()
+	{
+		$data['struktur'] = $this->db->get('struktur_ppid')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/struktur_ppid/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+
+	public function edit_struktur_ppid($id)
+	{
+		$data['struktur'] =  $this->m_data->struktur_ppid_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/struktur_ppid/v_edit_struktur_ppid',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_struktur_ppid($id)
+	{
+	
+		$gambar    = $_FILES['gambar']['name'];
+		if ($gambar ='') {
+			
+		}else {
+			$config ['upload_path'] = './assets/admin/upload/struktur_ppid/';
+				$config ['allowed_types'] = 'jpg|jpeg|png|gif';
+
+				$this->load->library('upload', $config);
+				if (!$this->upload->do_upload('gambar')) {
+					echo 'gagal upload';
+				}else{
+					$gambar=$this->upload->data('file_name');
+
+				}
+		}
+		$data = array(
+			
+			'gambar' => $gambar
+		);
+		$this->m_data->UpdateData('struktur_ppid', $data, array('id' => $id));
+		redirect('admin/dashboard/struktur_ppid');
+	    
+	}
+
+
+
+
+
+	public function profil_singkat()
+	{
+		$data['profil'] = $this->db->get('profil_singkat')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/profil_singkat/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+
+	public function edit_profil_singkat($id)
+	{
+		$data['profil'] =  $this->m_data->profil_singkat_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/profil_singkat/v_edit_profil_singkat',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_profil_singkat($id)
+	{
+	
+		$gambar    = $_FILES['gambar']['name'];
+		if ($gambar ='') {
+			
+		}else {
+			$config ['upload_path'] = './assets/admin/upload/profil_singkat/';
+				$config ['allowed_types'] = 'jpg|jpeg|png|gif';
+
+				$this->load->library('upload', $config);
+				if (!$this->upload->do_upload('gambar')) {
+					echo 'gagal upload';
+				}else{
+					$gambar=$this->upload->data('file_name');
+
+				}
+		}
+		$data = array(
+			
+			'gambar' => $gambar
+		);
+		$this->m_data->UpdateData('profil_singkat', $data, array('id' => $id));
+		redirect('admin/dashboard/profil_singkat');
+	    
+	}
+
+	 
+	public function peraturan()
+	{
+		$data['alamat'] = $this->db->get('alamat')->result();
+		$data['sosmed'] = $this->db->get('media_sosial')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/pengaturan/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+		
+	}
+
+	public function edit_pengaturan_alamat($id)
+	{
+		$data['edit'] =  $this->m_data->where_data('alamat',array('id' => $id));
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/pengaturan/v_edit_alamat',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_alamat($id)
+	{
+	   
+		$data = array(
+			'alamat' => $this->input->post('alamat'),
+			'no_hp' => $this->input->post('no_hp')
+		);
+		$this->m_data->UpdateData('alamat', $data, array('id' => $id));
+		redirect('admin/dashboard/peraturan');
+		
+	}
+	public function edit_pengaturan_sosmed($id)
+	{
+		$data['edit'] =  $this->m_data->edit_alamat_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/pengaturan/v_edit_sosmed',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_sosmed($id)
+	{
+	   
+		$data = array(
+			'alamat' => $this->input->post('alamat'),
+			'no_hp' => $this->input->post('no_hp')
+		);
+		$this->m_data->UpdateData('alamat', $data, array('id' => $id));
+		redirect('admin/dashboard/peraturan');
+		
+	}
+
+
 }
-?>
