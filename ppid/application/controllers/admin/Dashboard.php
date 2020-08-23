@@ -519,8 +519,7 @@ class Dashboard extends CI_controller {
 			'password' => md5($this->input->post('password')),
 			'level' => $this->input->post('level')
 		);
-         $this->db->insert('user_management', $data);
-		
+         $this->m_data->InsertData('user_management',$data);
 		redirect('admin/dashboard/user_management','refresh');
 	}
 
@@ -540,14 +539,8 @@ class Dashboard extends CI_controller {
 			'password' => md5($this->input->post('password')),
 			'level' => $this->input->post('level')
 		);
-		 
-		
-		$this->db->where('id', $id);
-		
-		$this->db->update('user_management', $data);
+		$this->m_data->UpdateData('user_management', $data, array('id' => $id));
 		redirect('admin/dashboard/user_management','refresh');
-		
-		
 	}
 
 	public function blokir_user_management($id)
@@ -555,8 +548,7 @@ class Dashboard extends CI_controller {
 		$data = array(	
 			'level' => 4
 		);
-		$this->db->where('id', $id);
-		$this->db->update('user_management', $data);
+		$this->m_data->UpdateData('user_management', $data, array('id' => $id));
 		redirect('admin/dashboard/user_management','refresh');
 	}
 	
@@ -565,8 +557,7 @@ class Dashboard extends CI_controller {
 		$data = array(	
 			'level' => 3
 		);
-		$this->db->where('id', $id);
-		$this->db->update('user_management', $data);
+		$this->m_data->UpdateData('user_management', $data, array('id' => $id));
 		redirect('admin/dashboard/user_management','refresh');
 	}
 
@@ -595,8 +586,7 @@ class Dashboard extends CI_controller {
 			'judul' => $judul,
 			'deskripsi' => $deskripsi
 		);
-		$this->db->where('id', $id);
-		$this->db->update('visi_misi', $data);
+		$this->m_data->UpdateData('visi_misi', $data, array('id' => $id));
 		redirect('admin/dashboard/visi_misi');
 	}
 
@@ -639,8 +629,7 @@ class Dashboard extends CI_controller {
 			
 			'gambar' => $gambar
 		);
-		$this->db->where('id', $id);
-		$this->db->update('struktur_ppid', $data);
+		$this->m_data->UpdateData('struktur_ppid', $data, array('id' => $id));
 		redirect('admin/dashboard/struktur_ppid');
 	    
 	}
@@ -688,9 +677,41 @@ class Dashboard extends CI_controller {
 			
 			'gambar' => $gambar
 		);
-		$this->db->where('id', $id);
-		$this->db->update('profil_singkat', $data);
+		$this->m_data->UpdateData('profil_singkat', $data, array('id' => $id));
 		redirect('admin/dashboard/profil_singkat');
 	    
 	}
+
+	 
+	public function peraturan()
+	{
+		$data['alamat'] = $this->db->get('alamat')->result();
+		$data['sosmed'] = $this->db->get('media_sosial')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/pengaturan/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+		
+	}
+
+	public function edit_pengaturan_alamat($id)
+	{
+		$data['edit'] =  $this->m_data->edit_alamat_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/pengaturan/v_edit_alamat',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_alamat($id)
+	{
+	   
+		$data = array(
+			'alamat' => $this->input->post('alamat'),
+			'no_hp' => $this->input->post('no_hp')
+		);
+		$this->m_data->UpdateData('alamat', $data, array('id' => $id));
+		redirect('admin/dashboard/peraturan');
+		
+	}
+	
+
 }
