@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Struktur dari tabel `kewajiban_bawaslu`
 --
 
-CREATE TABLE `hak_dan_kewajiban_bawaslu` (
+CREATE TABLE `kewajiban_bawaslu` (
   `id_kewajiban_bawaslu` int(5) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `deskripsi` text NOT NULL
