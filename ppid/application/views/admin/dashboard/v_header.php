@@ -200,15 +200,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= base_url('admin/dashboard/pemohon_informasi');?>" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/kewajiban_pemohon');?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pemohon Informasi</p>
+                  <p>Kewajiban Pemohon</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('admin/dashboard/pelayanan_informasi');?>" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/kewajiban_bawaslu');?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pelayanan Informasi</p>
+                  <p>Kewajiban Bawaslu</p>
                 </a>
               </li>
               <li class="nav-item">

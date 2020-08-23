@@ -37,19 +37,19 @@
               <thead>
                 <tr>
                   <th class="text-center">No</th>
-                  <th>Judul Pemohon Informasi</th>
-                  <th>Deskripsi Pemohon Informasi</th>
+                  <th>Judul Kewajiban Bawaslu</th>
+                  <th>Deskripsi Kewajiban Bawaslu</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                <?php $no=1; foreach ($listpemohoninformasi as $data) { ?>
+                <?php $no=1; foreach ($listkewajibanbawaslu as $data) { ?>
                 <tr>  
                   <td class="text-center"><?= $no;?></td>
                   <td><?= $data['judul'];?></td>
                   <td><?= $data['deskripsi'];?></td>
                   <td>
-                    <a class="btn-sm btn btn-primary" href="<?= base_url('admin/dashboard/edit_pemohon_informasi/'.$data['id_pemohon_informasi']);?>"><i class="fa fa-pencil-alt"></i></a>
+                    <a class="btn-sm btn btn-primary" href="<?= base_url('admin/dashboard/edit_kewajiban_bawaslu/'.$data['id_kewajiban_bawaslu']);?>"><i class="fa fa-pencil-alt"></i></a>
                   </td>
                 </tr>
                 <?php $no++; } ?>  

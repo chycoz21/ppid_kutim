@@ -321,83 +321,83 @@ class Dashboard extends CI_controller {
 		redirect('admin/dashboard/page');
     }
 
-    public function pemohon_informasi()
+    public function kewajiban_pemohon()
 	{
 		$data = array(
-			'title' => 'Pemohon Informasi',
-			'subtitle' => 'Data Pemohon Informasi',
-			'listpemohoninformasi' => $this->m_data->getpemohoninformasi()->result_array()
+			'title' => 'Kewajiban Pemohon',
+			'subtitle' => 'Data Kewajiban Pemohon',
+			'listkewajibanpemohon' => $this->m_data->getkewajibanpemohon()->result_array()
 		);
-		$this->load->view('admin/pemohon_informasi/v_index', $data);
+		$this->load->view('admin/kewajiban_pemohon/v_index', $data);
 	}
 
-	public function edit_pemohon_informasi($id_pemohon_informasi = '')
+	public function edit_kewajiban_pemohon($id_kewajiban_pemohon = '')
 	{
-		$pemohon_informasi = $this->m_data->getpemohoninformasi("WHERE id_pemohon_informasi='$id_pemohon_informasi' ")->result_array();
+		$kewajiban_pemohon = $this->m_data->getkewajibanpemohon("WHERE id_kewajiban_pemohon='$id_kewajiban_pemohon' ")->result_array();
 		$data = array(
-			'subtitle' => 'Edit Pemohon Informasi',
-			'id_pemohon_informasi' => $pemohon_informasi[0]['id_pemohon_informasi'],
-			'judul' => $pemohon_informasi[0]['judul'],
-			'deskripsi' => $pemohon_informasi[0]['deskripsi']
+			'subtitle' => 'Edit Kewajiban Pemohon',
+			'id_kewajiban_pemohon' => $kewajiban_pemohon[0]['id_kewajiban_pemohon'],
+			'judul' => $kewajiban_pemohon[0]['judul'],
+			'deskripsi' => $kewajiban_pemohon[0]['deskripsi']
 		);
-		$this->load->view('admin/pemohon_informasi/v_edit_data', $data);
+		$this->load->view('admin/kewajiban_pemohon/v_edit_data', $data);
 	}
 
-	public function actionpemohoninformasi()
+	public function actionkewajibanpemohon()
 	{
 		$judul = $this->input->post('judul');
 		$deskripsi = $this->input->post('deskripsi');
 		$statusdata = $this->input->post('statusdata');
 		if($statusdata == "Update Data")
 		{
-			$id_pemohon_informasi = $this->input->post('id_pemohon_informasi', TRUE);
+			$id_kewajiban_pemohon = $this->input->post('id_kewajiban_pemohon', TRUE);
 			$data = array(
 				'judul' => $judul,
 				'deskripsi' => $deskripsi
 			);
-			$this->m_data->UpdateData('pemohon_informasi', $data, array('id_pemohon_informasi' => $id_pemohon_informasi));
-			$this->session->set_flashdata('berhasil', 'Berhasil Update Pemohon Informasi');
-			redirect(base_url('admin/dashboard/pemohon_informasi'), 'refresh');
+			$this->m_data->UpdateData('kewajiban_pemohon', $data, array('id_kewajiban_pemohon' => $id_kewajiban_pemohon));
+			$this->session->set_flashdata('berhasil', 'Berhasil Update Kewajiban Pemohon');
+			redirect(base_url('admin/dashboard/kewajiban_pemohon'), 'refresh');
 		}
 	}
 
-	public function pelayanan_informasi()
+	public function kewajiban_bawaslu()
 	{
 		$data = array(
-			'title' => 'Pelayanan Informasi',
-			'subtitle' => 'Data Pelayanan Informasi',
-			'listpelayananinformasi' => $this->m_data->getpelayananinformasi()->result_array()
+			'title' => 'Kewajiban Bawaslu',
+			'subtitle' => 'Data Kewajiban Bawaslu',
+			'listkewajibanbawaslu' => $this->m_data->getkewajibanbawaslu()->result_array()
 		);
-		$this->load->view('admin/pelayanan_informasi/v_index', $data);
+		$this->load->view('admin/kewajiban_bawaslu/v_index', $data);
 	}
 
-	public function edit_pelayanan_informasi($id_pelayanan_informasi = '')
+	public function edit_kewajiban_bawaslu($id_kewajiban_bawaslu = '')
 	{
-		$pelayanan_informasi = $this->m_data->getpelayananinformasi("WHERE id_pelayanan_informasi='$id_pelayanan_informasi' ")->result_array();
+		$kewajiban_bawaslu = $this->m_data->getkewajibanbawaslu("WHERE id_kewajiban_bawaslu='$id_kewajiban_bawaslu' ")->result_array();
 		$data = array(
-			'subtitle' => 'Edit Pelayanan Informasi',
-			'id_pelayanan_informasi' => $pelayanan_informasi[0]['id_pelayanan_informasi'],
-			'judul' => $pelayanan_informasi[0]['judul'],
-			'deskripsi' => $pelayanan_informasi[0]['deskripsi']
+			'subtitle' => 'Edit Kewajiban Bawaslu',
+			'id_kewajiban_bawaslu' => $kewajiban_bawaslu[0]['id_kewajiban_bawaslu'],
+			'judul' => $kewajiban_bawaslu[0]['judul'],
+			'deskripsi' => $kewajiban_bawaslu[0]['deskripsi']
 		);
-		$this->load->view('admin/pelayanan_informasi/v_edit_data', $data);
+		$this->load->view('admin/kewajiban_bawaslu/v_edit_data', $data);
 	}
 
-	public function actionpelayananinformasi()
+	public function actionkewajibanbawaslu()
 	{
 		$judul = $this->input->post('judul');
 		$deskripsi = $this->input->post('deskripsi');
 		$statusdata = $this->input->post('statusdata');
 		if($statusdata == "Update Data")
 		{
-			$id_pelayanan_informasi = $this->input->post('id_pelayanan_informasi', TRUE);
+			$id_kewajiban_bawaslu = $this->input->post('id_kewajiban_bawaslu', TRUE);
 			$data = array(
 				'judul' => $judul,
 				'deskripsi' => $deskripsi
 			);
-			$this->m_data->UpdateData('pelayanan_informasi', $data, array('id_pelayanan_informasi' => $id_pelayanan_informasi));
-			$this->session->set_flashdata('berhasil', 'Berhasil Update Pelayanan Informasi');
-			redirect(base_url('admin/dashboard/pelayanan_informasi'), 'refresh');
+			$this->m_data->UpdateData('kewajiban_bawaslu', $data, array('id_kewajiban_bawaslu' => $id_kewajiban_bawaslu));
+			$this->session->set_flashdata('berhasil', 'Berhasil Update Kewajiban Bawaslu');
+			redirect(base_url('admin/dashboard/kewajiban_bawaslu'), 'refresh');
 		}
 	}
 

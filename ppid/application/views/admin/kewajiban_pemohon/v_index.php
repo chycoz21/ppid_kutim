@@ -37,19 +37,19 @@
               <thead>
                 <tr>
                   <th class="text-center">No</th>
-                  <th>Judul Pelayanan Informasi</th>
-                  <th>Deskripsi Pelayanan Informasi</th>
+                  <th>Judul Kewajiban Pemohon</th>
+                  <th>Deskripsi Kewajiban Pemohon</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                <?php $no=1; foreach ($listpelayananinformasi as $data) { ?>
+                <?php $no=1; foreach ($listkewajibanpemohon as $data) { ?>
                 <tr>  
                   <td class="text-center"><?= $no;?></td>
                   <td><?= $data['judul'];?></td>
                   <td><?= $data['deskripsi'];?></td>
                   <td>
-                    <a class="btn-sm btn btn-primary" href="<?= base_url('admin/dashboard/edit_pelayanan_informasi/'.$data['id_pelayanan_informasi']);?>"><i class="fa fa-pencil-alt"></i></a>
+                    <a class="btn-sm btn btn-primary" href="<?= base_url('admin/dashboard/edit_kewajiban_pemohon/'.$data['id_kewajiban_pemohon']);?>"><i class="fa fa-pencil-alt"></i></a>
                   </td>
                 </tr>
                 <?php $no++; } ?>  

@@ -28,14 +28,15 @@
           <!-- /.card-header -->
           <div class="card-body pad">
             <div class="mb-3">
-              <form method="post" action="<?= base_url('admin/dashboard/actionpelayananinformasi') ?>">
+              <form method="post" action="<?= base_url('admin/dashboard/actionkewajibanpemohon') ?>">
                   <div class="form-group">
-                    <label>Judul Pelayanan Informasi</label>
+                    <label>Judul Kewajiban Pemohon</label>
                     <input type="hidden" name="statusdata" value="Update Data">
-                    <input type="hidden" name="id_pelayanan_informasi" id="id_pelayanan_informasi" value="<?= (isset($id_pelayanan_informasi)) ? $id_pelayanan_informasi : "";?>">
-                    <input type="text" name="judul" id="judul" class="form-control" value="<?= (isset($judul)) ? $judul : "";?>" height="10">
+                    <input type="hidden" name="id_kewajiban_pemohon" id="id_kewajiban_pemohon" value="<?= (isset($id_kewajiban_pemohon)) ? $id_kewajiban_pemohon : "";?>">
+                    <input type="text" name="judul" id="judul" class="form-control" value="<?= (isset($judul)) ? $judul : "";?>">
                   </div>
                   <div class="form-group">
+                    <label>Deksripsi Kewajiban Pemohon</label>
                     <textarea class="textarea" name="deskripsi" placeholder="Place some text here"
                           style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?= (isset($deskripsi)) ? $deskripsi : "";?></textarea>
                   </div>

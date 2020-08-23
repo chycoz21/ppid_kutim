@@ -12,14 +12,14 @@ class M_data extends CI_Model
 		return $this->db->query("SELECT daftar_informasi.*,kategori.nama_kategori FROM daftar_informasi LEFT JOIN kategori ON daftar_informasi.id_kategori = kategori.id_kategori $where;");
 	}
 
-	function getpemohoninformasi($where = '')
+	function getkewajibanpemohon($where = '')
 	{
-		return $this->db->query("SELECT * FROM pemohon_informasi $where;");
+		return $this->db->query("SELECT * FROM kewajiban_pemohon $where;");
 	}
 
-	function getpelayananinformasi($where = '')
+	function getkewajibanbawaslu($where = '')
 	{
-		return $this->db->query("SELECT * FROM pelayanan_informasi $where;");
+		return $this->db->query("SELECT * FROM kewajiban_bawaslu $where;");
 	}
 
 	function getmaklumatpelayanan($where = '')
