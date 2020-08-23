@@ -400,5 +400,141 @@ class Dashboard extends CI_controller {
 			redirect(base_url('admin/dashboard/pelayanan_informasi'), 'refresh');
 		}
 	}
+
+	public function maklumat_pelayanan()
+	{
+		$data = array(
+			'title' => 'Maklumat Pelayanan',
+			'subtitle' => 'Data Maklumat Pelayanan',
+			'listmaklumatpelayanan' => $this->m_data->getmaklumatpelayanan()->result_array()
+		);
+		$this->load->view('admin/maklumat_pelayanan/v_index', $data);
+	}
+
+	public function edit_maklumat_pelayanan($id_maklumat_pelayanan = '')
+	{
+		$maklumat_pelayanan = $this->m_data->getmaklumatpelayanan("WHERE id_maklumat_pelayanan='$id_maklumat_pelayanan' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Maklumat Pelayanan',
+			'id_maklumat_pelayanan' => $maklumat_pelayanan[0]['id_maklumat_pelayanan'],
+			'judul' => $maklumat_pelayanan[0]['judul'],
+			'foto' => $maklumat_pelayanan[0]['foto']
+		);
+		$this->load->view('admin/maklumat_pelayanan/v_edit_data', $data);
+	}
+
+	public function actionmaklumatpelayanan()
+	{
+		$valid = $this->form_validation;
+
+	    $valid->set_rules('foto','Foto','required',
+		array('required' => 'Foto harus diisi'));
+
+	    if ($valid->run() === FALSE)
+	    {
+			$old_name	= $_FILES["foto"]["name"];
+			$ext 		= pathinfo($old_name, PATHINFO_EXTENSION);
+			$new_name	= time().'.'.$ext;
+			$config = array(
+				'upload_path' 		=> './assets/admin/upload/maklumat_pelayanan/',
+				'allowed_types' 	=> 'gif|jpg|png|jpeg',
+				'file_name'			=> $new_name,
+				'image_library'		=> 'gd2',
+				'source_image'		=> './assets/admin/upload/maklumat_pelayanan/'.$new_name,
+				'create_thumb'		=> true,
+				'maintain_ratio'	=> true,
+				'thumb_marker'     	=> '',	
+			);
+	      	$this->load->library('upload', $config);
+			if (! $this->upload->do_upload('foto')) 
+			{
+				$id_maklumat_pelayanan = $this->input->post('id_maklumat_pelayanan');
+				$data = array(
+							'judul'   	=> $this->input->post('judul', TRUE),
+				);
+		
+				$id = $this->db->where('id_maklumat_pelayanan', $id_maklumat_pelayanan);
+				$query = $this->db->get('maklumat_pelayanan');
+				$row = $query->row();
+		
+				$this->m_data->UpdateData('maklumat_pelayanan', $data, array('id_maklumat_pelayanan' => $id_maklumat_pelayanan));
+
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Maklumat Pelayanan');
+				redirect(base_url("admin/dashboard/maklumat_pelayanan"));
+	      	}else{
+		      	$upload_data   = array('uploads' => $this->upload->data());				  
+
+		      	$this->load->library('image_lib', $config);
+		      	$this->image_lib->resize();
+		      	$id_maklumat_pelayanan = $this->input->post('id_maklumat_pelayanan');
+			    $data = array(
+			    			'foto'   	=> $new_name,
+			    			'judul'   => $this->input->post('judul', TRUE),
+			    );
+
+			    $id = $this->db->where('id_maklumat_pelayanan', $id_maklumat_pelayanan);
+			    $query = $this->db->get('maklumat_pelayanan');
+			    $row = $query->row();
+
+
+				if($row->foto == 'default.png')
+				{
+					$this->m_data->UpdateData('maklumat_pelayanan', $data, array('id_maklumat_pelayanan' => $id_maklumat_pelayanan));
+					// echo "<script>alert('Berhasil');window.location='".base_url()."';</script>";
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Maklumat Pelayanan');
+					redirect(base_url("admin/dashboard/maklumat_pelayanan"));
+				} else {
+
+					unlink("./assets/admin/upload/maklumat_pelayanan/$row->foto");
+					$this->m_data->UpdateData('maklumat_pelayanan', $data, array('id_maklumat_pelayanan' => $id_maklumat_pelayanan));
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Maklumat Pelayanan');
+					redirect(base_url("admin/dashboard/maklumat_pelayanan"));
+				
+				}
+	      	 } 
+	    }
+	}
+
+	// public function actionmaklumatpelayanan()
+	// {
+	// 	$old_name	= $_FILES['gambar']['name'];
+	// 	$ext 		= pathinfo($old_name, PATHINFO_EXTENSION);
+	// 	$new_name	= time().'.'.$ext;
+	// 	$config = array(
+	// 		'upload_path' 		=> './assets/admin/upload/maklumat/',
+	// 		'allowed_types' 	=> 'gif|jpg|png|jpeg',
+	// 		'file_name'			=> $new_name,
+	// 		'image_library'		=> 'gd2',
+	// 		'source_image'		=> './assets/admin/upload/maklumat/'.$new_name,
+	// 		'create_thumb'		=> true,
+	// 		'maintain_ratio'	=> true,
+	// 		'thumb_marker'     	=> '',	
+	// 	);
+	// 	$this->load->library('upload', $config);	
+	// 	if (!$this->upload->do_upload('gambar'))
+	// 	{
+
+	// 	}
+	// 	else
+	// 	{	
+	// 		$upload_data    = array('uploads' => $this->upload->data());
+	// 		$this->load->library('image_lib', $config);
+	// 		$this->image_lib->resize();
+	// 		$id_maklumat_pelayanan = $this->input->post('id_maklumat_pelayanan', TRUE);
+	// 		$data = array(
+	// 			'judul'  => $this->input->post('judul', TRUE),
+	// 			'gambar' => $new_name
+	// 		);
+	// 		$id = $this->db->where('id_maklumat_pelayanan', $id_maklumat_pelayanan);
+	// 		$query = $this->db->get('maklumat_pelayanan');
+	// 		$row = $query->row();
+	// 		unlink("./assets/admin/upload/maklumat/$row->gambar");
+	// 		$this->m_data->UpdateData('maklumat_pelayanan', $data, array('id_maklumat_pelayanan' => $id_maklumat_pelayanan));
+	// 		$this->session->set_flashdata('berhasil', 'Berhasil Update Maklumat Pelayanan');
+	// 	}
+	// 	redirect(base_url('admin/dashboard/maklumat_pelayanan'));
+	// }
 }
 ?>

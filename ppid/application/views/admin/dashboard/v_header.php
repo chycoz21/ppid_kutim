@@ -211,6 +211,12 @@
                   <p>Pelayanan Informasi</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/maklumat_pelayanan');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Maklumat Pelayanan</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
