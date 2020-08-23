@@ -52,6 +52,11 @@ class M_data extends CI_Model
 		return $this->db->query("SELECT * FROM biaya_layanan $where;");
 	}
 
+	function getsliderimage($where = '')
+	{
+		return $this->db->query("SELECT * FROM slider_image $where;");
+	}
+
 	function cek_login($table,$where){
 		return $this->db->get_where($table,$where);
 	}

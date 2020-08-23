@@ -476,24 +476,12 @@ class Dashboard extends CI_controller {
 			    $query = $this->db->get('maklumat_pelayanan');
 			    $row = $query->row();
 
+			    unlink("./assets/admin/upload/maklumat_pelayanan/$row->foto");
+				$this->m_data->UpdateData('maklumat_pelayanan', $data, array('id_maklumat_pelayanan' => $id_maklumat_pelayanan));
 
-				if($row->foto == 'default.png')
-				{
-					$this->m_data->UpdateData('maklumat_pelayanan', $data, array('id_maklumat_pelayanan' => $id_maklumat_pelayanan));
-					// echo "<script>alert('Berhasil');window.location='".base_url()."';</script>";
-
-					$this->session->set_flashdata('berhasil', 'Berhasil Update Maklumat Pelayanan');
-					redirect(base_url("admin/dashboard/maklumat_pelayanan"));
-				} else {
-
-					unlink("./assets/admin/upload/maklumat_pelayanan/$row->foto");
-					$this->m_data->UpdateData('maklumat_pelayanan', $data, array('id_maklumat_pelayanan' => $id_maklumat_pelayanan));
-
-					$this->session->set_flashdata('berhasil', 'Berhasil Update Maklumat Pelayanan');
-					redirect(base_url("admin/dashboard/maklumat_pelayanan"));
-				
-				}
-	      	 } 
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Maklumat Pelayanan');
+	      	} 
+	      	redirect(base_url("admin/dashboard/maklumat_pelayanan"));
 	    }
 	}
 
@@ -572,24 +560,12 @@ class Dashboard extends CI_controller {
 			    $query = $this->db->get('prosedur_pelayanan');
 			    $row = $query->row();
 
+			    unlink("./assets/admin/upload/prosedur_pelayanan/$row->foto");
+				$this->m_data->UpdateData('prosedur_pelayanan', $data, array('id_prosedur_pelayanan' => $id_prosedur_pelayanan));
 
-				if($row->foto == 'default.png')
-				{
-					$this->m_data->UpdateData('prosedur_pelayanan', $data, array('id_prosedur_pelayanan' => $id_prosedur_pelayanan));
-					echo "<script>alert('Berhasil');window.location='".base_url()."';</script>";
-
-					$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Pelayanan');
-					redirect(base_url("admin/dashboard/prosedur_pelayanan"));
-				} else {
-
-					unlink("./assets/admin/upload/prosedur_pelayanan/$row->foto");
-					$this->m_data->UpdateData('prosedur_pelayanan', $data, array('id_prosedur_pelayanan' => $id_prosedur_pelayanan));
-
-					$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Pelayanan');
-					redirect(base_url("admin/dashboard/prosedur_pelayanan"));
-				
-				}
-	      	 } 
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Pelayanan');
+	      	} 
+	      	redirect(base_url("admin/dashboard/prosedur_pelayanan"));
 	    }
 	}
 
@@ -668,23 +644,12 @@ class Dashboard extends CI_controller {
 			    $query = $this->db->get('prosedur_pengajuan');
 			    $row = $query->row();
 
+				unlink("./assets/admin/upload/prosedur_pengajuan/$row->foto");
+				$this->m_data->UpdateData('prosedur_pengajuan', $data, array('id_prosedur_pengajuan' => $id_prosedur_pengajuan));
 
-				if($row->foto == 'default.png')
-				{
-					$this->m_data->UpdateData('prosedur_pengajuan', $data, array('id_prosedur_pengajuan' => $id_prosedur_pengajuan));
-					echo "<script>alert('Berhasil');window.location='".base_url()."';</script>";
-
-					$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Pengajuan');
-					redirect(base_url("admin/dashboard/prosedur_pengajuan"));
-				} else {
-
-					unlink("./assets/admin/upload/prosedur_pengajuan/$row->foto");
-					$this->m_data->UpdateData('prosedur_pengajuan', $data, array('id_prosedur_pengajuan' => $id_prosedur_pengajuan));
-
-					$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Pengajuan');
-					redirect(base_url("admin/dashboard/prosedur_pengajuan"));
-				}
-	      	 } 
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Pengajuan');
+	      	} 
+	      	redirect(base_url("admin/dashboard/prosedur_pengajuan"));
 	    }
 	}
 
@@ -763,23 +728,12 @@ class Dashboard extends CI_controller {
 			    $query = $this->db->get('prosedur_permohonan');
 			    $row = $query->row();
 
+				unlink("./assets/admin/upload/prosedur_permohonan/$row->foto");
+				$this->m_data->UpdateData('prosedur_permohonan', $data, array('id_prosedur_permohonan' => $id_prosedur_permohonan));
 
-				if($row->foto == 'default.png')
-				{
-					$this->m_data->UpdateData('prosedur_permohonan', $data, array('id_prosedur_permohonan' => $id_prosedur_permohonan));
-					echo "<script>alert('Berhasil');window.location='".base_url()."';</script>";
-
-					$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Permohonan');
-					redirect(base_url("admin/dashboard/prosedur_permohonan"));
-				} else {
-
-					unlink("./assets/admin/upload/prosedur_permohonan/$row->foto");
-					$this->m_data->UpdateData('prosedur_permohonan', $data, array('id_prosedur_permohonan' => $id_prosedur_permohonan));
-
-					$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Permohonan');
-					redirect(base_url("admin/dashboard/prosedur_permohonan"));
-				}
-	      	 } 
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Permohonan');
+	      	} 
+	      	redirect(base_url("admin/dashboard/prosedur_permohonan"));
 	    }
 	}
 
@@ -858,23 +812,12 @@ class Dashboard extends CI_controller {
 			    $query = $this->db->get('waktu_layanan');
 			    $row = $query->row();
 
+				unlink("./assets/admin/upload/waktu_layanan/$row->foto");
+				$this->m_data->UpdateData('waktu_layanan', $data, array('id_waktu_layanan' => $id_waktu_layanan));
 
-				if($row->foto == 'default.png')
-				{
-					$this->m_data->UpdateData('waktu_layanan', $data, array('id_waktu_layanan' => $id_waktu_layanan));
-					echo "<script>alert('Berhasil');window.location='".base_url()."';</script>";
-
-					$this->session->set_flashdata('berhasil', 'Berhasil Update Waktu Layanan');
-					redirect(base_url("admin/dashboard/waktu_layanan"));
-				} else {
-
-					unlink("./assets/admin/upload/waktu_layanan/$row->foto");
-					$this->m_data->UpdateData('waktu_layanan', $data, array('id_waktu_layanan' => $id_waktu_layanan));
-
-					$this->session->set_flashdata('berhasil', 'Berhasil Update Waktu Layanan');
-					redirect(base_url("admin/dashboard/waktu_layanan"));
-				}
-	      	 } 
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Waktu Layanan');
+	      	} 
+	      	redirect(base_url("admin/dashboard/waktu_layanan"));
 	    }
 	}
 
@@ -953,23 +896,99 @@ class Dashboard extends CI_controller {
 			    $query = $this->db->get('biaya_layanan');
 			    $row = $query->row();
 
+				unlink("./assets/admin/upload/biaya_layanan/$row->foto");
+				$this->m_data->UpdateData('biaya_layanan', $data, array('id_biaya_layanan' => $id_biaya_layanan));
 
-				if($row->foto == 'default.png')
-				{
-					$this->m_data->UpdateData('biaya_layanan', $data, array('id_biaya_layanan' => $id_biaya_layanan));
-					echo "<script>alert('Berhasil');window.location='".base_url()."';</script>";
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Biaya Layanan');
+	      	} 
+	      	redirect(base_url("admin/dashboard/biaya_layanan"));
+	    }
+	}
 
-					$this->session->set_flashdata('berhasil', 'Berhasil Update Biaya Layanan');
-					redirect(base_url("admin/dashboard/biaya_layanan"));
-				} else {
+	public function slider_image()
+	{
+		$data = array(
+			'title' => 'Slider Image',
+			'subtitle' => 'Data Slider Image',
+			'listsliderimage' => $this->m_data->getsliderimage()->result_array()
+		);
+		$this->load->view('admin/slider_image/v_index', $data);
+	}
 
-					unlink("./assets/admin/upload/biaya_layanan/$row->foto");
-					$this->m_data->UpdateData('biaya_layanan', $data, array('id_biaya_layanan' => $id_biaya_layanan));
+	public function edit_slider_image($id_slider = '')
+	{
+		$slider_image = $this->m_data->getsliderimage("WHERE id_slider='$id_slider' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Slider Image',
+			'id_slider' => $slider_image[0]['id_slider'],
+			'src_image' => $slider_image[0]['src_image'],
+			'caption' => $slider_image[0]['caption'],
+			'link_url' => $slider_image[0]['link_url']
+		);
+		$this->load->view('admin/slider_image/v_edit_data', $data);
+	}
 
-					$this->session->set_flashdata('berhasil', 'Berhasil Update Biaya Layanan');
-					redirect(base_url("admin/dashboard/biaya_layanan"));
-				}
-	      	 } 
+	public function actionsliderimage()
+	{
+		$valid = $this->form_validation;
+
+	    $valid->set_rules('src_image','Src Image','required',
+		array('required' => 'Src Image harus diisi'));
+
+	    if ($valid->run() === FALSE)
+	    {
+			$old_name	= $_FILES["src_image"]["name"];
+			$ext 		= pathinfo($old_name, PATHINFO_EXTENSION);
+			$new_name	= time().'.'.$ext;
+			$config = array(
+				'upload_path' 		=> './assets/admin/upload/slider_image/',
+				'allowed_types' 	=> 'jpg|png',
+				'file_name'			=> $new_name,
+				'image_library'		=> 'gd2',
+				'source_image'		=> './assets/admin/upload/slider_image/'.$new_name,
+				'create_thumb'		=> true,
+				'maintain_ratio'	=> true,
+				'thumb_marker'     	=> '',	
+			);
+	      	$this->load->library('upload', $config);
+			if (! $this->upload->do_upload('src_image')) 
+			{
+				$id_slider = $this->input->post('id_slider');
+				$data = array(
+							'caption'   	=> $this->input->post('caption', TRUE),
+							'link_url'   	=> $this->input->post('link_url', TRUE),
+				);
+		
+				$id = $this->db->where('id_slider', $id_slider);
+				$query = $this->db->get('slider_image');
+				$row = $query->row();
+		
+				$this->m_data->UpdateData('slider_image', $data, array('id_slider' => $id_slider));
+
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Slider Image');
+				redirect(base_url("admin/dashboard/slider_image"));
+	      	}else{
+		      	$upload_data   = array('uploads' => $this->upload->data());				  
+
+		      	$this->load->library('image_lib', $config);
+		      	$this->image_lib->resize();
+		      	$id_slider = $this->input->post('id_slider');
+			    $data = array(
+			    			'src_image' => $new_name,
+			    			'caption'   	=> $this->input->post('caption', TRUE),
+							'link_url'   	=> $this->input->post('link_url', TRUE),
+			    );
+
+			    $id = $this->db->where('id_slider', $id_slider);
+			    $query = $this->db->get('slider_image');
+			    $row = $query->row();
+
+
+				unlink("./assets/admin/upload/slider_image/$row->src_image");
+				$this->m_data->UpdateData('slider_image', $data, array('id_slider' => $id_slider));
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Slider Image');
+	      	} 
+	      	redirect(base_url("admin/dashboard/slider_image"));
 	    }
 	}
 }

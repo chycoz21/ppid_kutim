@@ -155,6 +155,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url().'admin/dashboard/slider_image'?>" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                SLIDER IMAGE
+              </p>
+            </a>
+          </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
