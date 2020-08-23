@@ -695,7 +695,7 @@ class Dashboard extends CI_controller {
 
 	public function edit_pengaturan_alamat($id)
 	{
-		$data['edit'] =  $this->m_data->edit_alamat_detail($id);
+		$data['edit'] =  $this->m_data->where_data('alamat',array('id' => $id));
 		$this->load->view('admin/dashboard/v_header');
 		$this->load->view('admin/pengaturan/v_edit_alamat',$data);
 		$this->load->view('admin/dashboard/v_footer');
@@ -712,6 +712,25 @@ class Dashboard extends CI_controller {
 		redirect('admin/dashboard/peraturan');
 		
 	}
-	
+	public function edit_pengaturan_sosmed($id)
+	{
+		$data['edit'] =  $this->m_data->edit_alamat_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/pengaturan/v_edit_sosmed',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_sosmed($id)
+	{
+	   
+		$data = array(
+			'alamat' => $this->input->post('alamat'),
+			'no_hp' => $this->input->post('no_hp')
+		);
+		$this->m_data->UpdateData('alamat', $data, array('id' => $id));
+		redirect('admin/dashboard/peraturan');
+		
+	}
+
 
 }

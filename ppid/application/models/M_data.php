@@ -51,6 +51,58 @@ class M_data extends CI_Model
 		$this->db->update($table,$data);
 	}
 
+	public function user_management_detail($id)
+	{
+		$user_management = $this->db->where('id', $id)->get('user_management');
+		if ($user_management->num_rows() > 0) {
+			return $user_management->result();
+   
+		}else{
+			return false;
+		}
+	}
+
+	public function visi_misi_detail($id)
+	{
+		$visi_misi = $this->db->where('id', $id)->get('visi_misi');
+		if ($visi_misi->num_rows() > 0) {
+			return $visi_misi->result();
+   
+		}else{
+			return false;
+		}
+	}
+	public function struktur_ppid_detail($id)
+	{
+		$struktur_ppid = $this->db->where('id', $id)->get('struktur_ppid');
+		if ($struktur_ppid->num_rows() > 0) {
+			return $struktur_ppid->result();
+   
+		}else{
+			return false;
+		}
+	}
+	public function profil_singkat_detail($id)
+	{
+		$profil_singkat = $this->db->where('id', $id)->get('profil_singkat');
+		if ($profil_singkat->num_rows() > 0) {
+			return $profil_singkat->result();
+   
+		}else{
+			return false;
+		}
+	}
+
+	public function edit_alamat_detail($id)
+	{
+		$alamat = $this->db->where('id', $id)->get('alamat');
+		if ($alamat->num_rows() > 0) {
+			return $alamat->result();
+   
+		}else{
+			return false;
+		}
+	}
 }
 
 
