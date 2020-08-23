@@ -26,8 +26,6 @@
 <script src="<?= base_url();?>assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
 <script src="<?= base_url();?>assets/admin/plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="<?= base_url();?>assets/admin/plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
 <script src="<?= base_url();?>assets/admin/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="<?= base_url();?>assets/admin/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
@@ -44,9 +42,14 @@
 <script src="<?= base_url();?>assets/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url();?>assets/admin/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?= base_url();?>assets/admin/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url();?>assets/admin/dist/js/demo.js"></script>
+<!-- DataTables -->
+<script src="<?= base_url();?>assets/admin/plugins/datatables/jquery.dataTables.js"></script>
+<script src="<?= base_url();?>assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<!-- Select2 -->
+<script src="<?= base_url();?>assets/admin/plugins/select2/js/select2.full.min.js"></script>
+<!-- Summernote -->
+<script src="<?= base_url();?>assets/admin/plugins/summernote/summernote-bs4.min.js"></script>
 </body>
 </html>

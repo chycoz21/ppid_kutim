@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
@@ -25,8 +28,17 @@
   <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/summernote/summernote-bs4.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+ 
+
+<link rel="stylesheet" href="<?= base_url('assets/admin/')?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="<?= base_url('assets/admin/')?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -98,27 +110,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/kategori_informasi');?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Informasi Berkala</p>
+                  <p>Kategori Informasi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/daftar_informasi');?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Informasi Setiap Saat</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Informasi Serta Merta</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Informasi Dikecualikan</p>
+                  <p>Daftar Informasi</p>
                 </a>
               </li>
             </ul>
@@ -132,7 +132,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard/pages'?>" class="nav-link">
+            <a href="<?php echo base_url().'admin/dashboard/page'?>" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
               <p>
                 PAGES
@@ -140,7 +140,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard/user'?>" class="nav-link">
+            <a href="<?php echo base_url().'admin/dashboard/user_management'?>" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>
                 USER & HAK AKSES
@@ -155,6 +155,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url().'admin/dashboard/slider_image'?>" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                SLIDER IMAGE
+              </p>
+            </a>
+          </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
@@ -165,7 +173,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?php echo base_url().'admin/dashboard/visi_misi'?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Visi & Misi</p>
                 </a>
@@ -177,15 +185,74 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?php echo base_url().'admin/dashboard/struktur_ppid'?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Struktur PPID</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?php echo base_url().'admin/dashboard/profil_singkat'?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profil Singkat PPID</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                STANDART LAYANAN
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/kewajiban_pemohon');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kewajiban Pemohon</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/kewajiban_bawaslu');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kewajiban Bawaslu</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/maklumat_pelayanan');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Maklumat Pelayanan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/prosedur_pelayanan');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Prosedur Pelayanan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/prosedur_pengajuan');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Prosedur Pengajuan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/prosedur_permohonan');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Prosedur Permohonan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/waktu_layanan');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Waktu Layanan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/biaya_layanan');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Biaya Layanan</p>
                 </a>
               </li>
             </ul>
