@@ -223,6 +223,30 @@
                   <p>Prosedur Pelayanan</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/prosedur_pengajuan');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Prosedur Pengajuan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/prosedur_permohonan');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Prosedur Permohonan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/waktu_layanan');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Waktu Layanan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dashboard/biaya_layanan');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Biaya Layanan</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">

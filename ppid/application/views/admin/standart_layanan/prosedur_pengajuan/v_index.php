@@ -37,19 +37,19 @@
               <thead>
                 <tr>
                   <th class="text-center">No</th>
-                  <th>Judul Kewajiban Pemohon</th>
-                  <th>Deskripsi Kewajiban Pemohon</th>
+                  <th>Judul</th>
+                  <th>Foto</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                <?php $no=1; foreach ($listkewajibanpemohon as $data) { ?>
+                <?php $no=1; foreach ($listprosedurpengajuan as $data) { ?>
                 <tr>  
                   <td class="text-center"><?= $no;?></td>
                   <td><?= $data['judul'];?></td>
-                  <td><?= $data['deskripsi'];?></td>
+                  <td><img src="<?= base_url('assets/admin/upload/prosedur_pengajuan/'.$data['foto']);?>" alt="Foto" width="120" height="150"></td>
                   <td>
-                    <a class="btn-sm btn btn-primary" href="<?= base_url('admin/dashboard/edit_kewajiban_pemohon/'.$data['id_kewajiban_pemohon']);?>"><i class="fa fa-pencil-alt"></i></a>
+                    <a class="btn-sm btn btn-primary" href="<?= base_url('admin/dashboard/edit_prosedur_pengajuan/'.$data['id_prosedur_pengajuan']);?>"><i class="fa fa-pencil-alt"></i></a>
                   </td>
                 </tr>
                 <?php $no++; } ?>  
@@ -65,10 +65,3 @@
   </div>  
 </section>  
 <?php $this->load->view('admin/dashboard/v_footer'); ?>
-
-<!-- page script -->
-<!-- <script>
-  $(function () {
-    $("#table-daftar-informasi").DataTable();
-  });
-</script> -->

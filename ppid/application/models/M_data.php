@@ -32,6 +32,26 @@ class M_data extends CI_Model
 		return $this->db->query("SELECT * FROM prosedur_pelayanan $where;");
 	}
 
+	function getprosedurpengajuan($where = '')
+	{
+		return $this->db->query("SELECT * FROM prosedur_pengajuan $where;");
+	}
+
+	function getprosedurpermohonan($where = '')
+	{
+		return $this->db->query("SELECT * FROM prosedur_permohonan $where;");
+	}
+
+	function getwaktulayanan($where = '')
+	{
+		return $this->db->query("SELECT * FROM waktu_layanan $where;");
+	}
+
+	function getbiayalayanan($where = '')
+	{
+		return $this->db->query("SELECT * FROM biaya_layanan $where;");
+	}
+
 	function cek_login($table,$where){
 		return $this->db->get_where($table,$where);
 	}

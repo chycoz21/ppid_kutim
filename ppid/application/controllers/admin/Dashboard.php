@@ -328,7 +328,7 @@ class Dashboard extends CI_controller {
 			'subtitle' => 'Data Kewajiban Pemohon',
 			'listkewajibanpemohon' => $this->m_data->getkewajibanpemohon()->result_array()
 		);
-		$this->load->view('admin/kewajiban_pemohon/v_index', $data);
+		$this->load->view('admin/standart_layanan/kewajiban_pemohon/v_index', $data);
 	}
 
 	public function edit_kewajiban_pemohon($id_kewajiban_pemohon = '')
@@ -340,7 +340,7 @@ class Dashboard extends CI_controller {
 			'judul' => $kewajiban_pemohon[0]['judul'],
 			'deskripsi' => $kewajiban_pemohon[0]['deskripsi']
 		);
-		$this->load->view('admin/kewajiban_pemohon/v_edit_data', $data);
+		$this->load->view('admin/standart_layanan/kewajiban_pemohon/v_edit_data', $data);
 	}
 
 	public function actionkewajibanpemohon()
@@ -368,7 +368,7 @@ class Dashboard extends CI_controller {
 			'subtitle' => 'Data Kewajiban Bawaslu',
 			'listkewajibanbawaslu' => $this->m_data->getkewajibanbawaslu()->result_array()
 		);
-		$this->load->view('admin/kewajiban_bawaslu/v_index', $data);
+		$this->load->view('admin/standart_layanan/kewajiban_bawaslu/v_index', $data);
 	}
 
 	public function edit_kewajiban_bawaslu($id_kewajiban_bawaslu = '')
@@ -380,7 +380,7 @@ class Dashboard extends CI_controller {
 			'judul' => $kewajiban_bawaslu[0]['judul'],
 			'deskripsi' => $kewajiban_bawaslu[0]['deskripsi']
 		);
-		$this->load->view('admin/kewajiban_bawaslu/v_edit_data', $data);
+		$this->load->view('admin/standart_layanan/kewajiban_bawaslu/v_edit_data', $data);
 	}
 
 	public function actionkewajibanbawaslu()
@@ -408,7 +408,7 @@ class Dashboard extends CI_controller {
 			'subtitle' => 'Data Maklumat Pelayanan',
 			'listmaklumatpelayanan' => $this->m_data->getmaklumatpelayanan()->result_array()
 		);
-		$this->load->view('admin/maklumat_pelayanan/v_index', $data);
+		$this->load->view('admin/standart_layanan/maklumat_pelayanan/v_index', $data);
 	}
 
 	public function edit_maklumat_pelayanan($id_maklumat_pelayanan = '')
@@ -420,7 +420,7 @@ class Dashboard extends CI_controller {
 			'judul' => $maklumat_pelayanan[0]['judul'],
 			'foto' => $maklumat_pelayanan[0]['foto']
 		);
-		$this->load->view('admin/maklumat_pelayanan/v_edit_data', $data);
+		$this->load->view('admin/standart_layanan/maklumat_pelayanan/v_edit_data', $data);
 	}
 
 	public function actionmaklumatpelayanan()
@@ -437,7 +437,7 @@ class Dashboard extends CI_controller {
 			$new_name	= time().'.'.$ext;
 			$config = array(
 				'upload_path' 		=> './assets/admin/upload/maklumat_pelayanan/',
-				'allowed_types' 	=> 'gif|jpg|png|jpeg',
+				'allowed_types' 	=> 'jpg|png',
 				'file_name'			=> $new_name,
 				'image_library'		=> 'gd2',
 				'source_image'		=> './assets/admin/upload/maklumat_pelayanan/'.$new_name,
@@ -504,7 +504,473 @@ class Dashboard extends CI_controller {
 			'subtitle' => 'Data Prosedur Pelayanan',
 			'listprosedurpelayanan' => $this->m_data->getprosedurpelayanan()->result_array()
 		);
-		$this->load->view('admin/prosedur_pelayanan/v_index', $data);
+		$this->load->view('admin/standart_layanan/prosedur_pelayanan/v_index', $data);
+	}
+
+	public function edit_prosedur_pelayanan($id_prosedur_pelayanan = '')
+	{
+		$prosedur_pelayanan = $this->m_data->getprosedurpelayanan("WHERE id_prosedur_pelayanan='$id_prosedur_pelayanan' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Prosedur Pelayanan',
+			'id_prosedur_pelayanan' => $prosedur_pelayanan[0]['id_prosedur_pelayanan'],
+			'judul' => $prosedur_pelayanan[0]['judul'],
+			'foto' => $prosedur_pelayanan[0]['foto']
+		);
+		$this->load->view('admin/standart_layanan/prosedur_pelayanan/v_edit_data', $data);
+	}
+
+	public function actionprosedurpelayanan()
+	{
+		$valid = $this->form_validation;
+
+	    $valid->set_rules('foto','Foto','required',
+		array('required' => 'Foto harus diisi'));
+
+	    if ($valid->run() === FALSE)
+	    {
+			$old_name	= $_FILES["foto"]["name"];
+			$ext 		= pathinfo($old_name, PATHINFO_EXTENSION);
+			$new_name	= time().'.'.$ext;
+			$config = array(
+				'upload_path' 		=> './assets/admin/upload/prosedur_pelayanan/',
+				'allowed_types' 	=> 'jpg|png',
+				'file_name'			=> $new_name,
+				'image_library'		=> 'gd2',
+				'source_image'		=> './assets/admin/upload/prosedur_pelayanan/'.$new_name,
+				'create_thumb'		=> true,
+				'maintain_ratio'	=> true,
+				'thumb_marker'     	=> '',	
+			);
+	      	$this->load->library('upload', $config);
+			if (! $this->upload->do_upload('foto')) 
+			{
+				$id_prosedur_pelayanan = $this->input->post('id_prosedur_pelayanan');
+				$data = array(
+							'judul'   	=> $this->input->post('judul', TRUE),
+				);
+		
+				$id = $this->db->where('id_prosedur_pelayanan', $id_prosedur_pelayanan);
+				$query = $this->db->get('prosedur_pelayanan');
+				$row = $query->row();
+		
+				$this->m_data->UpdateData('prosedur_pelayanan', $data, array('id_prosedur_pelayanan' => $id_prosedur_pelayanan));
+
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Pelayanan');
+				redirect(base_url("admin/dashboard/prosedur_pelayanan"));
+	      	}else{
+		      	$upload_data   = array('uploads' => $this->upload->data());				  
+
+		      	$this->load->library('image_lib', $config);
+		      	$this->image_lib->resize();
+		      	$id_prosedur_pelayanan = $this->input->post('id_prosedur_pelayanan');
+			    $data = array(
+			    			'foto'   	=> $new_name,
+			    			'judul'   => $this->input->post('judul', TRUE),
+			    );
+
+			    $id = $this->db->where('id_prosedur_pelayanan', $id_prosedur_pelayanan);
+			    $query = $this->db->get('prosedur_pelayanan');
+			    $row = $query->row();
+
+
+				if($row->foto == 'default.png')
+				{
+					$this->m_data->UpdateData('prosedur_pelayanan', $data, array('id_prosedur_pelayanan' => $id_prosedur_pelayanan));
+					echo "<script>alert('Berhasil');window.location='".base_url()."';</script>";
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Pelayanan');
+					redirect(base_url("admin/dashboard/prosedur_pelayanan"));
+				} else {
+
+					unlink("./assets/admin/upload/prosedur_pelayanan/$row->foto");
+					$this->m_data->UpdateData('prosedur_pelayanan', $data, array('id_prosedur_pelayanan' => $id_prosedur_pelayanan));
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Pelayanan');
+					redirect(base_url("admin/dashboard/prosedur_pelayanan"));
+				
+				}
+	      	 } 
+	    }
+	}
+
+	public function prosedur_pengajuan()
+	{
+		$data = array(
+			'title' => 'Prosedur Pengajuan',
+			'subtitle' => 'Data Prosedur Pengajuan',
+			'listprosedurpengajuan' => $this->m_data->getprosedurpengajuan()->result_array()
+		);
+		$this->load->view('admin/standart_layanan/prosedur_pengajuan/v_index', $data);
+	}
+
+	public function edit_prosedur_pengajuan($id_prosedur_pengajuan = '')
+	{
+		$prosedur_pengajuan = $this->m_data->getprosedurpengajuan("WHERE id_prosedur_pengajuan='$id_prosedur_pengajuan' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Prosedur Pengajuan',
+			'id_prosedur_pengajuan' => $prosedur_pengajuan[0]['id_prosedur_pengajuan'],
+			'judul' => $prosedur_pengajuan[0]['judul'],
+			'foto' => $prosedur_pengajuan[0]['foto']
+		);
+		$this->load->view('admin/standart_layanan/prosedur_pengajuan/v_edit_data', $data);
+	}
+
+	public function actionprosedurpengajuan()
+	{
+		$valid = $this->form_validation;
+
+	    $valid->set_rules('foto','Foto','required',
+		array('required' => 'Foto harus diisi'));
+
+	    if ($valid->run() === FALSE)
+	    {
+			$old_name	= $_FILES["foto"]["name"];
+			$ext 		= pathinfo($old_name, PATHINFO_EXTENSION);
+			$new_name	= time().'.'.$ext;
+			$config = array(
+				'upload_path' 		=> './assets/admin/upload/prosedur_pengajuan/',
+				'allowed_types' 	=> 'jpg|png',
+				'file_name'			=> $new_name,
+				'image_library'		=> 'gd2',
+				'source_image'		=> './assets/admin/upload/prosedur_pengajuan/'.$new_name,
+				'create_thumb'		=> true,
+				'maintain_ratio'	=> true,
+				'thumb_marker'     	=> '',	
+			);
+	      	$this->load->library('upload', $config);
+			if (! $this->upload->do_upload('foto')) 
+			{
+				$id_prosedur_pengajuan = $this->input->post('id_prosedur_pengajuan');
+				$data = array(
+							'judul'   	=> $this->input->post('judul', TRUE),
+				);
+		
+				$id = $this->db->where('id_prosedur_pengajuan', $id_prosedur_pengajuan);
+				$query = $this->db->get('prosedur_pengajuan');
+				$row = $query->row();
+		
+				$this->m_data->UpdateData('prosedur_pengajuan', $data, array('id_prosedur_pengajuan' => $id_prosedur_pengajuan));
+
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Pengajuan');
+				redirect(base_url("admin/dashboard/prosedur_pengajuan"));
+	      	}else{
+		      	$upload_data   = array('uploads' => $this->upload->data());				  
+
+		      	$this->load->library('image_lib', $config);
+		      	$this->image_lib->resize();
+		      	$id_prosedur_pengajuan = $this->input->post('id_prosedur_pengajuan');
+			    $data = array(
+			    			'foto'   	=> $new_name,
+			    			'judul'   => $this->input->post('judul', TRUE),
+			    );
+
+			    $id = $this->db->where('id_prosedur_pengajuan', $id_prosedur_pengajuan);
+			    $query = $this->db->get('prosedur_pengajuan');
+			    $row = $query->row();
+
+
+				if($row->foto == 'default.png')
+				{
+					$this->m_data->UpdateData('prosedur_pengajuan', $data, array('id_prosedur_pengajuan' => $id_prosedur_pengajuan));
+					echo "<script>alert('Berhasil');window.location='".base_url()."';</script>";
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Pengajuan');
+					redirect(base_url("admin/dashboard/prosedur_pengajuan"));
+				} else {
+
+					unlink("./assets/admin/upload/prosedur_pengajuan/$row->foto");
+					$this->m_data->UpdateData('prosedur_pengajuan', $data, array('id_prosedur_pengajuan' => $id_prosedur_pengajuan));
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Pengajuan');
+					redirect(base_url("admin/dashboard/prosedur_pengajuan"));
+				}
+	      	 } 
+	    }
+	}
+
+	public function prosedur_permohonan()
+	{
+		$data = array(
+			'title' => 'Prosedur Permohonan',
+			'subtitle' => 'Data Prosedur Permohonan',
+			'listprosedurpermohonan' => $this->m_data->getprosedurpermohonan()->result_array()
+		);
+		$this->load->view('admin/standart_layanan/prosedur_permohonan/v_index', $data);
+	}
+
+	public function edit_prosedur_permohonan($id_prosedur_permohonan = '')
+	{
+		$prosedur_permohonan = $this->m_data->getprosedurpermohonan("WHERE id_prosedur_permohonan='$id_prosedur_permohonan' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Prosedur Permohonan',
+			'id_prosedur_permohonan' => $prosedur_permohonan[0]['id_prosedur_permohonan'],
+			'judul' => $prosedur_permohonan[0]['judul'],
+			'foto' => $prosedur_permohonan[0]['foto']
+		);
+		$this->load->view('admin/standart_layanan/prosedur_permohonan/v_edit_data', $data);
+	}
+
+	public function actionprosedurpermohonan()
+	{
+		$valid = $this->form_validation;
+
+	    $valid->set_rules('foto','Foto','required',
+		array('required' => 'Foto harus diisi'));
+
+	    if ($valid->run() === FALSE)
+	    {
+			$old_name	= $_FILES["foto"]["name"];
+			$ext 		= pathinfo($old_name, PATHINFO_EXTENSION);
+			$new_name	= time().'.'.$ext;
+			$config = array(
+				'upload_path' 		=> './assets/admin/upload/prosedur_permohonan/',
+				'allowed_types' 	=> 'jpg|png',
+				'file_name'			=> $new_name,
+				'image_library'		=> 'gd2',
+				'source_image'		=> './assets/admin/upload/prosedur_permohonan/'.$new_name,
+				'create_thumb'		=> true,
+				'maintain_ratio'	=> true,
+				'thumb_marker'     	=> '',	
+			);
+	      	$this->load->library('upload', $config);
+			if (! $this->upload->do_upload('foto')) 
+			{
+				$id_prosedur_permohonan = $this->input->post('id_prosedur_permohonan');
+				$data = array(
+							'judul'   	=> $this->input->post('judul', TRUE),
+				);
+		
+				$id = $this->db->where('id_prosedur_permohonan', $id_prosedur_permohonan);
+				$query = $this->db->get('prosedur_permohonan');
+				$row = $query->row();
+		
+				$this->m_data->UpdateData('prosedur_permohonan', $data, array('id_prosedur_permohonan' => $id_prosedur_permohonan));
+
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Permohonan');
+				redirect(base_url("admin/dashboard/prosedur_permohonan"));
+	      	}else{
+		      	$upload_data   = array('uploads' => $this->upload->data());				  
+
+		      	$this->load->library('image_lib', $config);
+		      	$this->image_lib->resize();
+		      	$id_prosedur_permohonan = $this->input->post('id_prosedur_permohonan');
+			    $data = array(
+			    			'foto'   	=> $new_name,
+			    			'judul'   => $this->input->post('judul', TRUE),
+			    );
+
+			    $id = $this->db->where('id_prosedur_permohonan', $id_prosedur_permohonan);
+			    $query = $this->db->get('prosedur_permohonan');
+			    $row = $query->row();
+
+
+				if($row->foto == 'default.png')
+				{
+					$this->m_data->UpdateData('prosedur_permohonan', $data, array('id_prosedur_permohonan' => $id_prosedur_permohonan));
+					echo "<script>alert('Berhasil');window.location='".base_url()."';</script>";
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Permohonan');
+					redirect(base_url("admin/dashboard/prosedur_permohonan"));
+				} else {
+
+					unlink("./assets/admin/upload/prosedur_permohonan/$row->foto");
+					$this->m_data->UpdateData('prosedur_permohonan', $data, array('id_prosedur_permohonan' => $id_prosedur_permohonan));
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Prosedur Permohonan');
+					redirect(base_url("admin/dashboard/prosedur_permohonan"));
+				}
+	      	 } 
+	    }
+	}
+
+	public function waktu_layanan()
+	{
+		$data = array(
+			'title' => 'Waktu Layanan',
+			'subtitle' => 'Data Waktu Layanan',
+			'listwaktulayanan' => $this->m_data->getwaktulayanan()->result_array()
+		);
+		$this->load->view('admin/standart_layanan/waktu_layanan/v_index', $data);
+	}
+
+	public function edit_waktu_layanan($id_waktu_layanan = '')
+	{
+		$waktu_layanan = $this->m_data->getwaktulayanan("WHERE id_waktu_layanan='$id_waktu_layanan' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Waktu Layanan',
+			'id_waktu_layanan' => $waktu_layanan[0]['id_waktu_layanan'],
+			'judul' => $waktu_layanan[0]['judul'],
+			'foto' => $waktu_layanan[0]['foto']
+		);
+		$this->load->view('admin/standart_layanan/waktu_layanan/v_edit_data', $data);
+	}
+
+	public function actionwaktulayanan()
+	{
+		$valid = $this->form_validation;
+
+	    $valid->set_rules('foto','Foto','required',
+		array('required' => 'Foto harus diisi'));
+
+	    if ($valid->run() === FALSE)
+	    {
+			$old_name	= $_FILES["foto"]["name"];
+			$ext 		= pathinfo($old_name, PATHINFO_EXTENSION);
+			$new_name	= time().'.'.$ext;
+			$config = array(
+				'upload_path' 		=> './assets/admin/upload/waktu_layanan/',
+				'allowed_types' 	=> 'jpg|png',
+				'file_name'			=> $new_name,
+				'image_library'		=> 'gd2',
+				'source_image'		=> './assets/admin/upload/waktu_layanan/'.$new_name,
+				'create_thumb'		=> true,
+				'maintain_ratio'	=> true,
+				'thumb_marker'     	=> '',	
+			);
+	      	$this->load->library('upload', $config);
+			if (! $this->upload->do_upload('foto')) 
+			{
+				$id_waktu_layanan = $this->input->post('id_waktu_layanan');
+				$data = array(
+							'judul'   	=> $this->input->post('judul', TRUE),
+				);
+		
+				$id = $this->db->where('id_waktu_layanan', $id_waktu_layanan);
+				$query = $this->db->get('waktu_layanan');
+				$row = $query->row();
+		
+				$this->m_data->UpdateData('waktu_layanan', $data, array('id_waktu_layanan' => $id_waktu_layanan));
+
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Waktu Layanan');
+				redirect(base_url("admin/dashboard/waktu_layanan"));
+	      	}else{
+		      	$upload_data   = array('uploads' => $this->upload->data());				  
+
+		      	$this->load->library('image_lib', $config);
+		      	$this->image_lib->resize();
+		      	$id_waktu_layanan = $this->input->post('id_waktu_layanan');
+			    $data = array(
+			    			'foto'   	=> $new_name,
+			    			'judul'   => $this->input->post('judul', TRUE),
+			    );
+
+			    $id = $this->db->where('id_waktu_layanan', $id_waktu_layanan);
+			    $query = $this->db->get('waktu_layanan');
+			    $row = $query->row();
+
+
+				if($row->foto == 'default.png')
+				{
+					$this->m_data->UpdateData('waktu_layanan', $data, array('id_waktu_layanan' => $id_waktu_layanan));
+					echo "<script>alert('Berhasil');window.location='".base_url()."';</script>";
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Waktu Layanan');
+					redirect(base_url("admin/dashboard/waktu_layanan"));
+				} else {
+
+					unlink("./assets/admin/upload/waktu_layanan/$row->foto");
+					$this->m_data->UpdateData('waktu_layanan', $data, array('id_waktu_layanan' => $id_waktu_layanan));
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Waktu Layanan');
+					redirect(base_url("admin/dashboard/waktu_layanan"));
+				}
+	      	 } 
+	    }
+	}
+
+	public function biaya_layanan()
+	{
+		$data = array(
+			'title' => 'Biaya Layanan',
+			'subtitle' => 'Data Biaya Layanan',
+			'listbiayalayanan' => $this->m_data->getbiayalayanan()->result_array()
+		);
+		$this->load->view('admin/standart_layanan/biaya_layanan/v_index', $data);
+	}
+
+	public function edit_biaya_layanan($id_biaya_layanan = '')
+	{
+		$biaya_layanan = $this->m_data->getbiayalayanan("WHERE id_biaya_layanan='$id_biaya_layanan' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Biaya Layanan',
+			'id_biaya_layanan' => $biaya_layanan[0]['id_biaya_layanan'],
+			'judul' => $biaya_layanan[0]['judul'],
+			'foto' => $biaya_layanan[0]['foto']
+		);
+		$this->load->view('admin/standart_layanan/biaya_layanan/v_edit_data', $data);
+	}
+
+	public function actionbiayalayanan()
+	{
+		$valid = $this->form_validation;
+
+	    $valid->set_rules('foto','Foto','required',
+		array('required' => 'Foto harus diisi'));
+
+	    if ($valid->run() === FALSE)
+	    {
+			$old_name	= $_FILES["foto"]["name"];
+			$ext 		= pathinfo($old_name, PATHINFO_EXTENSION);
+			$new_name	= time().'.'.$ext;
+			$config = array(
+				'upload_path' 		=> './assets/admin/upload/biaya_layanan/',
+				'allowed_types' 	=> 'jpg|png',
+				'file_name'			=> $new_name,
+				'image_library'		=> 'gd2',
+				'source_image'		=> './assets/admin/upload/biaya_layanan/'.$new_name,
+				'create_thumb'		=> true,
+				'maintain_ratio'	=> true,
+				'thumb_marker'     	=> '',	
+			);
+	      	$this->load->library('upload', $config);
+			if (! $this->upload->do_upload('foto')) 
+			{
+				$id_biaya_layanan = $this->input->post('id_biaya_layanan');
+				$data = array(
+							'judul'   	=> $this->input->post('judul', TRUE),
+				);
+		
+				$id = $this->db->where('id_biaya_layanan', $id_biaya_layanan);
+				$query = $this->db->get('biaya_layanan');
+				$row = $query->row();
+		
+				$this->m_data->UpdateData('biaya_layanan', $data, array('id_biaya_layanan' => $id_biaya_layanan));
+
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Biaya Layanan');
+				redirect(base_url("admin/dashboard/biaya_layanan"));
+	      	}else{
+		      	$upload_data   = array('uploads' => $this->upload->data());				  
+
+		      	$this->load->library('image_lib', $config);
+		      	$this->image_lib->resize();
+		      	$id_biaya_layanan = $this->input->post('id_biaya_layanan');
+			    $data = array(
+			    			'foto'   	=> $new_name,
+			    			'judul'   => $this->input->post('judul', TRUE),
+			    );
+
+			    $id = $this->db->where('id_biaya_layanan', $id_biaya_layanan);
+			    $query = $this->db->get('biaya_layanan');
+			    $row = $query->row();
+
+
+				if($row->foto == 'default.png')
+				{
+					$this->m_data->UpdateData('biaya_layanan', $data, array('id_biaya_layanan' => $id_biaya_layanan));
+					echo "<script>alert('Berhasil');window.location='".base_url()."';</script>";
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Biaya Layanan');
+					redirect(base_url("admin/dashboard/biaya_layanan"));
+				} else {
+
+					unlink("./assets/admin/upload/biaya_layanan/$row->foto");
+					$this->m_data->UpdateData('biaya_layanan', $data, array('id_biaya_layanan' => $id_biaya_layanan));
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Biaya Layanan');
+					redirect(base_url("admin/dashboard/biaya_layanan"));
+				}
+	      	 } 
+	    }
 	}
 }
 ?>

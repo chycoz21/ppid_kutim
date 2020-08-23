@@ -28,23 +28,25 @@
           <!-- /.card-header -->
           <div class="card-body pad">
             <div class="mb-3">
-              <form method="post" action="<?= base_url('admin/dashboard/actionmaklumatpelayanan');?>" enctype="multipart/form-data">
+              <form method="post" action="<?= base_url('admin/dashboard/actionwaktulayanan');?>" enctype="multipart/form-data">
                 <div class="form-group">
-                  <label>Judul Maklumat Pelayanan</label>
-                  <input type="hidden" name="statusdata" value="Update Data">
-                  <input type="hidden" name="id_maklumat_pelayanan" id="id_maklumat_pelayanan" value="<?= $id_maklumat_pelayanan;?>">
+                  <label>Judul</label>
+                  <input type="hidden" name="id_waktu_layanan" id="id_waktu_layanan" value="<?= $id_waktu_layanan;?>">
                   <input type="text" name="judul" id="judul" class="form-control" value="<?= $judul;?>">
                 </div>  
                 <div class="form-group">
                   <?php if ($foto == '') { ?>
-                    <img src="<?= base_url('assets/admin/upload/maklumat_pelayanan/default.png');?>" alt="Foto" width="150" height="150">
+                    <img src="<?= base_url('assets/admin/upload/waktu_layanan/default.png');?>" alt="Foto" width="150" height="150">
                   <?php }else{ ?>  
-                    <img src="<?= base_url('assets/admin/upload/maklumat_pelayanan/'.$foto);?>" alt="Foto" width="150" height="150">
+                    <img src="<?= base_url('assets/admin/upload/waktu_layanan/'.$foto);?>" alt="Foto" width="150" height="150">
                   <?php } ?>
                 </div>  
                 <div class="form-group">
-                  <label>Foto Maklumat Pelayanan</label>
+                  <label>Foto</label>
                   <input type="file" name="foto" id="foto" class="form-control">
+                  <span style="font-size: .9em; font-style: italic">
+                    Foto berformat jpg dan png 
+                  </span>
                 </div>
                 <div class="form-group">
                   <button type="submit" name="update" class="btn-sm btn-primary">Update Data</button>

@@ -37,8 +37,8 @@
               <thead>
                 <tr>
                   <th class="text-center">No</th>
-                  <th>Judul Maklumat Pelayanan</th>
-                  <th>Foto Maklumat Pelayanan</th>
+                  <th>Judul</th>
+                  <th>Foto</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
@@ -65,10 +65,3 @@
   </div>  
 </section>  
 <?php $this->load->view('admin/dashboard/v_footer'); ?>
-
-<!-- page script -->
-<!-- <script>
-  $(function () {
-    $("#table-daftar-informasi").DataTable();
-  });
-</script> -->

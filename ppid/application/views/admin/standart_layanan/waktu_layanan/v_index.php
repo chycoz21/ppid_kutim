@@ -37,19 +37,19 @@
               <thead>
                 <tr>
                   <th class="text-center">No</th>
-                  <th>Judul Kewajiban Bawaslu</th>
-                  <th>Deskripsi Kewajiban Bawaslu</th>
+                  <th>Judul</th>
+                  <th>Foto</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                <?php $no=1; foreach ($listkewajibanbawaslu as $data) { ?>
+                <?php $no=1; foreach ($listwaktulayanan as $data) { ?>
                 <tr>  
                   <td class="text-center"><?= $no;?></td>
                   <td><?= $data['judul'];?></td>
-                  <td><?= $data['deskripsi'];?></td>
+                  <td><img src="<?= base_url('assets/admin/upload/waktu_layanan/'.$data['foto']);?>" alt="Foto" width="120" height="150"></td>
                   <td>
-                    <a class="btn-sm btn btn-primary" href="<?= base_url('admin/dashboard/edit_kewajiban_bawaslu/'.$data['id_kewajiban_bawaslu']);?>"><i class="fa fa-pencil-alt"></i></a>
+                    <a class="btn-sm btn btn-primary" href="<?= base_url('admin/dashboard/edit_waktu_layanan/'.$data['id_waktu_layanan']);?>"><i class="fa fa-pencil-alt"></i></a>
                   </td>
                 </tr>
                 <?php $no++; } ?>  
@@ -65,10 +65,3 @@
   </div>  
 </section>  
 <?php $this->load->view('admin/dashboard/v_footer'); ?>
-
-<!-- page script -->
-<!-- <script>
-  $(function () {
-    $("#table-daftar-informasi").DataTable();
-  });
-</script> -->
