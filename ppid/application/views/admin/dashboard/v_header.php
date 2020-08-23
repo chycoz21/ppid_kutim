@@ -140,7 +140,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard/user'?>" class="nav-link">
+            <a href="<?php echo base_url().'admin/dashboard/user_management'?>" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>
                 USER & HAK AKSES
@@ -165,7 +165,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?php echo base_url().'admin/dashboard/visi_misi'?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Visi & Misi</p>
                 </a>
@@ -177,13 +177,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?php echo base_url().'admin/dashboard/struktur_ppid'?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Struktur PPID</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?php echo base_url().'admin/dashboard/profil_singkat'?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profil Singkat PPID</p>
                 </a>

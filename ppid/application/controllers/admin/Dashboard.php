@@ -496,5 +496,201 @@ class Dashboard extends CI_controller {
 	      	 } 
 	    }
 	}
+
+	public function user_management()
+	{
+		$data['user_management'] = $this->db->get('user_management')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/user_management/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+	public function tambah_user_management()
+	{
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/user_management/v_tambah_user_management');
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_user_management()
+	{
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'email' => $this->input->post('email'),
+			'password' => md5($this->input->post('password')),
+			'level' => $this->input->post('level')
+		);
+         $this->db->insert('user_management', $data);
+		
+		redirect('admin/dashboard/user_management','refresh');
+	}
+
+	public function edit_user_management($id)
+	{
+		$data['user_management'] = $this->m_data->user_management_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/user_management/v_edit_user_management',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_user_management($id)
+	{
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'email' => $this->input->post('email'),
+			'password' => md5($this->input->post('password')),
+			'level' => $this->input->post('level')
+		);
+		 
+		
+		$this->db->where('id', $id);
+		
+		$this->db->update('user_management', $data);
+		redirect('admin/dashboard/user_management','refresh');
+		
+		
+	}
+
+	public function blokir_user_management($id)
+	{
+		$data = array(	
+			'level' => 4
+		);
+		$this->db->where('id', $id);
+		$this->db->update('user_management', $data);
+		redirect('admin/dashboard/user_management','refresh');
+	}
+	
+	public function unblokir_user_management($id)
+	{
+		$data = array(	
+			'level' => 3
+		);
+		$this->db->where('id', $id);
+		$this->db->update('user_management', $data);
+		redirect('admin/dashboard/user_management','refresh');
+	}
+
+
+	public function visi_misi()
+	{
+		$data['visi_misi'] = $this->db->get('visi_misi')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/visi_misi/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function edit_visi_misi($id)
+	{
+		$data['visi_misi'] = $this->m_data->visi_misi_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/visi_misi/v_edit_visi_misi',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_misi($id)
+	{
+		$judul = $this->input->post('judul',TRUE);
+		$deskripsi = $this->input->post('deskripsi',TRUE);
+		$data = array(
+			'judul' => $judul,
+			'deskripsi' => $deskripsi
+		);
+		$this->db->where('id', $id);
+		$this->db->update('visi_misi', $data);
+		redirect('admin/dashboard/visi_misi');
+	}
+
+	public function struktur_ppid()
+	{
+		$data['struktur'] = $this->db->get('struktur_ppid')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/struktur_ppid/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+
+	public function edit_struktur_ppid($id)
+	{
+		$data['struktur'] =  $this->m_data->struktur_ppid_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/struktur_ppid/v_edit_struktur_ppid',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_struktur_ppid($id)
+	{
+	
+		$gambar    = $_FILES['gambar']['name'];
+		if ($gambar ='') {
+			
+		}else {
+			$config ['upload_path'] = './assets/admin/upload/struktur_ppid/';
+				$config ['allowed_types'] = 'jpg|jpeg|png|gif';
+
+				$this->load->library('upload', $config);
+				if (!$this->upload->do_upload('gambar')) {
+					echo 'gagal upload';
+				}else{
+					$gambar=$this->upload->data('file_name');
+
+				}
+		}
+		$data = array(
+			
+			'gambar' => $gambar
+		);
+		$this->db->where('id', $id);
+		$this->db->update('struktur_ppid', $data);
+		redirect('admin/dashboard/struktur_ppid');
+	    
+	}
+
+
+
+
+
+	public function profil_singkat()
+	{
+		$data['profil'] = $this->db->get('profil_singkat')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/profil_singkat/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+
+	public function edit_profil_singkat($id)
+	{
+		$data['profil'] =  $this->m_data->profil_singkat_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/profil_singkat/v_edit_profil_singkat',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_profil_singkat($id)
+	{
+	
+		$gambar    = $_FILES['gambar']['name'];
+		if ($gambar ='') {
+			
+		}else {
+			$config ['upload_path'] = './assets/admin/upload/profil_singkat/';
+				$config ['allowed_types'] = 'jpg|jpeg|png|gif';
+
+				$this->load->library('upload', $config);
+				if (!$this->upload->do_upload('gambar')) {
+					echo 'gagal upload';
+				}else{
+					$gambar=$this->upload->data('file_name');
+
+				}
+		}
+		$data = array(
+			
+			'gambar' => $gambar
+		);
+		$this->db->where('id', $id);
+		$this->db->update('profil_singkat', $data);
+		redirect('admin/dashboard/profil_singkat');
+	    
+	}
 }
-?>
