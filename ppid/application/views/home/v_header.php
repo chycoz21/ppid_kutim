@@ -55,9 +55,9 @@
                         </a>
 
                         <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="<?php echo base_url("in/alur_permohonan") ?>">Alur Permohonan Informasi</a>
-                            <a class="dropdown-item" href="<?php echo base_url("in/acek_permohonan") ?>">Cek Status Permohonan Informasi</a>
-                            <a class="dropdown-item" href="<?php echo base_url("in/ringkasan_permohonan") ?>">Ringkasan Layanan Informasi</a>
+                            <a class="dropdown-item" href="<?php echo base_url("l/alur_permohonan") ?>">Alur Permohonan Informasi</a>
+                            <a class="dropdown-item" href="<?php echo base_url("l/cek_permohonan") ?>">Cek Status Permohonan Informasi</a>
+                            <a class="dropdown-item" href="<?php echo base_url("l/ringkasan_permohonan") ?>">Ringkasan Layanan Informasi</a>
                         </div>
                     </li>
                     <li class="nav-item active dropdown">
