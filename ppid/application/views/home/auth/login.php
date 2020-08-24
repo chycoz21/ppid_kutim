@@ -8,7 +8,7 @@
     <!-- akhir jumbotron -->
 
 
-    <!-- table -->
+    <!-- table sdfsdf-->
     <div class="row no-gutters my-5 justify-content-center">
 
         <div class="col-lg-6 mb-5">
