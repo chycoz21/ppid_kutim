@@ -50,5 +50,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'beranda';
+$route['in/setiap_saat'] = 'kategori/setiap_saat';
+$route['in/berkala'] = 'kategori/berkala';
+$route['in/serta_merta'] = 'kategori/serta_merta';
+$route['in/dikecualikan'] = 'kategori/dikecualikan';
+
+$route['p/dasar_hukum'] = 'profile/dasar_hukum';
+$route['p/profile_singkat'] = 'profile/profile_singkat';
+$route['p/tugas'] = 'profile/tugas';
+$route['p/struktur'] = 'profile/struktur';
+$route['p/visi_misi'] = 'profile/visi_misi';
+
+$route['r/list_regulasi'] = 'regulasi/list_regulasi';
+
+
+
+
+$route['m/login'] = 'Auth/lgin';
+
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;

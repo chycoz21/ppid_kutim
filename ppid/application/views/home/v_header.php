@@ -36,10 +36,10 @@
                             Kategori
                         </a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item " href="#">Informasi Setiap Saat</a>
-                            <a class="dropdown-item" href="#">Informasi Berkala</a>
-                            <a class="dropdown-item" href="#">Informasi Serta Merta</a>
-                            <a class="dropdown-item" href="#">Infromasi Dikecualikan</a>
+                            <a class="dropdown-item " href="<?php echo base_url("in/setiap_saat") ?>">Informasi Setiap Saat</a>
+                            <a class="dropdown-item" href="<?php echo base_url("in/berkala") ?>">Informasi Berkala</a>
+                            <a class="dropdown-item" href="<?php echo base_url("in/serta_merta") ?>">Informasi Serta Merta</a>
+                            <a class="dropdown-item" href="<?php echo base_url("in/dikecualikan") ?>">Infromasi Dikecualikan</a>
                         </div>
                     </li>
                     <li class="nav-item active dropdown">
@@ -49,9 +49,9 @@
                         </a>
 
                         <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Alur Permohonan Informasi</a>
-                            <a class="dropdown-item" href="#">Cek Status Permohonan Informasi</a>
-                            <a class="dropdown-item" href="#">Ringkasan Layanan Informasi</a>
+                            <a class="dropdown-item" href="<?php echo base_url("in/alur_permohonan") ?>">Alur Permohonan Informasi</a>
+                            <a class="dropdown-item" href="<?php echo base_url("in/acek_permohonan") ?>">Cek Status Permohonan Informasi</a>
+                            <a class="dropdown-item" href="<?php echo base_url("in/ringkasan_permohonan") ?>">Ringkasan Layanan Informasi</a>
                         </div>
                     </li>
                     <li class="nav-item active dropdown">
@@ -61,11 +61,11 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Dasar Hukum</a>
-                            <a class="dropdown-item" href="#">Profil Singkat</a>
-                            <a class="dropdown-item" href="#">Tugas Fungsi dan Wewenang</a>
-                            <a class="dropdown-item" href="#">Struktur PPID</a>
-                            <a class="dropdown-item" href="#">Visi dan Misi</a>
+                            <a class="dropdown-item" href="<?php echo base_url("p/dasar_hukum") ?>">Dasar Hukum</a>
+                            <a class="dropdown-item" href="<?php echo base_url("p/profile_singkat") ?>">Profil Singkat</a>
+                            <a class="dropdown-item" href="<?php echo base_url("p/tugas") ?>">Tugas Fungsi dan Wewenang</a>
+                            <a class="dropdown-item" href="<?php echo base_url("p/struktur") ?>">Struktur PPID</a>
+                            <a class="dropdown-item" href="<?php echo base_url("p/visi_misi") ?>">Visi dan Misi</a>
 
                         </div>
                     </li>
@@ -75,7 +75,7 @@
                             Regulasi
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">List Regulasi</a>
+                            <a class="dropdown-item" href="<?php echo base_url("r/list_regulasi") ?>">List Regulasi</a>
 
                         </div>
                     </li>
@@ -98,7 +98,7 @@
                     </li>
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="<?php echo base_url() ?>m/login">Login</a>
                     </li>
                 </ul>
             </div>

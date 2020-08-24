@@ -36,6 +36,10 @@
                         <input type="text" name="email" class="form-control" placeholder="Email" required>
                     </div>
                     <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name="username" class="form-control" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
                         <label>Password</label>
                         <input type="password" name="password" class="form-control" placeholder="Password" required>
                     </div>
@@ -43,9 +47,9 @@
                         <label>Hak Akses</label>
                         <select id="inputState" class="form-control" name="level">
         <option selected>Choose...</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
+        <option value="1">Administrator</option>
+        <option value="2">Editor</option>
+        <option value="3">Distributor</option>
       </select>
 
 

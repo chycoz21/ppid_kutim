@@ -53,11 +53,11 @@ class Login extends CI_controller {
 					//ke halaman dashboard
 
 					// Ke Masing Masing halaman user
-					if ($data->user_lvl == "admin") {
+					if ($data->user_lvl == "1") {
 						redirect(base_url().'admin/dashboard');
-					}elseif ($data->user_lvl == "editor") {
+					}elseif ($data->user_lvl == "2") {
 						redirect(base_url().'admin/dashboard_editor');
-					}elseif ($data->user_lvl == "distributor") {
+					}elseif ($data->user_lvl == "3") {
 						redirect(base_url().'admin/dashboard_kontributor');
 					}else{
                          echo 'Anda Siapa';
