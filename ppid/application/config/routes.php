@@ -66,8 +66,12 @@ $route['r/list_regulasi'] = 'regulasi/list_regulasi';
 
 
 
-$route['m/login'] = 'Auth/lgin';
+$route['m/login'] = 'Auth/login';
+$route['m/registrasi'] = 'Auth/registrasi';
+$route['ac/simpan'] = 'Auth/registrasi_simpan';
+$route['ac/verivikasi'] = 'Auth/login_ac';
 
+$route['u/dashboard'] = 'user/dashboard';
 
 
 $route['404_override'] = '';
