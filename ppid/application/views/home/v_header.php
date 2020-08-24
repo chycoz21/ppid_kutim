@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="<?= base_url();?>assets/home/css/style.css">
     <link rel="stylesheet" href="<?= base_url();?>assets/home/font/css/all.css">
     <link rel="icon" type="image/png" href="<?= base_url();?>assets/home/img/logo_bawas.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?= base_url();?>assets/home/datatable/fontawesome-free/css/all.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="<?= base_url();?>assets/home/datatable/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="<?= base_url();?>assets/home/datatable/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url();?>assets/home/datatable/css/responsive.bootstrap4.min.css">
     <title><?= $title;?></title>
 </head>
 
@@ -36,7 +42,7 @@
                             Kategori
                         </a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item " href="<?php echo base_url("in/setiap_saat") ?>">Informasi Setiap Saat</a>
+                            <a class="dropdown-item " href="<?php echo base_url("in/Setiap-Saat") ?>">Informasi Setiap Saat</a>
                             <a class="dropdown-item" href="<?php echo base_url("in/berkala") ?>">Informasi Berkala</a>
                             <a class="dropdown-item" href="<?php echo base_url("in/serta_merta") ?>">Informasi Serta Merta</a>
                             <a class="dropdown-item" href="<?php echo base_url("in/dikecualikan") ?>">Infromasi Dikecualikan</a>
@@ -86,14 +92,14 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="<?= base_url('Hak-dan-Kewajiban-Pemohon-Informasi');?>">Hak dan Kewajiban Pemohon Informasi</a>
-                            <a class="dropdown-item" href="<?= base_url('Hak-dan-Kewajiban-Bawaslu-dalam-Pelayanan-Informasi');?>">Hak dan Kewajiban Bawaslu dalam Pelayanan Informasi</a>
-                            <a class="dropdown-item" href="<?= base_url('Maklumat-Pelayanan');?>">Maklumat Pelayanan</a>
-                            <a class="dropdown-item" href="<?= base_url('Prosedur-Pelayanan-Informasi');?>">Prosedur Pelayanan Informasi</a>
-                            <a class="dropdown-item" href="<?= base_url('Prosedur-Pengajuan-Keberatan');?>">Prosedur Pengajuan Keberatan</a>
-                            <a class="dropdown-item" href="<?= base_url('Prosedur-Permohonan-Penyelesaian-Sengketa-Informasi');?>">Prosedur Permohonan Penyelesaian Sengketa Informasi</a>
-                            <a class="dropdown-item" href="<?= base_url('Waktu-Layanan');?>">Waktu Layanan</a>
-                            <a class="dropdown-item" href="<?= base_url('Biaya-Layanan');?>">Biaya Layanan</a>
+                            <a class="dropdown-item" href="<?= base_url('sl/Hak-dan-Kewajiban-Pemohon-Informasi');?>">Hak dan Kewajiban Pemohon Informasi</a>
+                            <a class="dropdown-item" href="<?= base_url('sl/Hak-dan-Kewajiban-Bawaslu-dalam-Pelayanan-Informasi');?>">Hak dan Kewajiban Bawaslu dalam Pelayanan Informasi</a>
+                            <a class="dropdown-item" href="<?= base_url('s1/Maklumat-Pelayanan');?>">Maklumat Pelayanan</a>
+                            <a class="dropdown-item" href="<?= base_url('sl/Prosedur-Pelayanan-Informasi');?>">Prosedur Pelayanan Informasi</a>
+                            <a class="dropdown-item" href="<?= base_url('sl/Prosedur-Pengajuan-Keberatan');?>">Prosedur Pengajuan Keberatan</a>
+                            <a class="dropdown-item" href="<?= base_url('sl/Prosedur-Permohonan-Penyelesaian-Sengketa-Informasi');?>">Prosedur Permohonan Penyelesaian Sengketa Informasi</a>
+                            <a class="dropdown-item" href="<?= base_url('sl/Waktu-Layanan');?>">Waktu Layanan</a>
+                            <a class="dropdown-item" href="<?= base_url('sl/Biaya-Layanan');?>">Biaya Layanan</a>
                         </div>
                     </li>
 

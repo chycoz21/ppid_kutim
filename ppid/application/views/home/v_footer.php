@@ -23,6 +23,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
+    <!-- Jquery -->
+    <script src="<?= base_url();?>assets/home/datatable/js/jquery.min.js"></script>
+    <!-- DataTables -->
+    <script src="<?= base_url();?>assets/home/datatable/js/jquery.dataTables.js"></script>
+    <script src="<?= base_url();?>assets/home/datatable/js/dataTables.bootstrap4.js"></script>
 </body>
 
 </html>

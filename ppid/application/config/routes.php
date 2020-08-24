@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'beranda';
-$route['in/setiap_saat'] = 'kategori/setiap_saat';
+$route['in/Setiap-Saat'] = 'kategori/Setiap-Saat';
 $route['in/berkala'] = 'kategori/berkala';
 $route['in/serta_merta'] = 'kategori/serta_merta';
 $route['in/dikecualikan'] = 'kategori/dikecualikan';
@@ -63,6 +63,14 @@ $route['p/visi_misi'] = 'profile/visi_misi';
 
 $route['r/list_regulasi'] = 'regulasi/list_regulasi';
 
+$route['sl/Hak-dan-Kewajiban-Pemohon-Informasi'] = 'standart_layanan/Hak-dan-Kewajiban-Pemohon-Informasi';
+$route['sl/Hak-dan-Kewajiban-Bawaslu-dalam-Pelayanan-Informasi'] = 'standart_layanan/Hak-dan-Kewajiban-Bawaslu-dalam-Pelayanan-Informasi';
+$route['sl/Maklumat-Pelayanan'] = 'standart_layanan/Maklumat-Pelayanan';
+$route['sl/Prosedur-Pelayanan-Informasi'] = 'standart_layanan/Prosedur-Pelayanan-Informasi';
+$route['sl/Prosedur-Pengajuan-Keberatan'] = 'standart_layanan/Prosedur-Pengajuan-Keberatan';
+$route['sl/Prosedur-Permohonan-Penyelesaian-Sengketa-Informasi'] = 'standart_layanan/Prosedur-Permohonan-Penyelesaian-Sengketa-Informasi';
+$route['sl/Waktu-Layanan'] = 'standart_layanan/Waktu-Layanan';
+$route['sl/Biaya-Layanan'] = 'standart_layanan/Biaya-Layanan';
 
 
 

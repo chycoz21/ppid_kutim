@@ -6,18 +6,19 @@ class Kategori extends CI_controller
 	public function __Construct()
 	{
 		parent::__construct();
+		$this->load->model('m_kategori');
 	}
 
 	public function setiap_saat()
 	{
 		$data = array(
 			'title' => 'PPID | Informasi Setiap Saat',
+			'listsaatini' => $this->m_kategori->getsaatini()->result_array()
 		);
-		$this->load->view('home/v_header', $data, FALSE);
-		$this->load->view('home/kategori/setiap_saat', $data, FALSE);
-		$this->load->view('home/v_footer', $data, FALSE);
+		$this->load->view('home/kategori/v_setiap_saat', $data);
 		
 	}
+
 	public function berkala()
 	{
 		$data = array(
