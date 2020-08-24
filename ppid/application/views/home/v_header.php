@@ -36,10 +36,10 @@
                             Kategori
                         </a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item " href="#">Informasi Setiap Saat</a>
-                            <a class="dropdown-item" href="#">Informasi Berkala</a>
-                            <a class="dropdown-item" href="#">Informasi Serta Merta</a>
-                            <a class="dropdown-item" href="#">Infromasi Dikecualikan</a>
+                            <a class="dropdown-item " href="<?php echo base_url("in/setiap_saat") ?>">Informasi Setiap Saat</a>
+                            <a class="dropdown-item" href="<?php echo base_url("in/berkala") ?>">Informasi Berkala</a>
+                            <a class="dropdown-item" href="<?php echo base_url("in/serta_merta") ?>">Informasi Serta Merta</a>
+                            <a class="dropdown-item" href="<?php echo base_url("in/dikecualikan") ?>">Infromasi Dikecualikan</a>
                         </div>
                     </li>
                     <li class="nav-item active dropdown">

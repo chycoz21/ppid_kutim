@@ -994,7 +994,7 @@ class Dashboard extends CI_controller {
 
 	public function user_management()
 	{
-		$data['user_management'] = $this->db->get('user_management')->result();
+		$data['user_management'] = $this->db->get('user')->result();
 		$this->load->view('admin/dashboard/v_header');
 		$this->load->view('admin/user_management/v_index',$data);
 		$this->load->view('admin/dashboard/v_footer');
@@ -1009,12 +1009,14 @@ class Dashboard extends CI_controller {
 	public function simpan_user_management()
 	{
 		$data = array(
-			'nama' => $this->input->post('nama'),
-			'email' => $this->input->post('email'),
-			'password' => md5($this->input->post('password')),
-			'level' => $this->input->post('level')
+			'user_nm' => $this->input->post('nama'),
+			'user_email' => $this->input->post('email'),
+			'user_usrnm' => $this->input->post('username'),
+			'user_pass' => md5($this->input->post('password')),
+			'user_lvl' => $this->input->post('level'),
+			'user_status' => 1
 		);
-         $this->m_data->InsertData('user_management',$data);
+         $this->m_data->InsertData('user',$data);
 		redirect('admin/dashboard/user_management','refresh');
 	}
 
@@ -1029,12 +1031,14 @@ class Dashboard extends CI_controller {
 	public function simpan_edit_user_management($id)
 	{
 		$data = array(
-			'nama' => $this->input->post('nama'),
-			'email' => $this->input->post('email'),
-			'password' => md5($this->input->post('password')),
-			'level' => $this->input->post('level')
+			'user_nm' => $this->input->post('nama'),
+			'user_email' => $this->input->post('email'),
+			'user_usrnm' => '1',
+			'user_pass' => md5($this->input->post('password')),
+			'user_lvl' => $this->input->post('level'),
+			'user_status' => 1
 		);
-		$this->m_data->UpdateData('user_management', $data, array('id' => $id));
+		$this->m_data->UpdateData('user', $data, array('id' => $id));
 		redirect('admin/dashboard/user_management','refresh');
 	}
 

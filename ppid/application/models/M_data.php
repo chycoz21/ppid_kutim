@@ -83,7 +83,7 @@ class M_data extends CI_Model
 
 	public function user_management_detail($id)
 	{
-		$user_management = $this->db->where('id', $id)->get('user_management');
+		$user_management = $this->db->where('id', $id)->get('user');
 		if ($user_management->num_rows() > 0) {
 			return $user_management->result();
    

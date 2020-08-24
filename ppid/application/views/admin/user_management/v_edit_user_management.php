@@ -47,19 +47,20 @@
                         <?php 
                   if ($usr->level == 1) {
                       echo '
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>';
+                      <option value="1">Administrator</option>
+                      <option value="2">Editor</option>
+                      <option value="3">Distributor</option>';
                   }elseif ($usr->level == 2) {
                     echo ' 
-                    <option value="2">2</option>
-                    <option value="1">1</option>
-                    <option value="3">3</option>';
+                    <option value="2">Editor</option>
+                    <option value="1">Administrator</option>
+        <option value="3">Distributor</option>';
                   }elseif ($usr->level == 3) {
                     echo '
-                    <option value="3">3</option>
-                    <option value="2">2</option>
-                    <option value="1">1</option>
+                    <option value="3">Distributor</option>
+                    <option value="2">Editor</option>
+                    <option value="1">Administrator</option>
+    
                     ';
                   }else {
                     echo '-';
