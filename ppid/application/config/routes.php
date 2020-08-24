@@ -55,6 +55,11 @@ $route['in/berkala'] = 'kategori/berkala';
 $route['in/serta_merta'] = 'kategori/serta_merta';
 $route['in/dikecualikan'] = 'kategori/dikecualikan';
 
+$route['l/alur_permohonan'] = 'layananio/alur_permohonan';
+$route['l/cek_permohonan'] = 'layananio/cek_permohonan';
+$route['l/ringkasan_permohonan'] = 'layananio/ringkasan_permohonan';
+
+
 $route['p/dasar_hukum'] = 'profile/dasar_hukum';
 $route['p/profile_singkat'] = 'profile/profile_singkat';
 $route['p/tugas'] = 'profile/tugas';
