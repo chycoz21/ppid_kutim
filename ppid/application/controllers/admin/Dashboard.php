@@ -1063,30 +1063,86 @@ class Dashboard extends CI_controller {
 
 	public function visi_misi()
 	{
-		$data['visi_misi'] = $this->db->get('visi_misi')->result();
-		$this->load->view('admin/dashboard/v_header');
-		$this->load->view('admin/visi_misi/v_index',$data);
-		$this->load->view('admin/dashboard/v_footer');
-	}
-
-	public function edit_visi_misi($id)
-	{
-		$data['visi_misi'] = $this->m_data->visi_misi_detail($id);
-		$this->load->view('admin/dashboard/v_header');
-		$this->load->view('admin/visi_misi/v_edit_visi_misi',$data);
-		$this->load->view('admin/dashboard/v_footer');
-	}
-
-	public function simpan_edit_misi($id)
-	{
-		$judul = $this->input->post('judul',TRUE);
-		$deskripsi = $this->input->post('deskripsi',TRUE);
 		$data = array(
-			'judul' => $judul,
-			'deskripsi' => $deskripsi
+			'title' => 'Visi Misi',
+			'subtitle' => 'Data Visi Misi',
+			'listvisimisi' => $this->m_data->getvisimisi()->result_array()
 		);
-		$this->m_data->UpdateData('visi_misi', $data, array('id' => $id));
-		redirect('admin/dashboard/visi_misi');
+		$this->load->view('admin/visi_misi/v_index', $data);
+	}
+
+	public function edit_visi_misi($id_visi_misi = '')
+	{
+		$visi_misi = $this->m_data->getvisimisi("WHERE id_visi_misi='$id_visi_misi' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Biaya Layanan',
+			'id_visi_misi' => $visi_misi[0]['id_visi_misi'],
+			'judul' => $visi_misi[0]['judul'],
+			'foto' => $visi_misi[0]['foto']
+		);
+		$this->load->view('admin/visi_misi/v_edit_visi_misi', $data);
+	}
+
+	public function actionvisimisi()
+	{
+		$valid = $this->form_validation;
+
+	    $valid->set_rules('foto','Foto','required',
+		array('required' => 'Foto harus diisi'));
+
+	    if ($valid->run() === FALSE)
+	    {
+			$old_name	= $_FILES["foto"]["name"];
+			$ext 		= pathinfo($old_name, PATHINFO_EXTENSION);
+			$new_name	= time().'.'.$ext;
+			$config = array(
+				'upload_path' 		=> './assets/admin/upload/visi_misi/',
+				'allowed_types' 	=> 'jpg|png',
+				'file_name'			=> $new_name,
+				'image_library'		=> 'gd2',
+				'source_image'		=> './assets/admin/upload/visi_misi/'.$new_name,
+				'create_thumb'		=> true,
+				'maintain_ratio'	=> true,
+				'thumb_marker'     	=> '',	
+			);
+	      	$this->load->library('upload', $config);
+			if (! $this->upload->do_upload('foto')) 
+			{
+				$id_visi_misi = $this->input->post('id_visi_misi');
+				$data = array(
+							'judul'   	=> $this->input->post('judul', TRUE),
+				);
+		
+				$id = $this->db->where('id_visi_misi', $id_visi_misi);
+				$query = $this->db->get('visi_misi');
+				$row = $query->row();
+		
+				$this->m_data->UpdateData('visi_misi', $data, array('id_visi_misi' => $id_visi_misi));
+
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Visi Misi');
+				redirect(base_url("admin/dashboard/visi_misi"));
+	      	}else{
+		      	$upload_data   = array('uploads' => $this->upload->data());				  
+
+		      	$this->load->library('image_lib', $config);
+		      	$this->image_lib->resize();
+		      	$id_visi_misi = $this->input->post('id_visi_misi');
+			    $data = array(
+			    			'foto'   	=> $new_name,
+			    			'judul'   => $this->input->post('judul', TRUE),
+			    );
+
+			    $id = $this->db->where('id_visi_misi', $id_visi_misi);
+			    $query = $this->db->get('visi_misi');
+			    $row = $query->row();
+
+				unlink("./assets/admin/upload/visi_misi/$row->foto");
+				$this->m_data->UpdateData('visi_misi', $data, array('id_visi_misi' => $id_visi_misi));
+
+				$this->session->set_flashdata('berhasil', 'Berhasil Update Visi Misi');
+	      	} 
+	      	redirect(base_url("admin/dashboard/visi_misi"));
+	    }
 	}
 
 	public function struktur_ppid()
@@ -1132,10 +1188,6 @@ class Dashboard extends CI_controller {
 		redirect('admin/dashboard/struktur_ppid');
 	    
 	}
-
-
-
-
 
 	public function profil_singkat()
 	{

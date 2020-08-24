@@ -12,6 +12,11 @@ class M_data extends CI_Model
 		return $this->db->query("SELECT daftar_informasi.*,kategori.nama_kategori FROM daftar_informasi LEFT JOIN kategori ON daftar_informasi.id_kategori = kategori.id_kategori $where;");
 	}
 
+	function getvisimisi($where = '')
+	{
+		return $this->db->query("SELECT * FROM visi_misi $where;");
+	}
+
 	function getkewajibanpemohon($where = '')
 	{
 		return $this->db->query("SELECT * FROM kewajiban_pemohon $where;");
@@ -92,16 +97,6 @@ class M_data extends CI_Model
 		}
 	}
 
-	public function visi_misi_detail($id)
-	{
-		$visi_misi = $this->db->where('id', $id)->get('visi_misi');
-		if ($visi_misi->num_rows() > 0) {
-			return $visi_misi->result();
-   
-		}else{
-			return false;
-		}
-	}
 	public function struktur_ppid_detail($id)
 	{
 		$struktur_ppid = $this->db->where('id', $id)->get('struktur_ppid');
