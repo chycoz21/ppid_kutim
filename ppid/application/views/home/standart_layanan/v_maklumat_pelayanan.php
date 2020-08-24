@@ -18,7 +18,7 @@
                 <?php foreach ($listmaklumatpelayanan as $data) { ?>
                     <img src="<?= base_url('assets/admin/upload/maklumat_pelayanan/'.$data['foto']);?>" alt="Maklumat Pelayanan" width="715.25px">
                 <?php } ?>
-            </div>
+            </div> 
             <!-- akhir table -->
 
             <!-- sidebar -->
