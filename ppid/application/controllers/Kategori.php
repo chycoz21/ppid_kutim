@@ -15,7 +15,7 @@ class Kategori extends CI_controller
 			'title' => 'PPID | Informasi Setiap Saat',
 			'listsaatini' => $this->m_kategori->getsaatini()->result_array()
 		);
-		$this->load->view('home/kategori/v_setiap_saat', $data);
+		$this->load->view('home/kategori/v_setiap_saat', $data, FALSE);
 		
 	}
 
@@ -23,31 +23,27 @@ class Kategori extends CI_controller
 	{
 		$data = array(
 			'title' => 'PPID | Berkala',
+			'listberkala' => $this->m_kategori->getberkala()->result_array()
 		);
-		$this->load->view('home/v_header', $data, FALSE);
-		$this->load->view('home/kategori/berkala', $data, FALSE);
-		$this->load->view('home/v_footer', $data, FALSE);
+		$this->load->view('home/kategori/v_berkala', $data, FALSE);
 		
 	}
 	public function serta_merta()
 	{
 		$data = array(
 			'title' => 'PPID | Serta Merta',
+			'listsertamerta' => $this->m_kategori->getsertamerta()->result_array()
 		);
-		$this->load->view('home/v_header', $data, FALSE);
-		$this->load->view('home/kategori/serta_merta', $data, FALSE);
-		$this->load->view('home/v_footer', $data, FALSE);
+		$this->load->view('home/kategori/v_serta_merta', $data, FALSE);
 		
 	}
 	public function dikecualikan()
 	{
 		$data = array(
 			'title' => 'PPID | Dikecualikan',
+			'listdikecualikan' => $this->m_kategori->getdikecualikan()->result_array()
 		);
-		$this->load->view('home/v_header', $data, FALSE);
-		$this->load->view('home/kategori/dikecualikan', $data, FALSE);
-		$this->load->view('home/v_footer', $data, FALSE);
-		
+		$this->load->view('home/kategori/v_dikecualikan', $data, FALSE);
 	}
 	
 

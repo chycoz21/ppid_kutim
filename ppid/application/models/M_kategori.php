@@ -7,5 +7,20 @@ class M_kategori extends CI_Model
 	{
 		return $this->db->query("SELECT * FROM daftar_informasi WHERE id_kategori='1' $where;");
 	}
+
+	function getberkala($where = '')
+	{
+		return $this->db->query("SELECT * FROM daftar_informasi WHERE id_kategori='2' $where;");
+	}
+
+	function getsertamerta($where = '')
+	{
+		return $this->db->query("SELECT * FROM daftar_informasi WHERE id_kategori='3' $where;");
+	}
+
+	function getdikecualikan($where = '')
+	{
+		return $this->db->query("SELECT * FROM daftar_informasi WHERE id_kategori='4' $where;");
+	}
 }
 ?>

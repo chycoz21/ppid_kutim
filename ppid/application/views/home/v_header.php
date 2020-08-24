@@ -43,9 +43,9 @@
                         </a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item " href="<?php echo base_url("in/Setiap-Saat") ?>">Informasi Setiap Saat</a>
-                            <a class="dropdown-item" href="<?php echo base_url("in/berkala") ?>">Informasi Berkala</a>
-                            <a class="dropdown-item" href="<?php echo base_url("in/serta_merta") ?>">Informasi Serta Merta</a>
-                            <a class="dropdown-item" href="<?php echo base_url("in/dikecualikan") ?>">Infromasi Dikecualikan</a>
+                            <a class="dropdown-item" href="<?php echo base_url("in/Berkala") ?>">Informasi Berkala</a>
+                            <a class="dropdown-item" href="<?php echo base_url("in/Serta-Merta") ?>">Informasi Serta Merta</a>
+                            <a class="dropdown-item" href="<?php echo base_url("in/Dikecualikan") ?>">Infromasi Dikecualikan</a>
                         </div>
                     </li>
                     <li class="nav-item active dropdown">
@@ -94,7 +94,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="<?= base_url('sl/Hak-dan-Kewajiban-Pemohon-Informasi');?>">Hak dan Kewajiban Pemohon Informasi</a>
                             <a class="dropdown-item" href="<?= base_url('sl/Hak-dan-Kewajiban-Bawaslu-dalam-Pelayanan-Informasi');?>">Hak dan Kewajiban Bawaslu dalam Pelayanan Informasi</a>
-                            <a class="dropdown-item" href="<?= base_url('s1/Maklumat-Pelayanan');?>">Maklumat Pelayanan</a>
+                            <a class="dropdown-item" href="<?= base_url('sl/Maklumat-Pelayanan');?>">Maklumat Pelayanan</a>
                             <a class="dropdown-item" href="<?= base_url('sl/Prosedur-Pelayanan-Informasi');?>">Prosedur Pelayanan Informasi</a>
                             <a class="dropdown-item" href="<?= base_url('sl/Prosedur-Pengajuan-Keberatan');?>">Prosedur Pengajuan Keberatan</a>
                             <a class="dropdown-item" href="<?= base_url('sl/Prosedur-Permohonan-Penyelesaian-Sengketa-Informasi');?>">Prosedur Permohonan Penyelesaian Sengketa Informasi</a>
