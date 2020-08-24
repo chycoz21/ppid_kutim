@@ -133,6 +133,27 @@ class M_data extends CI_Model
 			return false;
 		}
 	}
+
+	public function profile()
+	{
+		$profile = $this->db->where('id',$this->session->userdata('id') )->get('register_pemohon');
+		if ($profile->num_rows() > 0) {
+			return $profile->result();
+   
+		}else{
+			return false;
+		}
+	}
+	public function permohon()
+	{
+		$profile = $this->db->where('id_register',$this->session->userdata('id') )->get('permohonan_informasi');
+		if ($profile->num_rows() > 0) {
+			return $profile->result();
+   
+		}else{
+			return false;
+		}
+	}
 }
 
 

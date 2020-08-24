@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('m_page');
+$autoload['model'] = array('m_page','m_data','m_beranda','m_kategori','m_standart_layanan');

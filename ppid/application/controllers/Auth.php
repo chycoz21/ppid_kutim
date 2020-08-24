@@ -4,8 +4,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Auth extends CI_Controller {
 
 
+    
+    public function __construct()
+    {
+        parent::__construct();
+       
+
+    }
+    
+
+
 	public function login()
 	{
+        if ($this->session->userdata('email')) {
+            redirect('u/dashboard');
+        }
         $data = array(
 			'title' => 'PPID | Login',
 		);
@@ -82,14 +95,15 @@ class Auth extends CI_Controller {
 
         $user = $this->db->get_where('register_pemohon', ['email' => $email])->row_array();
         if ($user) {
-            if ($user['status'] == 1) {
+            if ($user['status'] == 2) {
                 if (password_verify($password, $user['password'])) {
                     $data = [
                         'email' => $user['email'],
+                        'id' => $user['id'],
                         'status' => $user['status']
                     ];
                     $this->session->set_userdata($data);
-                    if ($user['status'] == 1) {
+                    if ($user['status'] == 2) {
                         redirect('u/dashboard');
                     } else {
                         redirect('m/login');
@@ -107,4 +121,16 @@ class Auth extends CI_Controller {
             redirect('m/login');
         }
     }
+
+
+    public function logout()
+    {
+
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('status');
+        $this->session->unset_userdata('id');
+
+     echo $this->session->userdata('email');
+    }
+
 }

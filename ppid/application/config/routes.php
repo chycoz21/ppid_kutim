@@ -76,8 +76,12 @@ $route['sl/Biaya-Layanan'] = 'standart_layanan/Biaya-Layanan';
 
 $route['m/login'] = 'Auth/login';
 $route['m/registrasi'] = 'Auth/registrasi';
+
+
+
 $route['ac/simpan'] = 'Auth/registrasi_simpan';
 $route['ac/verivikasi'] = 'Auth/login_ac';
+
 
 $route['u/dashboard'] = 'user/dashboard';
 
