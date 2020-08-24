@@ -1,7 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Profile extends CI_Controller {
+class Profile extends CI_Controller 
+{
+	public function __Construct()
+	{
+		parent::__construct();
+		$this->load->model('m_profile');
+	}
 
 	public function dasar_hukum()
 	{
@@ -47,9 +53,8 @@ class Profile extends CI_Controller {
 	{
 		$data = array(
 			'title' => 'PPID | Visi & Misi PPID',
+			'listvisimisi' => $this->m_profile->getvisimisi()->result_array()
 		);
-		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/profile/visi_misi', $data, FALSE);
-		$this->load->view('home/v_footer', $data, FALSE);
     }
 }
