@@ -8,7 +8,7 @@
     <!-- akhir jumbotron -->
 
 
-    <!-- table -->
+    <!-- table sdfsdf-->
     <div class="row no-gutters my-5 justify-content-center">
 
         <div class="col-lg-6 mb-5">
@@ -20,7 +20,7 @@
               <div class="row">
                 <div class="col-lg-12 mb-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                   
-                  <form action="<?php echo base_url() ?>ac/verivikasi" method="POST" role="form">
+                  <form action="<?php echo base_url() ?>ac/verivikasi" method="POST">
                     
                     <div class="card">
                       <div class="card-header text-white bg">
