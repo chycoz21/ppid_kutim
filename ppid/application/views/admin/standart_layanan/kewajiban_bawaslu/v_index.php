@@ -47,7 +47,7 @@
                 <tr>  
                   <td class="text-center"><?= $no;?></td>
                   <td><?= $data['judul'];?></td>
-                  <td><?= $data['deskripsi'];?></td>
+                  <td class="text-justify"><?= $data['deskripsi'];?></td>
                   <td>
                     <a class="btn-sm btn btn-primary" href="<?= base_url('admin/dashboard/edit_kewajiban_bawaslu/'.$data['id_kewajiban_bawaslu']);?>"><i class="fa fa-pencil-alt"></i></a>
                   </td>
