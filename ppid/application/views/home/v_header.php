@@ -104,7 +104,16 @@
                     </li>
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo base_url() ?>m/login">Login</a>
+                     <?php if($this->session->userdata('email')){ ?>
+                        <a class="nav-link" href="<?php echo base_url() ?>m/logout">Logout</a>
+
+                     <?php }else{
+                        
+                      ?>
+
+<a class="nav-link" href="<?php echo base_url() ?>m/login">Login</a>
+
+                     <?php } ?>
                     </li>
                 </ul>
             </div>

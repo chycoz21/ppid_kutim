@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Agu 2020 pada 19.55
+-- Waktu pembuatan: 25 Agu 2020 pada 18.08
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -30,15 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `alamat` (
   `id` int(11) NOT NULL,
   `alamat` text NOT NULL,
-  `no_hp` varchar(225) NOT NULL
+  `no_hp` varchar(225) NOT NULL,
+  `email` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `alamat`
 --
 
-INSERT INTO `alamat` (`id`, `alamat`, `no_hp`) VALUES
-(1, 'sad', 'asd');
+INSERT INTO `alamat` (`id`, `alamat`, `no_hp`, `email`) VALUES
+(1, 'Jl.imam Bonjol', 'Aditya Maulidan', 'razeon0492@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -144,6 +145,26 @@ CREATE TABLE `maklumat_pelayanan` (
 INSERT INTO `maklumat_pelayanan` (`id_maklumat_pelayanan`, `judul`, `foto`) VALUES
 (1, 'MAKLUMAT PELAYANAN', '1598144099.jpg'),
 (1, 'MAKLUMAT PELAYANAN', '1598144099.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `media_sosial`
+--
+
+CREATE TABLE `media_sosial` (
+  `id` int(11) NOT NULL,
+  `media_sosial` varchar(225) NOT NULL,
+  `url` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `media_sosial`
+--
+
+INSERT INTO `media_sosial` (`id`, `media_sosial`, `url`) VALUES
+(1, 'facebook', 'https://www.youtube.com/watch?v=txuSN332M1U'),
+(2, 'sad', 'https://www.youtube.com/watch?v=txuSN332M1U');
 
 -- --------------------------------------------------------
 
@@ -324,7 +345,7 @@ CREATE TABLE `register_pemohon` (
 --
 
 INSERT INTO `register_pemohon` (`id`, `nik`, `nama`, `alamat`, `pekerjaan`, `email`, `notelp`, `password`, `status`) VALUES
-(6, 'asddd', 'Aditya', 'sad', 'asd', 'bijionta@gmail.com', '0812321313', '$2y$10$D.B7jI1mstqqg2QNGL1TkenL4tYotUKakMQbN8Wp40faR.BRSGKbG', 1);
+(6, 'asddd', 'Aditya', 'sad', 'asd', 'bijionta@gmail.com', '0812321313', '$2y$10$D.B7jI1mstqqg2QNGL1TkenL4tYotUKakMQbN8Wp40faR.BRSGKbG', 2);
 
 -- --------------------------------------------------------
 
@@ -358,7 +379,9 @@ INSERT INTO `riwayat_login` (`id`, `username`, `ip`, `sistem_oprasi`, `browser`,
 (10, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '03:00:46pm', 1),
 (11, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '03:01:04pm', 1),
 (12, 'Aditya232es', '::1', 'Windows 10', 'Chrome', '24-08-2020', '03:01:21pm', 1),
-(13, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '03:02:02pm', 1);
+(13, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '03:02:02pm', 1),
+(14, 'administrator', '::1', 'Windows 10', 'Chrome', '25-08-2020', '10:01:09pm', 1),
+(15, 'administrator', '::1', 'Windows 10', 'Chrome', '25-08-2020', '10:48:06pm', 1);
 
 -- --------------------------------------------------------
 
@@ -508,6 +531,12 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
+-- Indeks untuk tabel `media_sosial`
+--
+ALTER TABLE `media_sosial`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `page`
 --
 ALTER TABLE `page`
@@ -584,6 +613,12 @@ ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT untuk tabel `media_sosial`
+--
+ALTER TABLE `media_sosial`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT untuk tabel `page`
 --
 ALTER TABLE `page`
@@ -611,7 +646,7 @@ ALTER TABLE `register_pemohon`
 -- AUTO_INCREMENT untuk tabel `riwayat_login`
 --
 ALTER TABLE `riwayat_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `struktur_ppid`

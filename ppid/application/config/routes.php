@@ -81,6 +81,8 @@ $route['sl/Biaya-Layanan'] = 'standart_layanan/Biaya-Layanan';
 
 $route['m/login'] = 'Auth/login';
 $route['m/registrasi'] = 'Auth/registrasi';
+$route['m/logout'] = 'Auth/logout';
+
 
 
 
@@ -89,6 +91,9 @@ $route['ac/verivikasi'] = 'Auth/login_ac';
 
 
 $route['u/dashboard'] = 'user/dashboard';
+$route['u/berkala'] = 'user/dashboard/berkala';
+$route['u/serta_merta'] = 'user/dashboard/serta_merta';
+$route['u/dikecualikan'] = 'user/dashboard/dikecualikan';
 
 
 $route['404_override'] = '';

@@ -64,20 +64,22 @@
                     <a href="#permintaan" class="btn btn-warning btn-block">Formulir Permintaan Informasi</a>
                 </div>
 
-                <ul class="list-group text-center mt-5">
-                    <li class="list-group-item">
-                        <h1>KONTAK KAMI</h1>
-                    </li>
-                    <li class="list-group-item"><i class="fas fa-phone"></i>
-                        <br>0852 5052 4499
-                    </li>
-                    <li class="list-group-item"><i class="fas fa-envelope"></i>
-                        <br>bawaslu.kutim@gmail.com
-                    </li>
-                    <li class="list-group-item"><i class="fas fa-home"></i>
-                        <br>Jalan Yos Sudarso III Samping Bank BCA Kec. Sangatta Utara
-                    </li>
-                </ul>
+                <?php foreach($kontak as $ktk): ?>       
+                    <ul class="list-group text-center mt-5">
+                        <li class="list-group-item">
+                            <h1>KONTAK KAMI</h1>
+                        </li>
+                        <li class="list-group-item"><i class="fas fa-phone"></i>
+                            <br><?php echo $ktk->no_hp  ?>
+                        </li>
+                        <li class="list-group-item"><i class="fas fa-envelope"></i>
+                            <br><?php echo $ktk->email  ?>
+                        </li>
+                        <li class="list-group-item"><i class="fas fa-home"></i>
+                            <br><?php echo $ktk->alamat  ?>
+                        </li>
+                    </ul>     
+                <?php endforeach;?> 
             </div>
         </div>        
     </div>    
@@ -100,10 +102,10 @@
                 <button type="button" class="btn btn-warning"><i class="fab fa-facebook"></i><br>Facebook</button>
                 <button type="button" class="btn btn-warning"><i class="fab fa-instagram"></i><br>Instagram</button>
                 <button type="button" class="btn btn-warning"><i class="fab fa-twitter"></i><br>Twitter</button>
-                <button type="button" class="btn btn-warning"><i class="fab fa-youtube"></i><br>Youtube</button>
-            </div>
+            </div> 
         </div>
     </div>
+    <!-- akhir sidebar-->
 </section>
 <?php $this->load->view('home/v_footer'); ?>
 

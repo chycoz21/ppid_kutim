@@ -29,26 +29,21 @@
           <div class="card-body pad">
             <div class="mb-3">
              <?php foreach($edit as $edt) :?>
-                <form method="post" action="<?= base_url('admin/dashboard/simpan_edit_alamat/'.$edt->id);?>">
+                <form method="post" action="<?= base_url('admin/dashboard/simpan_edit_sosmed/'.$edt->id);?>">
                 <div class="form-group">
-                  <label>Alamat</label>
+                  <label>Nama Sosmed</label>
                   
-                  <input type="text" name="alamat" class="form-control" id="alamat" value="<?php echo $edt->alamat;?>">
+                  <input type="text" name="nama" class="form-control" id="nama" value="<?php echo $edt->media_sosial;?>">
                   
                 </div>  
                 
                 <div class="form-group">
-                  <label>Nomor Hp</label>
+                  <label>Url</label>
                   
-                  <input type="text" name="no_hp" id="no_hp"  class="form-control" value="<?php echo $edt->no_hp;?>">
-                  
-                </div>  
-                <div class="form-group">
-                  <label>Email</label>
-                  
-                  <input type="text" name="email" id="email"  class="form-control" value="<?php echo $edt->email;;?>">
+                  <input type="text" name="url" id="url"  class="form-control" value="<?php echo $edt->url;?>">
                   
                 </div>  
+           
                 
                
                 <div class="form-group">

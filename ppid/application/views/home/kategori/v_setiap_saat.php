@@ -31,9 +31,19 @@
                                 <tr>
                                     <td class="text-center"><?= $no; ?></td>
                                     <td><?= $data['nama_file'];?></td>
+
                                     <td class="text-center">
+                                       
+                                    <?php if($this->session->userdata('status') == 2){ ?>
                                         <a target="_blank" class="btn-sm btn-warning" href="<?= $data['link_file'];?>">Unduh <i class="fa fa-download"></i></a>
+
+                                    <?php }else{ ?>
+                                        <button type="button" class="btn-sm btn-warning" data-toggle="modal" data-target="#exampleModalCenter">
+Unduh <i class="fa fa-download"></i>
+</button>
+                                    <?php } ?>
                                     </td>
+                        
                                 </tr>
                                 <?php $no++; } ?>
                             </tbody>
@@ -66,20 +76,22 @@
                     <a href="#permintaan" class="btn btn-warning btn-block">Formulir Permintaan Informasi</a>
                 </div>
 
-                <ul class="list-group text-center mt-5">
+                
+                <?php foreach($kontak as $ktk): ?>       
+                    <ul class="list-group text-center mt-5">
                     <li class="list-group-item">
                         <h1>KONTAK KAMI</h1>
                     </li>
                     <li class="list-group-item"><i class="fas fa-phone"></i>
-                        <br>0852 5052 4499
+                        <br><?php echo $ktk->no_hp  ?>
                     </li>
                     <li class="list-group-item"><i class="fas fa-envelope"></i>
-                        <br>bawaslu.kutim@gmail.com
+                        <br><?php echo $ktk->email  ?>
                     </li>
                     <li class="list-group-item"><i class="fas fa-home"></i>
-                        <br>Jalan Yos Sudarso III Samping Bank BCA Kec. Sangatta Utara
+                        <br><?php echo $ktk->alamat  ?>
                     </li>
-                </ul>
+                </ul>     <?php endforeach;?> 
             </div>
         </div>
     </div>        
@@ -118,3 +130,19 @@
     $("#table-saat-ini").DataTable();
   });
 </script>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+    
+      <div class="modal-body">
+         <center> <h5>Gagal!</h5></center>
+      Untuk mendownload file anda diharuskan login terdahulu, silahkan login!
+      </div>
+
+    <center>  <div class="col-lg-5">  <a href="<?php echo base_url() ?>m/login" class="btn btn-primary ">Login</a></div></center>
+
+    <br><br>
+    </div>
+  </div>
+</div>
