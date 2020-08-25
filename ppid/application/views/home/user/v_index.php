@@ -156,22 +156,13 @@
               <br>
               <h3 class="text-black text-center"><?php echo $pf->nama ?></h3>
               <ul class="list-unstyled footer-link">
-                <li class="d-block mb-3">
-                  <span class="d-block text-black">Tanggal Lahir </span>
-                  <span>13-11-1999</span>
-                </li>
-                <li class="d-block mb-3">
-                  <span class="d-block text-black">Jenis Kelamin</span>
-                  <span>Laki-laki</span>
-                </li>
+              
+             
                 <li class="d-block mb-3">
                   <span class="d-block text-black">Alamat</span>
                   <span><?php echo $pf->alamat ?></span>
                 </li>
-                <li class="d-block mb-3">
-                  <span class="d-block text-black">Kota</span>
-                  <span>Kutai timur</span>
-                </li>
+               
                 <li class="d-block mb-3">
                   <span class="d-block text-black">E-mail</span>
                   <span><?php echo $pf->email ?> </span>
