@@ -130,7 +130,9 @@ class Auth extends CI_Controller {
         $this->session->unset_userdata('status');
         $this->session->unset_userdata('id');
 
-     echo $this->session->userdata('email');
+        
+        redirect('Beranda');
+        
     }
 
 }

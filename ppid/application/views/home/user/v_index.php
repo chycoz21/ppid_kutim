@@ -34,7 +34,7 @@
                           
                                                         
                                 <div class="col-md-3 col-lg-3">
-                                  <a href="#">
+                                  <a href="<?php echo base_url() ?>u/dashboard">
                                     <div class="block__35630">
                                       <div class="icon mb-0 text-center">
                                         <!-- <span class="glyphicon glyphicon-file"></span> -->
@@ -48,7 +48,7 @@
 
                                                         
                                 <div class="col-md-3 col-lg-3">
-                                  <a href="#">
+                                  <a href="<?php echo base_url() ?>u/berkala">
                                     <div class="block__35630">
                                       <div class="icon mb-0 text-center">
                                         <!-- <span class="glyphicon glyphicon-file"></span> -->
@@ -62,7 +62,7 @@
 
                                                         
                                 <div class="col-md-3 col-lg-3">
-                                  <a href="#">
+                                  <a href="<?php echo base_url() ?>u/serta_merta">
                                     <div class="block__35630">
                                       <div class="icon mb-0 text-center">
                                         <!-- <span class="glyphicon glyphicon-file"></span> -->
@@ -76,7 +76,7 @@
 
                                                         
                                 <div class="col-md-3 col-lg-3">
-                                  <a href="#">
+                                  <a href="<?php echo base_url() ?>u/dikecualikan">
                                     <div class="block__35630">
                                       <div class="icon mb-0 text-center">
                                         <!-- <span class="glyphicon glyphicon-file"></span> -->
@@ -100,98 +100,42 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h4>LIST INFORMASI SETIAP SAAT</h4>
+                    <h4>LIST INFORMASI <?php echo $judul  ?></h4>
                     <table id="table" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Kategori</th>
                                 <th>Nama File</th>
+              
                                 <th>Unduh</th>
 
                             </tr>
                         </thead>
                         <tbody>
+
+                          
+                          <?php foreach($info as $ss): ?>       
+                            
+                            
                             <tr>
-                                <td>1</td>
-                                <td>taa</td>
-                                <td>Tiger Nixon</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
+                                <td><?php echo $ss['id_daftar_informasi'] ?></td>
+                                <td><?php if($ss['id_kategori'] == 1) {
+                                echo 'Informasi Setiap Saat';
+                                }elseif ($ss['id_kategori'] == 2) {
+                                  echo 'Informasi Berkala';
+                                  }elseif ($ss['id_kategori'] == 3) {
+                                    echo 'Informasi Serta Merta';
+                                    }elseif ($ss['id_kategori'] == 4) {
+                                      echo 'Informasi Dikecualikan';
+                                      } ?></td>
+                                <td><?php echo $ss['nama_file'] ?></td>
+                                
+                                <td class="text-center"><a href="<?php echo $ss['link_file'] ?>" type="button" class="btn btn-warning">Unduh</a>
                                 </td>
 
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>taa</td>
-                                <td>Garrett Winters</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>taa</td>
-                                <td>Junior Technical Author</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>taa</td>
-                                <td>Cedric Kelly</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>taa</td>
-                                <td>Airi Satou</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>taa</td>
-                                <td>Brielle Williamson</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>taa</td>
-                                <td>Herrod Chandler</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>taa</td>
-                                <td>Rhona Davidson</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>taa</td>
-                                <td>Colleen Hurst</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>taa</td>
-                                <td>Sonya Frost</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
+                            </tr><?php endforeach;?> 
+                            
 
                         </tbody>
 

@@ -149,6 +149,27 @@ class M_data extends CI_Model
 			return false;
 		}
 	}
+	public function where_data($id)
+	{
+		$profile = $this->db->where('id',$id )->get('alamat');
+		if ($profile->num_rows() > 0) {
+			return $profile->result();
+   
+		}else{
+			return false;
+		}
+	}
+	public function edit_sosmed_detail($id)
+	{
+		$profile = $this->db->where('id',$id )->get('media_sosial');
+		if ($profile->num_rows() > 0) {
+			return $profile->result();
+   
+		}else{
+			return false;
+		}
+	}
+	
 }
 
 
