@@ -1,3 +1,4 @@
+<?php $this->load->view('admin/dashboard/v_header'); ?>
 <!-- content-header -->
 <section class="content-header bg-white" height="70">
   <div class="container-fluid">
@@ -107,5 +108,132 @@
       <!-- /.Left col -->
     </div>
     <!-- /.row (main row) -->
+     <!-- Main row -->
+    <div class="row">
+      <!-- Left col -->
+      <section class="col-lg-12 connectedSortable">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-outline card-warning">
+              <div class="card-header">
+                <h3 class="card-title">
+                  Formulir Permintaan Sedang Diproses
+                </h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body pad">
+                <div class="mb-3">
+                  <?php
+                    $berhasil = $this->session->flashdata('berhasil');
+                    if ($berhasil) {
+                  ?>
+                    <div class="alert alert-success text-white fade show" role="alert">
+                      <strong><?= $berhasil ?></strong>
+                    </div>
+                  <?php } ?>
+                  <table id="table-formulir-permintaan-diproses" class="table table-bordered table-responsive" width="100%">
+                    <thead>
+                      <tr>
+                        <th class="text-center">No</th>
+                        <th>NIK</th>
+                        <th>Nama</th>
+                        <th>Rincian Informasi</th>
+                        <th>Tujuan Informasi</th>
+                        <th>Memperoleh Informasi</th>
+                        <th>Mendapatkan Informasi</th>
+                        <th>Foto</th>
+                        <th class="text-center">Status</th>
+                        <th>Aksi</th> 
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php $no=1; foreach ($listregistrasi as $data) { ?>
+                      <tr>  
+                        <td class="text-center"><?= $no;?></td>
+                        <td><?= $data['nik'];?></td>
+                        <td><?= $data['nama'];?></td>
+                        <td><?= $data['rincian'];?></td>
+                        <td><?= $data['tujuan'];?></td>
+                        <td>
+                          <?php if ($data['memperoleh'] == "1") { ?>
+                            <span>Melihat / Membaca / Mendengarkan / Mencatat</span>
+                          <?php }else if ($data['memperoleh'] == "2") { ?> 
+                            <span>Mendapat Salinan Informasi (Handphone / Soft Copy)</span>
+                          <?php } ?>
+                        </td>
+                        <td>
+                          <?php if ($data['mendapatkan'] == "1") { ?>
+                            <span>Mendapatkan Informasi</span>
+                          <?php }else if ($data['mendapatkan'] == "2") { ?> 
+                            <span>Mengambil Langsung</span>
+                          <?php }else if ($data['mendapatkan'] == "3") { ?> 
+                            <span>Kurir</span>
+                          <?php }else if ($data['mendapatkan'] == "4") { ?> 
+                            <span>POS</span>
+                          <?php }else if ($data['mendapatkan'] == "5") { ?> 
+                            <span>Fakmsimili</span>
+                          <?php }else if ($data['mendapatkan'] == "6") { ?> 
+                            <span>Email</span> 
+                          <?php } ?>
+                        </td>
+                        <td><img src="<?= base_url('assets/ktp/'.$data['ktp']);?>" alt="KTP" width="120" height="120"></td>
+                        <td>
+                          <?php if ($data['status'] == "1") { ?>
+                            <span class="badge badge-pill badge-danger">Belum AKtif</span>
+                          <?php } ?>
+                        </td>
+                        <td>
+                          <?php if ($data['status'] == "1") { ?>
+                            <a class="mt-1 btn-sm btn btn-primary" href="<?= base_url('admin/dashboard/actiondaftarinformasi');?>" data-toggle="modal" data-target="#konfirmasi-data<?= $data['id'];?>"><i class="fa fa-pencil-alt"></i></a>
+                           <?php }else{ ?>
+                          <?php } ?>
+                        </td>
+                      </tr>
+                      <!-- Modal -->
+                      <div class="modal fade" id="konfirmasi-data<?= $data['id'];?>" tabindex="-1" aria-labelledby="hapus-data" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <form method="post" action="<?= base_url('admin/dashboard/actionregistrasi');?>">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="hapus-data">Konfirmasi User</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <p>Apakah anda ingin konfirmasi data ini?</p>
+                                <input type="hidden" name="id" id="id" value="<?= $data['id'];?>">
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="mr-auto btn-sm btn-default" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn-sm btn-primary">Konfirnmasi Data</button>
+                              </div>
+                            </form>  
+                          </div>
+                        </div>
+                      </div>
+                      <?php $no++; } ?>  
+                    </tbody>   
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.col-->
+        </div>
+        <!-- ./row -->
+      </section>
+      <!-- /.Left col -->
+    </div>
+    <!-- /.row (main row) -->
   </div><!-- /.container-fluid -->
 </section>
+<?php $this->load->view('admin/dashboard/v_footer'); ?>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#table-formulir-permintaan-diproses").DataTable();
+});
+</script>
+
+

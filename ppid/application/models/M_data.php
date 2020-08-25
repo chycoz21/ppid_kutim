@@ -2,6 +2,11 @@
 
 class M_data extends CI_Model
 {
+	function getregistrasi()
+	{
+		return $this->db->query("SELECT * FROM register_pemohon LEFT JOIN permohonan_informasi ON register_pemohon.id = permohonan_informasi.id_register WHERE register_pemohon.status='1' AND permohonan_informasi.status='1' ");
+	}
+
 	function getkategoriinformasi($where = '')
 	{
 		return $this->db->query("SELECT * FROM kategori $where");

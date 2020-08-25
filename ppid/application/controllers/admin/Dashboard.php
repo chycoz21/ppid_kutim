@@ -17,10 +17,24 @@ class Dashboard extends CI_controller {
 
 	public function index()
 	{
-		$this->load->view('admin/dashboard/v_header');
-		$this->load->view('admin/dashboard/v_index');
-		$this->load->view('admin/dashboard/v_footer');
+		$data = array(
+			'listregistrasi' => $this->m_data->getregistrasi()->result_array()
+		);
+		$this->load->view('admin/dashboard/v_index',$data);
 	} 
+
+	public function actionregistrasi()
+	{
+		$id = $this->input->post('id', TRUE);
+		$id_register = $this->input->post('id_register', TRUE);
+		$data = array(
+			'status' => 2
+		);
+		$this->db->update('register_pemohon', $data, array('id' => $id));
+		$this->db->update('permohonan_informasi', $data, array('id_register' => $id));
+		$this->session->set_flashdata('berhasil', 'Berhasil Update Register');
+		redirect(base_url('admin/dashboard/index'), 'refresh');
+	}
 
 	public function keluar(){
 		$this->session->sess_destroy();
@@ -1452,3 +1466,4 @@ class Dashboard extends CI_controller {
 	}
 
 }
+?>
