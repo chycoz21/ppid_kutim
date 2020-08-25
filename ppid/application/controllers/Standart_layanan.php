@@ -13,7 +13,9 @@ class Standart_layanan extends CI_controller
 	{
 		$data = array(
 			'title' => 'PPID BAWASLU KUTIM',
+				'kontak' => $this->db->get('alamat')->result(),
 			'listhakkewajiban' => $this->m_standart_layanan->gethakkewajiban()->result_array()
+			
 		);
 		$this->load->view('home/standart_layanan/v_hak_kewajiban', $data);
 	}
@@ -22,6 +24,7 @@ class Standart_layanan extends CI_controller
 	{
 		$data = array(
 			'title' => 'PPID BAWASLU KUTIM',
+				'kontak' => $this->db->get('alamat')->result(),
 			'listhakkewajibanpelayanan' => $this->m_standart_layanan->gethakkewajibanpelayanan()->result_array()
 		);
 		$this->load->view('home/standart_layanan/v_hak_kewajiban_pelayanan', $data);
@@ -31,6 +34,7 @@ class Standart_layanan extends CI_controller
 	{
 		$data = array(
 			'title' => 'PPID BAWASLU KUTIM',
+				'kontak' => $this->db->get('alamat')->result(),
 			'listmaklumatpelayanan' => $this->m_standart_layanan->getmaklumatpelayanan()->result_array()
 		);
 		$this->load->view('home/standart_layanan/v_maklumat_pelayanan', $data);
@@ -40,6 +44,7 @@ class Standart_layanan extends CI_controller
 	{
 		$data = array(
 			'title' => 'PPID BAWASLU KUTIM',
+				'kontak' => $this->db->get('alamat')->result(),
 			'listprosedurpelayananinformasi' => $this->m_standart_layanan->getprosedurpelayananinformasi()->result_array()
 		);
 		$this->load->view('home/standart_layanan/v_prosedur_pelayanan_informasi', $data);
@@ -49,6 +54,7 @@ class Standart_layanan extends CI_controller
 	{
 		$data = array(
 			'title' => 'PPID BAWASLU KUTIM',
+				'kontak' => $this->db->get('alamat')->result(),
 			'listprosedurpengajuankeberatan' => $this->m_standart_layanan->getprosedurpengajuankeberatan()->result_array()
 		);
 		$this->load->view('home/standart_layanan/v_prosedur_pengajuan_keberatan', $data);
@@ -58,6 +64,7 @@ class Standart_layanan extends CI_controller
 	{
 		$data = array(
 			'title' => 'PPID BAWASLU KUTIM',
+				'kontak' => $this->db->get('alamat')->result(),
 			'listprosedurpermohonansengketa' => $this->m_standart_layanan->getprosedurpermohonansengketa()->result_array()
 		);
 		$this->load->view('home/standart_layanan/v_permohonan_sengketa', $data);
@@ -67,6 +74,7 @@ class Standart_layanan extends CI_controller
 	{
 		$data = array(
 			'title' => 'PPID BAWASLU KUTIM',
+				'kontak' => $this->db->get('alamat')->result(),
 			'listwaktulayanan' => $this->m_standart_layanan->getwaktulayanan()->result_array()
 		);
 		$this->load->view('home/standart_layanan/v_waktu_layanan', $data);
@@ -76,6 +84,7 @@ class Standart_layanan extends CI_controller
 	{
 		$data = array(
 			'title' => 'PPID BAWASLU KUTIM',
+				'kontak' => $this->db->get('alamat')->result(),
 			'listbiayalayanan' => $this->m_standart_layanan->getbiayalayanan()->result_array()
 		);
 		$this->load->view('home/standart_layanan/v_biaya_layanan', $data);
