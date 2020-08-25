@@ -12,6 +12,7 @@ class Layananio extends CI_controller
 	{
 		$data = array(
 			'title' => 'PPID | Alur',
+			'kontak' => $this->db->get('alamat')->result(),
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/layananio/alur_permohonan', $data, FALSE);
@@ -22,6 +23,7 @@ class Layananio extends CI_controller
 	{
 		$data = array(
 			'title' => 'PPID | Status',
+			'kontak' => $this->db->get('alamat')->result(),
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/layananio/cek_permohonan', $data, FALSE);
@@ -32,6 +34,7 @@ class Layananio extends CI_controller
 	{
 		$data = array(
 			'title' => 'PPID | Ringkasan',
+			'kontak' => $this->db->get('alamat')->result(),
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/layananio/ringkasan_permohonan', $data, FALSE);
