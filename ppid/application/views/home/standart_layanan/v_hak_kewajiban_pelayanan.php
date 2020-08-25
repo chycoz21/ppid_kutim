@@ -26,17 +26,13 @@
                 <div class="list-kategori mb-5 mx-5">
                     <h3>KATEGORI</h3>
                     <ul class="list-group list-group-flush">
-
-                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i>Informasi Setiap
-                            Saat
+                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i><a href="<?= base_url('in/Setiap-Saat');?>">Informasi Setiap Saat</a>
                         </li>
-                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i>Informasi Berkala
+                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i><a href="<?= base_url('in/Berkala');?>">Informasi Berkala</a>
                         </li>
-                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i>Informasi Serta
-                            Merta
+                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i><a href="<?= base_url('in/Serta-Merta');?>">Informasi Serta Merta</a>
                         </li>
-                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i>Informasi
-                            Dikecualikan
+                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i><a href="<?= base_url('in/Dikecualikan');?>">Informasi Dikecualikan</a>
                         </li>
                     </ul>
                 </div>

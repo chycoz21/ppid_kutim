@@ -1,8 +1,8 @@
-  <!-- jumbotron -->
-  <div class="card bg-dark text-white">
-        <img class="card-img" src="<?php echo base_url() ?>/assets/home/img/form_image.jpg" alt="Card image">
+<!-- jumbotron -->
+    <div class="card bg-dark text-white">
+        <img class="card-img" src="<?php echo base_url() ?>assets/home/img/profil1.jpg" alt="Card image">
         <div class="card-img-overlay text-center">
-            <h1 class="card-title ">INFORMASI SERTA MERTA</h1>
+            <h1 class="card-title ">LIST REGULASI</h1>
         </div>
     </div>
     <!-- akhir jumbotron -->
@@ -11,91 +11,28 @@
     <!-- table -->
     <div class="row no-gutters my-5 justify-content-center">
 
-        <div class="col-lg-6 mb-4">
+        <div class="col-lg-7 mb-5">
 
             <div class="card">
                 <div class="card-body">
-                    <h4>LIST INFORMASI SERTA MERTA</h4>
-                    <table id="table" class="table table-striped table-bordered" style="width:100%">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Nama File</th>
-                                <th>Unduh</th>
+                                <th>JUDUL REGULASI</th>
+                                <th>TENTANG</th>
+                                <th>LINK DOWNLOAD</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>Tiger Nixon</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
+                                <td>Undang-Undang No 14 Tahun 2008</td>
+                                <td>Keterbukaan Informasi Publik</td>
+                                <td class="text-center"><a href="#">Klik Disini</a>
                                 </td>
 
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Garrett Winters</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Junior Technical Author</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Cedric Kelly</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Airi Satou</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Brielle Williamson</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Herrod Chandler</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>Rhona Davidson</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>Colleen Hurst</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>Sonya Frost</td>
-                                <td class="text-center"><button type="button" class="btn btn-warning">Unduh</button>
-                                </td>
-
-                            </tr>
+                            
 
                         </tbody>
 
@@ -167,4 +104,3 @@
             </div>
         </div>
     </section>
-    <!-- ikuti kami -->
