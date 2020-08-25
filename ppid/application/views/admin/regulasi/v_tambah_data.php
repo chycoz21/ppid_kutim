@@ -28,32 +28,20 @@
           <!-- /.card-header -->
           <div class="card-body pad">
             <div class="mb-3">
-              <form method="post" action="<?= base_url('admin/dashboard/actiondaftarinformasi') ?>">
+              <form method="post" action="<?= base_url('admin/dashboard/actionregulasi') ?>">
                   <div class="form-group">
-                    <label>Nama File</label>
+                    <label>Judul Regulasi</label>
                     <input type="hidden" name="statusdata" class="form-control" value="Tambah Data">
-                    <input type="text" name="nama_file" class="form-control" placeholder="Nama File">
+                    <input type="text" name="judul" class="form-control" placeholder="Judul Regulasi">
+                  </div>
+                  <div class="form-group">
+                    <label>Tentang Regulasi</label>
+                    <input type="text" name="tentang" class="form-control" placeholder="Tentang Regulasi">
                   </div>
                   <div class="form-group">
                     <label>Link File</label>
                     <input type="text" name="link_file" class="form-control" placeholder="Link File">
-                  </div>
-                  <div class="form-group">
-                    <label>Kategori Informasi</label>
-                    <input type="hidden" name="statusdata" value="Tambah Data">
-                    <select name="id_kategori" class="form-control select2">
-                      <?php foreach ($listkategoriinformasi as $data) { ?>
-                        <option value="<?= $data['id_kategori'];?>"><?= $data['nama_kategori'];?></option>
-                      <?php } ?>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Status</label>
-                    <select name="status" class="form-control">
-                      <option value="1">Publish</option>
-                      <option value="0">Tidak Publish</option>
-                    </select>
-                  </div>  
+                  </div> 
                   <div class="form-group">
                     <button type="submit" class="btn-sm btn-primary">Simpan Data</button>
                   </div>  

@@ -217,6 +217,74 @@ class Dashboard extends CI_controller {
 		}
 	}
 
+	public function ringkasan_layanan()
+	{
+		$data = array(
+			'title' => 'Ringkasan Layanan',
+			'subtitle' => 'Data Ringkasan Layanan',
+			'listringkasanlayanan' => $this->m_data->getringkasanlayanan()->result_array()
+
+		);
+		$this->load->view('admin/ringkasan_layanan/v_index', $data);
+	}
+
+	public function tambah_ringkasan_layanan()
+	{
+		$data = array(
+			'subtitle' => 'Tambah Ringkasan Layanan',
+			'judul' => '',
+			'link_file' => ''
+		);
+		$this->load->view('admin/ringkasan_layanan/v_tambah_data', $data);
+	}
+
+	public function edit_ringkasan_layanan($id_ringkasan_layanan = '')
+	{
+		$ringkasan_layanan = $this->m_data->getringkasanlayanan("WHERE id_ringkasan_layanan='$id_ringkasan_layanan' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Daftar Informasi',
+			'id_ringkasan_layanan' => $ringkasan_layanan[0]['id_ringkasan_layanan'],
+			'judul' => $ringkasan_layanan[0]['judul'],
+			'link_file' => $ringkasan_layanan[0]['link_file']
+		);
+		$this->load->view('admin/ringkasan_layanan/v_edit_data', $data);
+	}
+
+	public function actionringkasanlayanan()
+	{
+		$judul = $this->input->post('judul');
+		$link_file = $this->input->post('link_file');
+		$statusdata = $this->input->post('statusdata');
+		if($statusdata == "Tambah Data")
+		{
+			$data = array(
+				'judul' => $judul,
+				'link_file' => $link_file
+			);
+			$this->m_data->InsertData('ringkasan_layanan', $data);
+			$this->session->set_flashdata('berhasil', 'Berhasil Tambah Ringkasan Layanan');
+			redirect(base_url('admin/dashboard/ringkasan_layanan'), 'refresh');
+		}
+		if($statusdata == "Update Data")
+		{
+			$id_ringkasan_layanan = $this->input->post('id_ringkasan_layanan');
+			$data = array(
+				'judul' => $judul,
+				'link_file' => $link_file
+			);
+			$this->m_data->UpdateData('ringkasan_layanan', $data, array('id_ringkasan_layanan' => $id_ringkasan_layanan));
+			$this->session->set_flashdata('berhasil', 'Berhasil Update Ringkasan Layanan');
+			redirect(base_url('admin/dashboard/ringkasan_layanan'), 'refresh');
+		}
+		if($statusdata == "Hapus Data")
+		{
+			$id_ringkasan_layanan = $this->input->post('id_ringkasan_layanan');
+			$this->m_data->HapusData('ringkasan_layanan', array('id_ringkasan_layanan' => $id_ringkasan_layanan));
+			$this->session->set_flashdata('berhasil', 'Berhasil Hapus Ringkasan Layanan');
+			redirect(base_url('admin/dashboard/ringkasan_layanan'), 'refresh');
+		}
+	}
+
 	public function page()
 	{
 		$data['page'] = $this->db->get('page')->result();
@@ -990,6 +1058,79 @@ class Dashboard extends CI_controller {
 	      	} 
 	      	redirect(base_url("admin/dashboard/slider_image"));
 	    }
+	}
+
+	public function regulasi()
+	{
+		$data = array(
+			'title' => 'Regulasi',
+			'subtitle' => 'Data Regulasi',
+			'listregulasi' => $this->m_data->getregulasi()->result_array()
+
+		);
+		$this->load->view('admin/regulasi/v_index', $data);
+	}
+
+	public function tambah_regulasi()
+	{
+		$data = array(
+			'subtitle' => 'Tambah Regulasi',
+			'judul' => '',
+			'tentang' => '',
+			'link_file' => ''
+		);
+		$this->load->view('admin/regulasi/v_tambah_data', $data);
+	}
+
+	public function edit_regulasi($id_regulasi = '')
+	{
+		$regulasi = $this->m_data->getregulasi("WHERE id_regulasi='$id_regulasi' ")->result_array();
+		$data = array(
+			'subtitle' => 'Edit Regulasi',
+			'id_regulasi' => $regulasi[0]['id_regulasi'],
+			'judul' => $regulasi[0]['judul'],
+			'tentang' => $regulasi[0]['tentang'],
+			'link_file' => $regulasi[0]['link_file']
+		);
+		$this->load->view('admin/regulasi/v_edit_data', $data);
+	}
+
+	public function actionregulasi()
+	{
+		$judul = $this->input->post('judul');
+		$tentang = $this->input->post('tentang');
+		$link_file = $this->input->post('link_file');
+		$statusdata = $this->input->post('statusdata');
+		if ($statusdata == "Tambah Data")
+		{
+			$data = array(
+				'judul' => $judul,
+				'tentang' => $tentang,
+				'link_file' => $link_file
+			);
+			$this->m_data->InsertData('regulasi', $data);
+			$this->session->set_flashdata('berhasil', 'Berhasil Tambah Regulasi');
+			redirect(base_url('admin/dashboard/regulasi'), 'refresh');
+		}
+		if ($statusdata == "Update Data")
+		{
+			$id_regulasi = $this->input->post('id_regulasi');
+			$data = array(
+				'judul' => $judul,
+				'tentang' => $tentang,
+				'link_file' => $link_file
+			);
+			$this->m_data->UpdateData('regulasi', $data, array('id_regulasi' => $id_regulasi));
+			$this->session->set_flashdata('berhasil', 'Berhasil Update Regulasi');
+			redirect(base_url('admin/dashboard/regulasi'), 'refresh');
+		}
+		if ($statusdata == "Hapus Data")
+		{
+			$id_regulasi = $this->input->post('id_regulasi');
+			$this->m_data->HapusData('regulasi', array('id_regulasi' => $id_regulasi));
+			$this->session->set_flashdata('berhasil', 'Berhasil Hapus Regulasi');
+			redirect(base_url('admin/dashboard/regulasi'), 'refresh');
+		}
 	}
 
 	public function user_management()

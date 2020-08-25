@@ -66,7 +66,7 @@ $route['p/tugas'] = 'profile/tugas';
 $route['p/struktur'] = 'profile/struktur';
 $route['p/visi_misi'] = 'profile/visi_misi';
 
-$route['r/list_regulasi'] = 'regulasi/list_regulasi';
+$route['r/List-Regulasi'] = 'regulasi/List-Regulasi';
 
 $route['sl/Hak-dan-Kewajiban-Pemohon-Informasi'] = 'standart_layanan/Hak-dan-Kewajiban-Pemohon-Informasi';
 $route['sl/Hak-dan-Kewajiban-Bawaslu-dalam-Pelayanan-Informasi'] = 'standart_layanan/Hak-dan-Kewajiban-Bawaslu-dalam-Pelayanan-Informasi';

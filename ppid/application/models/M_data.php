@@ -12,6 +12,11 @@ class M_data extends CI_Model
 		return $this->db->query("SELECT daftar_informasi.*,kategori.nama_kategori FROM daftar_informasi LEFT JOIN kategori ON daftar_informasi.id_kategori = kategori.id_kategori $where;");
 	}
 
+	function getringkasanlayanan($where = '')
+	{
+		return $this->db->query("SELECT * FROM ringkasan_layanan $where");
+	}
+
 	function getvisimisi($where = '')
 	{
 		return $this->db->query("SELECT * FROM visi_misi $where;");
@@ -60,6 +65,11 @@ class M_data extends CI_Model
 	function getsliderimage($where = '')
 	{
 		return $this->db->query("SELECT * FROM slider_image $where;");
+	}
+
+	function getregulasi($where = '')
+	{
+		return $this->db->query("SELECT * FROM regulasi $where;");
 	}
 
 	function cek_login($table,$where){
@@ -150,6 +160,4 @@ class M_data extends CI_Model
 		}
 	}
 }
-
-
- ?>
+?>

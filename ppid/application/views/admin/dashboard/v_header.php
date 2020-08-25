@@ -122,6 +122,14 @@
             </ul>
           </li>
           <li class="nav-item">
+            <a href="<?php echo base_url().'admin/dashboard/ringkasan_layanan'?>" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                RINGKASAN LAYANAN
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="<?php echo base_url().'admin/dashboard/artikel'?>" class="nav-link">
               <i class="nav-icon fas fa-pencil-alt"></i>
               <p>
@@ -195,6 +203,14 @@
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url().'admin/dashboard/regulasi'?>" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                REGULASI
+              </p>
+            </a>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

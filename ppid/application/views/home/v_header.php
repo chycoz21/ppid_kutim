@@ -81,7 +81,7 @@
                             Regulasi
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="<?php echo base_url("r/list_regulasi") ?>">List Regulasi</a>
+                            <a class="dropdown-item" href="<?php echo base_url("r/List-Regulasi") ?>">List Regulasi</a>
 
                         </div>
                     </li>
