@@ -187,19 +187,22 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
-            <div class="col-lg-4">
+           
+
+            <?php foreach($kontak as $ktk): ?>
+                <div class="col-lg-4">
                 <ul class="list-group text-center">
                     <li class="list-group-item">
                         <h1>KONTAK KAMI</h1>
                     </li>
                     <li class="list-group-item"><i class="fas fa-phone"></i>
-                        <br>0852 5052 4499
+                        <br><?php echo $ktk->no_hp  ?>
                     </li>
                     <li class="list-group-item"><i class="fas fa-envelope"></i>
-                        <br>bawaslu.kutim@gmail.com
+                        <br><?php echo $ktk->email  ?>
                     </li>
                     <li class="list-group-item"><i class="fas fa-home"></i>
-                        <br>Jalan Yos Sudarso III Samping Bank BCA Kec. Sangatta Utara
+                        <br><?php echo $ktk->alamat  ?>
                     </li>
                 </ul>
                 <div class="map mt-5 text-center img-thumbnail">
@@ -210,6 +213,8 @@
                 </div>
             </div>
         </div>
+        
+        <?php endforeach;?> 
         <!-- akhir kontak kami -->
     </div>
 </section>

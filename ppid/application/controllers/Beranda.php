@@ -11,7 +11,9 @@ class Beranda extends CI_controller
 	public function index()
 	{
 		$data = array(
-			'title' => 'PPID BAWASLU KUTIM'
+			'title' => 'PPID BAWASLU KUTIM',
+			'kontak' => $this->db->get('alamat')->result(),
+			
 		);
 		$this->load->view('home/v_beranda', $data);
 	}
