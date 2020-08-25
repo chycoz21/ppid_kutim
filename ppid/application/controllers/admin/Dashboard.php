@@ -1233,7 +1233,96 @@ class Dashboard extends CI_controller {
 	    
 	}
 
-	 
+	//  dasar hukum
+
+	public function dasar_hukum()
+	{
+		$data['data'] = $this->db->get('dasar_hukum')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/dasar_hukum/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+
+	public function edit_dasar_hukum($id)
+	{
+		$data['data'] =  $this->m_data->dasar_hukum_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/dasar_hukum/v_edit_dasar_hukum',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_dasar_hukum($id)
+	{
+	
+		$gambar    = $_FILES['gambar']['name'];
+		if ($gambar ='') {
+			
+		}else {
+			$config ['upload_path'] = './assets/admin/upload/dasar_hukum/';
+				$config ['allowed_types'] = 'jpg|jpeg|png|gif';
+
+				$this->load->library('upload', $config);
+				if (!$this->upload->do_upload('gambar')) {
+					echo 'gagal upload';
+				}else{
+					$gambar=$this->upload->data('file_name');
+
+				}
+		}
+		$data = array(
+			
+			'gambar' => $gambar
+		);
+		$this->m_data->UpdateData('dasar_hukum', $data, array('id' => $id));
+		redirect('admin/dashboard/dasar_hukum');
+	    
+	}
+
+	// tugas fungsi
+	public function tugas_fungsi()
+	{
+		$data['data'] = $this->db->get('tugas_fungsi')->result();
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/tugas_fungsi/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+
+	public function edit_tugas_fungsi($id)
+	{
+		$data['data'] =  $this->m_data->tugas_fungsi_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/tugas_fungsi/v_edit_tugas_fungsi',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_edit_tugas_fungsi($id)
+	{
+	
+		$gambar    = $_FILES['gambar']['name'];
+		if ($gambar ='') {
+			
+		}else {
+			$config ['upload_path'] = './assets/admin/upload/tugas_fungsi/';
+				$config ['allowed_types'] = 'jpg|jpeg|png|gif';
+
+				$this->load->library('upload', $config);
+				if (!$this->upload->do_upload('gambar')) {
+					echo 'gagal upload';
+				}else{
+					$gambar=$this->upload->data('file_name');
+
+				}
+		}
+		$data = array(
+			
+			'gambar' => $gambar
+		);
+		$this->m_data->UpdateData('tugas_fungsi', $data, array('id' => $id));
+		redirect('admin/dashboard/tugas_fungsi');
+	    
+	}
 	public function peraturan()
 	{
 		$data['alamat'] = $this->db->get('alamat')->result();

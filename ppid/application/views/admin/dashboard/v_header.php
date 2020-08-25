@@ -194,6 +194,18 @@
                   <p>Profil Singkat PPID</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url().'admin/dashboard/dasar_hukum'?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dasar Hukum</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url().'admin/dashboard/tugas_fungsi'?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tugas Dan Fungsi</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item has-treeview">
