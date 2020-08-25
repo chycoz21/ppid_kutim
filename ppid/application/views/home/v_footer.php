@@ -28,6 +28,7 @@
     <!-- DataTables -->
     <script src="<?= base_url();?>assets/home/datatable/js/jquery.dataTables.js"></script>
     <script src="<?= base_url();?>assets/home/datatable/js/dataTables.bootstrap4.js"></script>
+    
 </body>
 
 </html>

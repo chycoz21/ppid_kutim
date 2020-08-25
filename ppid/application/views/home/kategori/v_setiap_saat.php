@@ -31,9 +31,19 @@
                                 <tr>
                                     <td class="text-center"><?= $no; ?></td>
                                     <td><?= $data['nama_file'];?></td>
+
                                     <td class="text-center">
+                                       
+                                    <?php if($this->session->userdata('status') == 2){ ?>
                                         <a target="_blank" class="btn-sm btn-warning" href="<?= $data['link_file'];?>">Unduh <i class="fa fa-download"></i></a>
+
+                                    <?php }else{ ?>
+                                        <button type="button" class="btn-sm btn-warning" data-toggle="modal" data-target="#exampleModalCenter">
+Unduh <i class="fa fa-download"></i>
+</button>
+                                    <?php } ?>
                                     </td>
+                        
                                 </tr>
                                 <?php $no++; } ?>
                             </tbody>
@@ -118,3 +128,19 @@
     $("#table-saat-ini").DataTable();
   });
 </script>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+    
+      <div class="modal-body">
+         <center> <h5>Gagal!</h5></center>
+      Untuk mendownload file anda diharuskan login terdahulu, silahkan login!
+      </div>
+
+    <center>  <div class="col-lg-5">  <a href="<?php echo base_url() ?>m/login" class="btn btn-primary ">Login</a></div></center>
+
+    <br><br>
+    </div>
+  </div>
+</div>
