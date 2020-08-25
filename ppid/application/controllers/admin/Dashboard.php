@@ -1246,7 +1246,7 @@ class Dashboard extends CI_controller {
 
 	public function edit_pengaturan_alamat($id)
 	{
-		$data['edit'] =  $this->m_data->where_data('alamat',array('id' => $id));
+		$data['edit'] =  $this->m_data->where_data($id);
 		$this->load->view('admin/dashboard/v_header');
 		$this->load->view('admin/pengaturan/v_edit_alamat',$data);
 		$this->load->view('admin/dashboard/v_footer');
@@ -1257,6 +1257,7 @@ class Dashboard extends CI_controller {
 	   
 		$data = array(
 			'alamat' => $this->input->post('alamat'),
+			'email' => $this->input->post('email'),
 			'no_hp' => $this->input->post('no_hp')
 		);
 		$this->m_data->UpdateData('alamat', $data, array('id' => $id));
@@ -1275,13 +1276,38 @@ class Dashboard extends CI_controller {
 	{
 	   
 		$data = array(
-			'alamat' => $this->input->post('alamat'),
-			'no_hp' => $this->input->post('no_hp')
+			'media_sosial' => $this->input->post('nama'),
+			'url' => $this->input->post('url')
 		);
-		$this->m_data->UpdateData('alamat', $data, array('id' => $id));
+		$this->m_data->UpdateData('media_sosial', $data, array('id' => $id));
 		redirect('admin/dashboard/peraturan');
 		
 	}
 
+	public function edit_sosmed($id)
+	{
+		$data['edit'] =  $this->m_data->edit_sosmed_detail($id);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/pengaturan/v_edt_sosmed',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function tambah_sosmed()
+	{
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/pengaturan/v_tambah_sosmed');
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function simpan_sosmed()
+	{
+		$data = array(
+			'media_sosial' => $this->input->post('nama'),
+			'url' => $this->input->post('url')
+		);
+		$this->db->insert('media_sosial', $data);
+		
+		redirect('admin/dashboard/peraturan');
+	}
 
 }

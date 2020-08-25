@@ -4,7 +4,7 @@
         <div class="row mb-2">
             <div class="col-sm-12">
                 <h1 class="m-0 text-dark">
-                    User Management
+                  Pengaturan
                     <small>Control panel</small>
                 </h1>
             </div>
@@ -21,9 +21,9 @@
                 <div class="card card-outline card-primary">
                     <div class="card-header">
                         <h3 class="card-title">
-                            User Management
+                          Pengaturan
                         </h3>
-                        <button class="float-right btn-sm btn btn-primary"><a href="<?php echo base_url('admin/dashboard/tambah_user_management') ?>" class="text-white">Tambah User</a></button>
+                        <button class="float-right btn-sm btn btn-primary"><a href="<?php echo base_url('admin/dashboard/tambah_sosmed') ?>" class="text-white">Tambah Sosmed</a></button>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body pad">
@@ -48,7 +48,8 @@
                                                             <tr>
                                                                 <th>id</th>
                                                                 <th>Alamat</th>
-                                                                <th>No_Hp</th>
+                                                                <th>No Hp</th>
+                                                                <th>Email</th>
 
                                                                 <th>Aksi</th>
                                                             </tr>
@@ -60,6 +61,7 @@
                                                                     <td><?php echo $alm->id ?></td>
                                                                     <td><?php echo $alm->alamat ?></td>
                                                                     <td><?php echo $alm->no_hp ?></td>
+                                                                    <td><?php echo $alm->email ?></td>
 
 
                                                                     <td><a href="<?php echo base_url('admin/dashboard/edit_pengaturan_alamat') ?>/<?php echo $alm->id ?>" class="btn btn-sm btn-primary">Edit</a>
@@ -72,8 +74,8 @@
                                                             <tr>
                                                                 <th>id</th>
                                                                 <th>Alamat</th>
-                                                                <th>No_Hp</th>
-
+                                                                <th>No Hp</th>
+                                                                <th>Email</th>
                                                                 <th>Aksi</th>
                                                             </tr>
                                                         </tfoot>
@@ -100,11 +102,11 @@
                                                     <?php foreach ($sosmed as $smd) : ?>
                                                         <tr>
                                                             <td><?php echo $smd->id ?></td>
-                                                            <td><?php echo $smd->nama_media_sosial ?></td>
-                                                            <td><?php echo $smd->nama_media_sosial ?></td>
+                                                            <td><?php echo $smd->media_sosial ?></td>
+                                                            <td><?php echo $smd->url ?></td>
 
 
-                                                            <td><a href="<?php echo base_url('admin/dashboard/edit_user_management') ?>/<?php echo $alm->id ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                            <td><a href="<?php echo base_url('admin/dashboard/edit_sosmed') ?>/<?php echo $alm->id ?>" class="btn btn-sm btn-primary">Edit</a>
                                                             </td>
                                                         </tr>
                                                     <?php endforeach; ?>

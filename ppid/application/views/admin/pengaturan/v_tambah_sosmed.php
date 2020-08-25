@@ -5,7 +5,7 @@
     <div class="row mb-2">
       <div class="col-sm-12">
         <h1 class="m-0 text-dark">
-      Edit Alamat
+      Tambah Sosmed
           <small>Control Panel</small>
         </h1>
       </div>
@@ -22,40 +22,35 @@
         <div class="card card-outline card-primary">
           <div class="card-header">
             <h3 class="card-title">
-            Edit Alamat
+            Tambah Sosmed
             </h3>  
           </div>
           <!-- /.card-header -->
           <div class="card-body pad">
             <div class="mb-3">
-             <?php foreach($edit as $edt) :?>
-                <form method="post" action="<?= base_url('admin/dashboard/simpan_edit_alamat/'.$edt->id);?>">
+           
+                <form method="post" action="<?= base_url('admin/dashboard/simpan_sosmed/');?>">
                 <div class="form-group">
-                  <label>Alamat</label>
+                  <label>Nama Sosmed</label>
                   
-                  <input type="text" name="alamat" class="form-control" id="alamat" value="<?php echo $edt->alamat;?>">
+                  <input type="text" name="nama" class="form-control" id="nama" value="">
                   
                 </div>  
                 
                 <div class="form-group">
-                  <label>Nomor Hp</label>
+                  <label>Url</label>
                   
-                  <input type="text" name="no_hp" id="no_hp"  class="form-control" value="<?php echo $edt->no_hp;?>">
-                  
-                </div>  
-                <div class="form-group">
-                  <label>Email</label>
-                  
-                  <input type="text" name="email" id="email"  class="form-control" value="<?php echo $edt->email;;?>">
+                  <input type="text" name="url" id="url"  class="form-control" value="">
                   
                 </div>  
+           
                 
                
                 <div class="form-group">
-                  <button type="submit" name="update" class="btn-sm btn-primary">Update</button>
+                  <button type="submit" name="update" class="btn-sm btn-primary">Submit</button>
                 </div>  
               </form>
-             <?php endforeach; ?>
+
               
             </div>
           </div>
