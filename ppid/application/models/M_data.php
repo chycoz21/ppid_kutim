@@ -179,6 +179,27 @@ class M_data extends CI_Model
 			return false;
 		}
 	}
+	public function dasar_hukum_detail($id)
+	{
+		$profile = $this->db->where('id',$id )->get('dasar_hukum');
+		if ($profile->num_rows() > 0) {
+			return $profile->result();
+   
+		}else{
+			return false;
+		}
+	}
+	public function tugas_fungsi_detail($id)
+	{
+		$profile = $this->db->where('id',$id )->get('tugas_fungsi');
+		if ($profile->num_rows() > 0) {
+			return $profile->result();
+   
+		}else{
+			return false;
+		}
+	}
+
 	
 }
 ?>

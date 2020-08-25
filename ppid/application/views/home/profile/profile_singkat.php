@@ -10,19 +10,24 @@
 
 
     <!-- table -->
+      <!-- table -->
+  <?php foreach($gambar as $gbr): ?> 
+    
+    
     <div class="row no-gutters my-5 justify-content-center">
 
-        <div class="col-lg-7 mb-5">
+<div class="col-lg-7 mb-5 ml-6">
 
-            <div class="card">
-                <div class="card-body">
-                    <h4></h4>
-                    
-                </div>
-            </div>
-
-
+    <div class="card">
+        <div class="card-body">
+            <img src="<?php echo base_url("assets/admin/upload/profil_singkat/").$gbr->gambar ?>" alt="" srcset="">
         </div>
+    </div>
+
+
+</div>
+
+<?php endforeach;?> 
         <!-- akhir table -->
 
 
