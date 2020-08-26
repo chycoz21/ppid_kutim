@@ -144,7 +144,7 @@
 
 
 
-<!-- ikuti kami-->
+<!-- ikuti kaasdmi-->
 <section style="background-color: rgb(41, 39, 39); ">
     <div class="container">
         <div class="row justify-content-center">
