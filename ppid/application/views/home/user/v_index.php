@@ -172,7 +172,7 @@
                   <span><?php echo $pf->notelp ?></span>
                 </li>
               </ul>
-              <a href="#" class="btn btn-primary btn-md text-white upd">Update Profil</a><p></p>
+              <a href="<?php echo base_url("user/dashboard/update_profile/").$pf->id ?>" class="btn btn-primary btn-md text-white upd">Update Profil</a><p></p>
             <br>
         </div>
     </div>
