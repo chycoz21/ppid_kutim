@@ -13,18 +13,16 @@
   <?php foreach($gambar as $gbr): ?> 
     
     
-    <div class="row no-gutters my-5 justify-content-center">
+    <div class="row no-gutters my-3 justify-content-center">
+        <div class="col-lg-7 mr-9 ">
+            <div class="card">
+                <div class="card-body">
+                    <img src="<?php echo base_url("assets/admin/upload/dasar_hukum/").$gbr->gambar ?>" alt="" srcset="" width="715.25">
+                </div>
+            </div>
 
-<div class="col-lg-7 mb-5 ml-6">
 
-    <div class="card">
-        <div class="card-body">
-            <img src="<?php echo base_url("assets/admin/upload/dasar_hukum/").$gbr->gambar ?>" alt="" srcset="">
         </div>
-    </div>
-
-
-</div>
 
 <?php endforeach;?> 
         <!-- akhir table -->
@@ -77,7 +75,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-5 p-3 text-center">
-                    <img src="img/logo baru bawaslu1 kecil.png" width="70%">
+                    <img src="<?php echo base_url() ?>assets/home/img/logo baru bawaslu1 kecil.png" width="70%">
                     <p class="text-white text-justify p-2">Bawaslu Kabupaten Kutai Timur menilai bahwa keterbukaan
                         informasi tidak hanya terkait dengan amanat regulasi atau undang-undang.
                         Keterbukaan informasi bagian dari kewajiban yang memang harus dipatuhi.
