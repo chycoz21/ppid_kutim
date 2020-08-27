@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="<?= base_url();?>assets/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url();?>assets/admin/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?= base_url();?>assets/admin/css/style.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -38,7 +39,10 @@
   ?>
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Login Admin</p>
+      <div>
+        <p class="text-center"><img src="<?php echo base_url() ?>/assets/home/img/logo_bawas.png"  class="col-3 mb-2"></p>
+      </div>
+
 
       <form method="post" action="<?= base_url('admin/login/aksi');?>">
         <div class="input-group mb-3">
@@ -67,7 +71,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn  btn-block text-light bg">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
