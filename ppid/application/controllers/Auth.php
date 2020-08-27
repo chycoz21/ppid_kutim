@@ -12,7 +12,7 @@ class Auth extends CI_Controller {
 
     }
     
-
+ 
 
 	public function login()
 	{
@@ -20,7 +20,8 @@ class Auth extends CI_Controller {
             redirect('u/dashboard');
         }
         $data = array(
-			'title' => 'PPID | Login',
+            'title' => 'PPID | Login',
+            'kontak' => $this->db->get('alamat')->result(),
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/auth/login', $data, FALSE);

@@ -21,6 +21,7 @@ class Dashboard extends CI_Controller {
 			'permohon' => $this->m_data->permohon(),
 			'info' => $this->m_kategori->getsaatini()->result_array(),
 			'judul' => 'SETIAP SAAT',
+			'kontak' => $this->db->get('alamat')->result(),
 			'profil' => $this->m_data->profile()
 			
 		);
