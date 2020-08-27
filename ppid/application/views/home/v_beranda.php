@@ -116,76 +116,81 @@
         <div class="row mt-5 justify-content-center">
             <!-- form permintaan left -->
             <div class="col-lg-6">
-                <form class="mb-5">
-                    <div class="form-group">
-                        <label for="">NIK</label>
-                        <input type="text" class="form-control" name="nik" placeholder="NIK" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Nama</label>
-                        <input type="text" class="form-control" name="nama" placeholder="Nama" required="">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="">Alamat</label>
-                            <textarea type="text" class="form-control" name="alamat" rows="4" placeholder="Alamat"
-                            required=""></textarea>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="">Pekerjaan</label>
-                            <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="">E-mail</label>
-                            <input type="text" class="form-control" name="email" placeholder="E-mail" required="">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="">No. Telp</label>
-                            <input type="text" class="form-control" name="notelp" placeholder="No. Telp"
-                            required="">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Rincian Informasi Yang Di Butuhkan</label>
-                        <textarea name="rincian" id="" class="form-control"
-                        placeholder="Rincian Informasi Yang Di Butuhkan" cols="30" rows="5"
-                        required=""></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Tujuan Penggunaan Informasi</label>
-                        <textarea name="tujuan" id="" class="form-control" placeholder="Tujuan Penggunaan Informasi"
-                        cols="30" rows="5" required=""></textarea>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="">Memperoleh Informasi</label>
-                            <select name="memperoleh" id="" class="form-control" required="">
-                                <option value="">Memperoleh Informasi</option>
-                                <option value="1">Melihat / Membaca / Mendengarkan / Mencatat</option>
-                                <option value="2">Mendapat Salinan Informasi (Handphone / Soft Copy)</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="">Mendapatkan Informasi</label>
-                            <select name="mendapatkan" id="" class="form-control" required="">
-                                <option value="1">Mendapatkan Informasi</option>
-                                <option value="2">Mengambil Langsung</option>
-                                <option value="3">Kurir</option>
-                                <option value="4">POS</option>
-                                <option value="5">Fakmsimili</option>
-                                <option value="6">Email</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Upload KTP</label>
-                        <input type="file" style=" height: 50px;" name="file" class="form-control"
-                        placeholder="Nama" required="" accept="image/x-png,image/gif,image/jpeg">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+            <form class="mb-5" method="POST" action="<?php echo base_url() ?>ac/simpan" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <label for="">NIK</label>
+                                                <input type="text" class="form-control" name="nik" placeholder="NIK" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Nama</label>
+                                                <input type="text" class="form-control" name="nama" placeholder="Nama" required="">
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="">Alamat</label>
+                                                    <textarea type="text" class="form-control" name="alamat" rows="4" placeholder="Alamat"
+                                                        required=""></textarea>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="">Pekerjaan</label>
+                                                    <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="">E-mail</label>
+                                                    <input type="text" class="form-control" name="email" placeholder="E-mail" required="">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="">No. Telp</label>
+                                                    <input type="text" class="form-control" name="notelp" placeholder="No. Telp"
+                                                        required="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Password</label>
+                                                <input type="password" class="form-control" name="password" placeholder="password"
+                                                        required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Rincian Informasi Yang Di Butuhkan</label>
+                                                <textarea name="rincian" id="" class="form-control"
+                                                    placeholder="Rincian Informasi Yang Di Butuhkan" cols="30" rows="5"
+                                                    required=""></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Tujuan Penggunaan Informasi</label>
+                                                <textarea name="tujuan" id="" class="form-control" placeholder="Tujuan Penggunaan Informasi"
+                                                    cols="30" rows="5" required=""></textarea>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="">Memperoleh Informasi</label>
+                                                    <select name="memperoleh" id="" class="form-control" required="">
+                                                        <option value="">Memperoleh Informasi</option>
+                                                        <option value="1">Melihat / Membaca / Mendengarkan / Mencatat</option>
+                                                        <option value="2">Mendapat Salinan Informasi (Handphone / Soft Copy)</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="">Mendapatkan Informasi</label>
+                                                    <select name="mendapatkan" id="" class="form-control" required="">
+                                                        <option value="1">Mendapatkan Informasi</option>
+                                                        <option value="2">Mengambil Langsung</option>
+                                                        <option value="3">Kurir</option>
+                                                        <option value="4">POS</option>
+                                                        <option value="5">Fakmsimili</option>
+                                                        <option value="6">Email</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Upload KTP</label>
+                                                <input type="file" style=" height: 50px;" name="ktp" class="form-control"
+                                                    placeholder="Nama" required="" accept="image/x-png,image/gif,image/jpeg">
+                                            </div>
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                        </form>
             </div>
            
 
