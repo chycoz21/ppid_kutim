@@ -25,7 +25,7 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="<?= base_url();?>assets/home/img/logo baru bawaslu kecil.png" alt="" class="img-fluid">
+                <img  width="40" src="<?= base_url();?>assets/home/img/logo1.png" alt="" class="img-fluid">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,7 +91,7 @@
                             Standart Layanan
                         </a>
 
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="<?= base_url('sl/Hak-dan-Kewajiban-Pemohon-Informasi');?>">Hak dan Kewajiban Pemohon Informasi</a>
                             <a class="dropdown-item" href="<?= base_url('sl/Hak-dan-Kewajiban-Bawaslu-dalam-Pelayanan-Informasi');?>">Hak dan Kewajiban Bawaslu dalam Pelayanan Informasi</a>
                             <a class="dropdown-item" href="<?= base_url('sl/Maklumat-Pelayanan');?>">Maklumat Pelayanan</a>
