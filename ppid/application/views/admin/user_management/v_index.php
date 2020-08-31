@@ -4,7 +4,7 @@
     <div class="row mb-2">
       <div class="col-sm-12">
         <h1 class="m-0 text-dark">
-          User Management
+          Page
           <small>Control panel</small>
         </h1>
       </div>
@@ -41,7 +41,7 @@
                       <div class="card">
 
                         <!-- /.card-header -->
-                        <div class="card-body">
+                        <div class="card-body table-responsive">
                           <table id="example2" class="table table-bordered table-hover">
                             <thead>
                               <tr>
@@ -115,53 +115,53 @@
             </div>
 
 
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-              <!-- Control sidebar content goes here -->
-            </aside>
-            <!-- /.control-sidebar -->
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="<?= base_url('assets/admin/')?>plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?= base_url('assets/admin/')?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="<?= base_url('assets/admin/')?>plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url('assets/admin/')?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url('assets/admin/')?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= base_url('assets/admin/')?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?= base_url('assets/admin/')?>dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="<?= base_url('assets/admin/')?>dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+$(function () {
+  $("#example1").DataTable({
+    "responsive": true,
+    "autoWidth": false,
+  });
+  $('#example2').DataTable({
+    "paging": true,
+    "lengthChange": false,
+    "searching": false,
+    "ordering": true,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,
+  });
+});
+</script>
+
+
+            </div>
           </div>
-          <!-- ./wrapper -->
-
-          <!-- jQuery -->
-          <script src="<?= base_url('assets/admin/') ?>plugins/jquery/jquery.min.js"></script>
-          <!-- Bootstrap 4 -->
-          <script src="<?= base_url('assets/admin/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-          <!-- DataTables -->
-          <script src="<?= base_url('assets/admin/') ?>plugins/datatables/jquery.dataTables.min.js"></script>
-          <script src="<?= base_url('assets/admin/') ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-          <script src="<?= base_url('assets/admin/') ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-          <script src="<?= base_url('assets/admin/') ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-          <!-- AdminLTE App -->
-          <script src="<?= base_url('assets/admin/') ?>dist/js/adminlte.min.js"></script>
-          <!-- AdminLTE for demo purposes -->
-          <script src="<?= base_url('assets/admin/') ?>dist/js/demo.js"></script>
-          <!-- page script -->
-          <script>
-            $(function() {
-              $("#example1").DataTable({
-                "responsive": true,
-                "autoWidth": false,
-              });
-              $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-              });
-            });
-          </script>
-
-
         </div>
       </div>
+      <!-- /.col-->
     </div>
-  </div>
-  <!-- /.col-->
-  </div>
-  <!-- ./row -->
-  </div>
-</section>
+    <!-- ./row -->
+  </div>  
+</section>  
