@@ -8,8 +8,7 @@ class Auth extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-       
-
+        $this->load->model('m_beranda');
     }
     
 
@@ -21,6 +20,8 @@ class Auth extends CI_Controller {
         }
         $data = array(
 			'title' => 'PPID | Login',
+            'kontak' => $this->db->get('alamat')->result(),
+            'socmed' => $this->m_beranda->getmediasocial()->result_array()
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/auth/login', $data, FALSE);
@@ -31,6 +32,8 @@ class Auth extends CI_Controller {
 	{
         $data = array(
 			'title' => 'PPID | Registrasi',
+            'kontak' => $this->db->get('alamat')->result(),
+            'socmed' => $this->m_beranda->getmediasocial()->result_array()
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/auth/registrasi', $data, FALSE);

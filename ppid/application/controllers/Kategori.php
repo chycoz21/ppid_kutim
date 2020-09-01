@@ -14,6 +14,7 @@ class Kategori extends CI_controller
 		$data = array(
 			'title' => 'PPID | Informasi Setiap Saat',
 			'listsaatini' => $this->m_kategori->getsaatini()->result_array(),
+			'socmed' => $this->m_kategori->getmediasocial()->result_array(),
 			'kontak' => $this->db->get('alamat')->result(),
 			
 		);
@@ -26,7 +27,8 @@ class Kategori extends CI_controller
 		$data = array(
 			'title' => 'PPID | Berkala',
 			'kontak' => $this->db->get('alamat')->result(),
-			'listberkala' => $this->m_kategori->getberkala()->result_array()
+			'listberkala' => $this->m_kategori->getberkala()->result_array(),
+			'socmed' => $this->m_kategori->getmediasocial()->result_array()
 		);
 		$this->load->view('home/kategori/v_berkala', $data, FALSE);
 		
@@ -36,7 +38,8 @@ class Kategori extends CI_controller
 		$data = array(
 			'title' => 'PPID | Serta Merta',
 			'kontak' => $this->db->get('alamat')->result(),
-			'listsertamerta' => $this->m_kategori->getsertamerta()->result_array()
+			'listsertamerta' => $this->m_kategori->getsertamerta()->result_array(),
+			'socmed' => $this->m_kategori->getmediasocial()->result_array()
 		);
 		$this->load->view('home/kategori/v_serta_merta', $data, FALSE);
 		
@@ -46,7 +49,8 @@ class Kategori extends CI_controller
 		$data = array(
 			'title' => 'PPID | Dikecualikan',
 			'kontak' => $this->db->get('alamat')->result(),
-			'listdikecualikan' => $this->m_kategori->getdikecualikan()->result_array()
+			'listdikecualikan' => $this->m_kategori->getdikecualikan()->result_array(),
+			'socmed' => $this->m_kategori->getmediasocial()->result_array()
 		);
 		$this->load->view('home/kategori/v_dikecualikan', $data, FALSE);
 	}

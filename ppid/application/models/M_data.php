@@ -2,10 +2,21 @@
 
 class M_data extends CI_Model
 {
+	function gethitungdaftarinformasi($where = '')
+	{
+		return $this->db->query("SELECT count(id_daftar_informasi) FROM daftar_informasi $where;");
+	}
+
 	function getregistrasi()
 	{
 		return $this->db->query("SELECT * FROM register_pemohon LEFT JOIN permohonan_informasi ON register_pemohon.id = permohonan_informasi.id_register WHERE register_pemohon.status='1' AND permohonan_informasi.status='1' ");
 	}
+
+	function getpermohonaninformasi($where = '')
+	{
+		return $this->db->query("SELECT * FROM permohonan_informasi $where;");
+	}
+
 
 	function getkategoriinformasi($where = '')
 	{

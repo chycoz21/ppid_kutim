@@ -78,12 +78,11 @@
                     Keterbukaan informasi bagian dari kewajiban yang memang harus dipatuhi.
                 Sebab, publik memiliki hak atas informasi.</p>
             </div>
-            <div class="col-md-6 p-5 text-center">
+            <div class="col-md-7 p-5 text-center">
                 <h2 class="text-white">IKUTI KAMI</h2>
-                <button type="button" class="btn btn-warning"><i class="fab fa-facebook"></i><br>Facebook</button>
-                <button type="button" class="btn btn-warning"><i class="fab fa-instagram"></i><br>Instagram</button>
-                <button type="button" class="btn btn-warning"><i class="fab fa-twitter"></i><br>Twitter</button>
-                <button type="button" class="btn btn-warning"><i class="fab fa-youtube"></i><br>Youtube</button>
+                <?php foreach ($socmed as $data) { ?>
+                    <a class="btn btn-warning mt-1" target="_blank" href="<?= $data['url'];?>" style="width:95px;"><i class="<?= $data['icon']?>"></i><br><?= $data['media_sosial'];?></a>
+                <?php } ?>  
             </div>
         </div>
     </div>

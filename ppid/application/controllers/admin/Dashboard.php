@@ -18,7 +18,9 @@ class Dashboard extends CI_controller {
 	public function index()
 	{
 		$data = array(
-			'listregistrasi' => $this->m_data->getregistrasi()->result_array()
+			'listdaftarinformasi' => $this->m_data->gethitungdaftarinformasi()->result_array(),
+			'listregistrasi' => $this->m_data->getregistrasi()->result_array(),
+			'listpermohonaninformasi' => $this->m_data->getpermohonaninformasi()->result_array()
 		);
 		$this->load->view('admin/dashboard/v_index',$data);
 	} 
@@ -38,7 +40,7 @@ class Dashboard extends CI_controller {
 
 	public function keluar(){
 		$this->session->sess_destroy();
-		redirect('admin/login?alert=logout');
+		redirect(base_url('admin/login?alert=logout'));
 	}
 	public function ganti_password(){
 		$this->load->view('admin/dashboard/v_header');

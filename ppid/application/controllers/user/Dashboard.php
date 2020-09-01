@@ -11,6 +11,8 @@ class Dashboard extends CI_Controller {
 		if ($this->session->userdata('status') != "2") {
 			redirect('trial/landing','refresh');
 		   }
+		$this->load->model('m_beranda');   
+		$this->load->model('m_kategori');
 	}
 	
 
@@ -21,12 +23,13 @@ class Dashboard extends CI_Controller {
 			'permohon' => $this->m_data->permohon(),
 			'info' => $this->m_kategori->getsaatini()->result_array(),
 			'judul' => 'SETIAP SAAT',
+			'socmed' => $this->m_beranda->getmediasocial()->result_array(),
 			'profil' => $this->m_data->profile()
 			
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/user/v_index', $data, FALSE);
-		$this->load->view('home/v_footer', $data, FALSE);
+		
 		
 	}
 	public function berkala()
@@ -36,12 +39,12 @@ class Dashboard extends CI_Controller {
 			'permohon' => $this->m_data->permohon(),
 			'info' => $this->m_kategori->getberkala()->result_array(),
 			'judul' => 'BERKALA',
+			'socmed' => $this->m_beranda->getmediasocial()->result_array(),
 			'profil' => $this->m_data->profile()
 			
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/user/v_index', $data, FALSE);
-		$this->load->view('home/v_footer', $data, FALSE);
 		
 	}
 	public function serta_merta()
@@ -51,12 +54,12 @@ class Dashboard extends CI_Controller {
 			'permohon' => $this->m_data->permohon(),
 			'info' =>  $this->m_kategori->getsertamerta()->result_array(),
 			'judul' => 'SERTA MERTA',
+			'socmed' => $this->m_beranda->getmediasocial()->result_array(),
 			'profil' => $this->m_data->profile()
 			
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/user/v_index', $data, FALSE);
-		$this->load->view('home/v_footer', $data, FALSE);
 		
 	}
 	public function dikecualikan()
@@ -66,12 +69,12 @@ class Dashboard extends CI_Controller {
 			'permohon' => $this->m_data->permohon(),
 			'info' => $this->m_kategori->getdikecualikan()->result_array(),
 			'judul' => 'DIKECUALIKAN',
+			'socmed' => $this->m_beranda->getmediasocial()->result_array(),
 			'profil' => $this->m_data->profile()
 			
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/user/v_index', $data, FALSE);
-		$this->load->view('home/v_footer', $data, FALSE);
 		
 	}
 }

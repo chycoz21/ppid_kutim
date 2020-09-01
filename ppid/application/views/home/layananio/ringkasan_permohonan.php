@@ -1,7 +1,7 @@
 <?php $this->load->view('home/v_header'); ?>
 <!-- jumbotron -->
 <div class="card bg-dark text-white">
-    <img class="card-img" src="<?php echo base_url() ?>assets/home/img/profil1.jpg" alt="Card image">
+    <img class="card-img" src="<?php echo base_url() ?>assets/home/img/profil1.jpg" alt="Card image" style="min-height: 25vh;">
     <div class="card-img-overlay text-center">
         <h1 class="card-title ">RINGKASAN LAYANAN INFORMASI</h1>
     </div>
@@ -20,26 +20,28 @@
                                 <h4 class="card-title">RINGKASAN LAYANAN INFORMASI</h4>
                             </div>    
                             <div class="card-body">
-                                <table id="table-ringkasan-layanan" class="table table-striped table-bordered table-responsive" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">No</th>
-                                            <th>Judul</th>
-                                            <th>Unduh</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php $no=1; foreach ($listringkasanlayanan as $data) { ?>
-                                        <tr>
-                                            <td class="text-center"><?= $no;;?></td>
-                                            <td><?= $data['judul'];?></td>
-                                            <td class="text-center">
-                                                <a target="_blank" class="btn-sm btn-warning" href="<?= $data['link_file'];?>">Unduh</a>
-                                            </td>
-                                        </tr>   
-                                        <?php $no++; } ?>
-                                    </tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table id="table-ringkasan-layanan" class="table table-striped table-bordered" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">No</th>
+                                                <th>Judul</th>
+                                                <th>Unduh</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no=1; foreach ($listringkasanlayanan as $data) { ?>
+                                            <tr>
+                                                <td class="text-center"><?= $no;;?></td>
+                                                <td><?= $data['judul'];?></td>
+                                                <td class="text-center">
+                                                    <a target="_blank" class="btn-sm btn-warning" href="<?= $data['link_file'];?>">Unduh</a>
+                                                </td>
+                                            </tr>   
+                                            <?php $no++; } ?>
+                                        </tbody>
+                                    </table>
+                                </div>    
                             </div>
                         </div>
 
@@ -63,7 +65,7 @@
                             </ul>
                         </div>
                         <div class="form img-thumbnail p-5">
-                            <a href="#permintaan" class="btn btn-warning btn-block">Formulir Permintaan Informasi</a>
+                            <a href="<?= base_url('beranda#permintaan');?>" class="btn btn-warning btn-block">Formulir Permintaan Informasi</a>
                         </div>
 
                         <?php foreach($kontak as $ktk): ?>       
@@ -101,12 +103,11 @@
                     Keterbukaan informasi bagian dari kewajiban yang memang harus dipatuhi.
                 Sebab, publik memiliki hak atas informasi.</p>
             </div>
-            <div class="col-md-6 p-5 text-center">
+            <div class="col-md-7 p-5 text-center">
                 <h2 class="text-white">IKUTI KAMI</h2>
-                <button type="button" class="btn btn-warning"><i class="fab fa-facebook"></i><br>Facebook</button>
-                <button type="button" class="btn btn-warning"><i class="fab fa-instagram"></i><br>Instagram</button>
-                <button type="button" class="btn btn-warning"><i class="fab fa-twitter"></i><br>Twitter</button>
-                <button type="button" class="btn btn-warning"><i class="fab fa-youtube"></i><br>Youtube</button>
+                <?php foreach ($socmed as $data) { ?>
+                    <a class="btn btn-warning mt-1" target="_blank" href="<?= $data['url'];?>" style="width:95px;"><i class="<?= $data['icon']?>"></i><br><?= $data['media_sosial'];?></a>
+                <?php } ?>  
             </div>
         </div>
     </div>

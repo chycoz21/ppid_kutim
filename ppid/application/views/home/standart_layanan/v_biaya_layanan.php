@@ -1,7 +1,7 @@
 <?php $this->load->view('home/v_header');?>
 <!-- jumbotron -->
 <div class="card bg-dark text-white">
-    <img class="card-img" src="<?= base_url();?>assets/home/img/profil1.jpg" alt="Card image">
+    <img class="card-img" src="<?= base_url();?>assets/home/img/profil1.jpg" alt="Card image" style="min-height:20vh;">
     <div class="card-img-overlay text-center">
         <?php foreach ($listbiayalayanan as $data) { ?>
             <h1 class="card-title"><?= $data['judul'];?></h1>
@@ -16,7 +16,7 @@
             <!-- table -->
             <div class="col-lg-8 mb-5">
                 <?php foreach ($listbiayalayanan as $data) { ?>
-                    <img src="<?= base_url('assets/admin/upload/biaya_layanan/'.$data['foto']);?>" alt="Biaya Layanan" width="715.25">
+                    <img src="<?= base_url('assets/admin/upload/biaya_layanan/'.$data['foto']);?>" alt="Biaya Layanan" style="width: 100%;">
                 <?php } ?>
             </div>
             <!-- akhir table -->
@@ -26,20 +26,20 @@
                 <div class="list-kategori mb-5 mx-5">
                     <h3>KATEGORI</h3>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i><a href="<?= base_url('in/Setiap-Saat');?>">Informasi Setiap
+                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-2"></i><a href="<?= base_url('in/Setiap-Saat');?>">Informasi Setiap
                             Saat</a>
                         </li>
-                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i><a href="<?= base_url('in/Berkala');?>">Informasi Berkala</a>
+                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-2"></i><a href="<?= base_url('in/Berkala');?>">Informasi Berkala</a>
                         </li>
-                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i><a href="<?= base_url('in/Serta-Merta');?>">Informasi Serta Merta</a>
+                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-2"></i><a href="<?= base_url('in/Serta-Merta');?>">Informasi Serta Merta</a>
                         </li>
-                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i><a href="<?= base_url('in/Dikecualikan');?>">Informasi
+                        <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-2"></i><a href="<?= base_url('in/Dikecualikan');?>">Informasi
                             Dikecualikan</a>
                         </li>
                     </ul>
                 </div>
                 <div class="form img-thumbnail p-5">
-                    <a href="#permintaan" class="btn btn-warning btn-block">Formulir Permintaan Informasi</a>
+                    <a href="<?= base_url('beranda#permintaan');?>" class="btn btn-warning btn-block">Formulir Permintaan Informasi</a>
                 </div>
                 <?php foreach($kontak as $ktk): ?>       
                     <ul class="list-group text-center mt-5">
@@ -73,12 +73,11 @@
                     Keterbukaan informasi bagian dari kewajiban yang memang harus dipatuhi.
                 Sebab, publik memiliki hak atas informasi.</p>
             </div>
-            <div class="col-md-6 p-5 text-center">
+            <div class="col-md-7 p-5 text-center">
                 <h2 class="text-white">IKUTI KAMI</h2>
-                <button type="button" class="btn btn-warning"><i class="fab fa-facebook"></i><br>Facebook</button>
-                <button type="button" class="btn btn-warning"><i class="fab fa-instagram"></i><br>Instagram</button>
-                <button type="button" class="btn btn-warning"><i class="fab fa-twitter"></i><br>Twitter</button>
-                <button type="button" class="btn btn-warning"><i class="fab fa-youtube"></i><br>Youtube</button>
+                <?php foreach ($socmed as $data) { ?>
+                    <a class="btn btn-warning mt-1" target="_blank" href="<?= $data['url'];?>" style="width:95px;"><i class="<?= $data['icon']?>"></i><br><?= $data['media_sosial'];?></a>
+                <?php } ?>  
             </div>
         </div>
     </div>

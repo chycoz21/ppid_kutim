@@ -15,7 +15,7 @@ class Profile extends CI_Controller
 			'title' => 'PPID | Dasar Hukum',
 			'kontak' => $this->db->get('alamat')->result(),
 			'gambar' => $this->db->get('dasar_hukum')->result(),
-			
+			'socmed' => $this->m_profile->getmediasocial()->result_array()
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/profile/dasar_hukum', $data, FALSE);
@@ -28,6 +28,7 @@ class Profile extends CI_Controller
 			'title' => 'PPID | Profile Singkat',
 			'kontak' => $this->db->get('alamat')->result(),
 			'gambar' => $this->db->get('profil_singkat')->result(),
+			'socmed' => $this->m_profile->getmediasocial()->result_array()
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/profile/profile_singkat', $data, FALSE);
@@ -40,6 +41,7 @@ class Profile extends CI_Controller
 			'title' => 'PPID | Tugas Fungsi dan Wewenang',
 			'kontak' => $this->db->get('alamat')->result(),
 			'gambar' => $this->db->get('tugas_fungsi')->result(),
+			'socmed' => $this->m_profile->getmediasocial()->result_array()
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/profile/tugas', $data, FALSE);
@@ -52,6 +54,7 @@ class Profile extends CI_Controller
 			'title' => 'PPID | Struktur PPID',
 			'kontak' => $this->db->get('alamat')->result(),
 			'gambar' => $this->db->get('struktur_ppid')->result(),
+			'socmed' => $this->m_profile->getmediasocial()->result_array()
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/profile/struktur', $data, FALSE);
@@ -63,7 +66,8 @@ class Profile extends CI_Controller
 		$data = array(
 			'title' => 'PPID | Visi & Misi PPID',
 			'kontak' => $this->db->get('alamat')->result(),
-			'listvisimisi' => $this->m_profile->getvisimisi()->result_array()
+			'listvisimisi' => $this->m_profile->getvisimisi()->result_array(),
+			'socmed' => $this->m_profile->getmediasocial()->result_array()
 		);
 		$this->load->view('home/profile/visi_misi', $data, FALSE);
     }

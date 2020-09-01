@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_standart_layanan extends CI_Model
 {
+	function getmediasocial($where = '')
+	{
+		return $this->db->query("SELECT * FROM media_sosial $where");
+	}
+	
 	function gethakkewajiban($where = '')
 	{
 		return $this->db->query("SELECT * FROM kewajiban_pemohon $where;");

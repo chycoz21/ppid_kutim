@@ -14,7 +14,8 @@ class Regulasi extends CI_controller
 		$data = array(
 			'title' => 'PPID | List regulasi',
 			'listregulasi' => $this->m_regulasi->getregulasi()->result_array(),
-			'kontak' => $this->db->get('alamat')->result()
+			'kontak' => $this->db->get('alamat')->result(),
+			'socmed' => $this->m_regulasi->getmediasocial()->result_array()
 		);
 		$this->load->view('home/regulasi/list_regulasi', $data, FALSE);	
 	}

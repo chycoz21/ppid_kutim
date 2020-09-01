@@ -1,6 +1,6 @@
     <!-- jumbotron -->
     <div class="card bg-dark text-white">
-        <img class="card-img" src="<?php echo base_url() ?>/assets/home/img/Profil1.jpg" alt="Card image">
+        <img class="card-img" src="<?php echo base_url() ?>/assets/home/img/profil1.jpg" alt="Card image">
         <div class="card-img-overlay text-center">
             <h1 class="card-title ">REGISTRASI</h1>
         </div>

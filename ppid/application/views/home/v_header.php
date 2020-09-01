@@ -37,7 +37,7 @@ s0.parentNode.insertBefore(s1,s0);
     <!-- menu -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="<?= base_url('Beranda');?>">
                 <img src="<?= base_url();?>assets/home/img/logo baru bawaslu kecil.png" alt="" class="img-fluid">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
