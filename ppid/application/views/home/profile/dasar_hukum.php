@@ -11,7 +11,6 @@
 
     <!-- table -->
     
-    
     <div class="row no-gutters my-5 justify-content-center">
         <div class="container">
             <div class="row">

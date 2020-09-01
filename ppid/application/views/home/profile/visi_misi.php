@@ -37,7 +37,7 @@
                     </ul>
                 </div>
                 <div class="form img-thumbnail p-5">
-                    <a href="#permintaan" class="btn btn-warning btn-block">Formulir Permintaan Informasi</a>
+                    <a href="<?= base_url('beranda#permintaan');?>" class="btn btn-warning btn-block">Formulir Permintaan Informasi</a>
                 </div>
                 <?php foreach($kontak as $ktk): ?>       
                     <ul class="list-group text-center mt-5">

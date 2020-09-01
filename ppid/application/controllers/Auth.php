@@ -11,7 +11,7 @@ class Auth extends CI_Controller {
         $this->load->model('m_beranda');
     }
     
-
+ 
 
 	public function login()
 	{
@@ -21,7 +21,9 @@ class Auth extends CI_Controller {
         $data = array(
 			'title' => 'PPID | Login',
             'kontak' => $this->db->get('alamat')->result(),
-            'socmed' => $this->m_beranda->getmediasocial()->result_array()
+            'socmed' => $this->m_beranda->getmediasocial()->result_array(),
+            'title' => 'PPID | Login',
+            'kontak' => $this->db->get('alamat')->result()
 		);
 		$this->load->view('home/v_header', $data, FALSE);
 		$this->load->view('home/auth/login', $data, FALSE);

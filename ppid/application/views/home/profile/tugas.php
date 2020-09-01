@@ -68,7 +68,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-5 p-3 text-center">
-                    <img src="<?= base_url();?>assets/home/img/logo baru bawaslu1 kecil.png" width="70%">
+                    <img src="<?= base_url();?>assets/home/img/logo baru bawaslu1 kecil.png" width="70%">\
                     <p class="text-white text-justify p-2">Bawaslu Kabupaten Kutai Timur menilai bahwa keterbukaan
                         informasi tidak hanya terkait dengan amanat regulasi atau undang-undang.
                         Keterbukaan informasi bagian dari kewajiban yang memang harus dipatuhi.

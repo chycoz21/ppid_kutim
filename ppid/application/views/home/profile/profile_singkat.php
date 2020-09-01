@@ -10,10 +10,6 @@
 
 
     <!-- table -->
-      <!-- table -->
-   
-    
-    
     <div class="row no-gutters my-5 justify-content-center">
         <div class="container">
             <div class="row">
@@ -23,7 +19,6 @@
                     <?php endforeach;?> 
                 </div>
                 <!-- akhir table -->
-
 
                 <!-- sidebar -->
                 <div class="col-lg-4 offset-lg-0">

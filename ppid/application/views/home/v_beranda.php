@@ -42,6 +42,7 @@
             </div>
         </div>
         <div class="row mt-5">
+
             <div class="col-md-3 col-lg-3 mt-2">
 
                 <a href="<?= base_url('in/Setiap-Saat');?>">
@@ -121,6 +122,7 @@
                 </a>
 
             </div>
+
         </div>
     </div>
 </section>
@@ -225,7 +227,7 @@
                         <input type="file" style=" height: 50px;" name="file" class="form-control"
                         placeholder="Nama" required="" accept="image/x-png,image/gif,image/jpeg">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </form>
             </div>
            

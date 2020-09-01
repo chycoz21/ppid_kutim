@@ -1,6 +1,6 @@
     <!-- footer -->
     <footer style="background-color: #ee9b20;">
-        <div class="container text-center">
+        <div class="container text-center ">
             <div class="row pt-4">
                 <div class="col">
                     <p>&copy; 2020 - Bawaslu Kabupaten Kutai Timur | All rights reserved</p>
@@ -8,6 +8,9 @@
             </div>
         </div>
     </footer>
+
+
+
 
     <!-- akhir footer -->
 
@@ -23,11 +26,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
-    <!-- Jquery -->
-    <script src="<?= base_url();?>assets/home/datatable/js/jquery.min.js"></script>
-    <!-- DataTables -->
-    <script src="<?= base_url();?>assets/home/datatable/js/jquery.dataTables.js"></script>
-    <script src="<?= base_url();?>assets/home/datatable/js/dataTables.bootstrap4.js"></script>
+    <!-- datatables -->
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable({
+                "lengthMenu": [
+                    [10, 25, 50, 100, -1],
+                    [10, 25, 50, 100, "All"]
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>
     
 </body>
 

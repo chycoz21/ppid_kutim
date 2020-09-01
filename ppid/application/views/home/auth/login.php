@@ -90,7 +90,7 @@
                 <a href="<?= base_url('beranda#permintaan');?>" class="btn btn-warning btn-block">Formulir Permintaan Informasi</a>
             </div>
 
-            <?php foreach($kontak as $ktk): ?>       
+            <?php foreach($kontak as $ktk): ?>    
                 <ul class="list-group text-center mt-5">
                     <li class="list-group-item">
                         <h1>KONTAK KAMI</h1>

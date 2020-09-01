@@ -216,6 +216,17 @@ class M_data extends CI_Model
 		}
 	}
 
+	public function get_profile($id)
+	{
+		$profile = $this->db->where('email',$id)->get('register_pemohon');
+		if ($profile->num_rows() > 0) {
+			return $profile->result();
+   
+		}else{
+			return false;
+		}
+	}
+
 	
 }
 ?>

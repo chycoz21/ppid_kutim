@@ -43,7 +43,7 @@
                     </div>
 
                     <?php foreach($kontak as $ktk): ?>       
-                            <ul class="list-group text-center mt-5">
+                        <ul class="list-group text-center mt-5">
                             <li class="list-group-item">
                                 <h1>KONTAK KAMI</h1>
                             </li>
@@ -56,12 +56,13 @@
                             <li class="list-group-item"><i class="fas fa-home"></i>
                                 <br><?php echo $ktk->alamat  ?>
                             </li>
-                        </ul>     <?php endforeach;?> 
+                        </ul>     
+                    <?php endforeach;?> 
                 </div>
             </div>
-        </div>        
-    </div>
-    <!-- akhir sidebar-->
+        </div>
+    </div>            
+
 
 
 
