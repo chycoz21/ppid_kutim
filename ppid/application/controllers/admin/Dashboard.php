@@ -18,8 +18,11 @@ class Dashboard extends CI_controller {
 	public function index()
 	{
 		$data = array(
-			'listdaftarinformasi' => $this->m_data->gethitungdaftarinformasi()->result_array(),
 			'listregistrasi' => $this->m_data->getregistrasi()->result_array(),
+			'listhitungdaftarinformasi' => $this->m_data->gethitungdaftarinformasi()->result_array(),
+			'listhitungregulasi' => $this->m_data->gethitungregulasi()->result_array(),
+			'listhitungringkasanlayanan' => $this->m_data->gethitungringkasanlayanan()->result_array(),
+			'listhitungkategoriinformasi' => $this->m_data->gethitungkategoriinformasi()->result_array(),
 			'listpermohonaninformasi' => $this->m_data->getpermohonaninformasi()->result_array()
 		);
 		$this->load->view('admin/dashboard/v_index',$data);

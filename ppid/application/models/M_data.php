@@ -2,9 +2,24 @@
 
 class M_data extends CI_Model
 {
-	function gethitungdaftarinformasi($where = '')
+	function gethitungkategoriinformasi($where = '')
 	{
-		return $this->db->query("SELECT count(id_daftar_informasi) FROM daftar_informasi $where;");
+		return $this->db->query("SELECT count(id_kategori) as kategori  FROM kategori $where;");
+	}
+
+	function gethitungdaftarinformasi($where = '') 
+	{
+		return $this->db->query("SELECT count(id_daftar_informasi) as daftar_informasi FROM daftar_informasi $where;");
+	}
+
+	function gethitungregulasi($where = '')
+	{
+		return $this->db->query("SELECT count(id_regulasi) as regulasi FROM regulasi $where;");
+	}
+
+	function gethitungringkasanlayanan($where = '') 
+	{
+		return $this->db->query("SELECT count(id_ringkasan_layanan) as ringkasan_layanan FROM ringkasan_layanan $where;");
 	}
 
 	function getregistrasi()
