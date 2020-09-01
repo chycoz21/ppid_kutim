@@ -1,5 +1,5 @@
 <?php $this->load->view('home/v_header.php');?>
-<div class="row no-gutters my-5 justify-content-center">
+ <div class="row no-gutters my-5 justify-content-center">
 
         <div class="col-lg-6 mb-5">
 
@@ -16,37 +16,7 @@
                             <div class="card-body">
                                  <form class="mb-3">
                                             <div class="form-group">
-                                                <label for="">NIK</label>
-                                                <input type="text" class="form-control" name="nik" placeholder="NIK" required="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="">Nama</label>
-                                                <input type="text" class="form-control" name="nama" placeholder="Nama" required="">
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Alamat</label>
-                                                    <textarea type="text" class="form-control" name="alamat" rows="4" placeholder="Alamat"
-                                                        required=""></textarea>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Pekerjaan</label>
-                                                    <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan">
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="">E-mail</label>
-                                                    <input type="text" class="form-control" name="email" placeholder="E-mail" required="">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="">No. Telp</label>
-                                                    <input type="text" class="form-control" name="notelp" placeholder="No. Telp"
-                                                        required="">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="">Rincian Informasi Yang Di Butuhkan</label>
+                                                 <label for="">Rincian Informasi Yang Di Butuhkan</label>
                                                 <textarea name="rincian" id="" class="form-control"
                                                     placeholder="Rincian Informasi Yang Di Butuhkan" cols="30" rows="5"
                                                     required=""></textarea>
@@ -77,25 +47,17 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="">Upload KTP</label>
-                                                <input type="file" style=" height: 50px;" name="file" class="form-control"
-                                                    placeholder="Nama" required="" accept="image/x-png,image/gif,image/jpeg">
-                                            </div>
                                             <button type="submit" class="btn btn-success">Submit</button>
-                                        </form>
-                            </div>
-                        </div>
-                                       
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                </div>
+                                    </form>
+                    </div>
+                </div>                           
             </div>
-
-
         </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
         <!-- akhir table -->
 
 
