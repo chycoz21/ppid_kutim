@@ -1559,5 +1559,56 @@ class Dashboard extends CI_controller {
 		redirect('admin/dashboard/peraturan');
 	}
 
+	public function permohonan_informasi()
+	{
+		$data = array(
+			'permohonan_informasi' => $this->db->get('permohonan_informasi')->result(),
+	
+		);
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/permohonan_informasi/v_index',$data);
+		$this->load->view('admin/dashboard/v_footer');
+	}
+
+	public function terimapermintaan($id)
+	{
+		$data = array(
+			'status_permintaan' => 2
+		);
+
+		$this->db->where('id', $id);
+		
+		$this->db->update('permohonan_informasi', $data);
+		redirect('admin/dashboard/permohonan_informasi');
+		
+	}
+
+	public function tolakpermintaan($id)
+	{
+		$data = array(
+			'status_permintaan' => 3
+		);
+
+		$this->db->where('id', $id);
+		
+		$this->db->update('permohonan_informasi', $data);
+		redirect('admin/dashboard/permohonan_informasi');
+		
+	}
+
+
+	public function cekuser($id)
+	{
+		$data = array(
+			'user' => $this->m_data->cekuser($id)
+		);
+
+
+		$this->load->view('admin/dashboard/v_header');
+		$this->load->view('admin/permohonan_informasi/v_profilex',$data);
+		$this->load->view('admin/dashboard/v_footer');
+
+	}
+
 }
 ?>

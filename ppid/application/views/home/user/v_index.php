@@ -178,7 +178,6 @@
     </div>
             <div class="list-kategori mb-5 mx-5 mt-2">
                 <h3>KATEGORI</h3>
-<<<<<<< HEAD
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-2"></i><a href="<?= base_url('in/Setiap-Saat');?>">Informasi Setiap
                     Saat</a>
@@ -191,39 +190,6 @@
                     Dikecualikan</a>
                 </li>
             </ul>
-=======
-                <ul class="list-group list-group-flush">
-
-                    <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i>Informasi Setiap
-                        Saat
-                    </li>
-                    <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i>Informasi Berkala
-                    </li>
-                    <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i>Informasi Serta
-                        Merta</li>
-                    <li class="list-group-item"><i class="fas fa-folder-open text-warning mr-3"></i>Informasi
-                        Dikecualikan</li>
-                </ul>
-            </div>
-
-
-            <?php foreach($kontak as $ktk): ?>       
-        <ul class="list-group text-center mt-5">
-            <li class="list-group-item">
-                <h1>KONTAK KAMI</h1>
-            </li>
-            <li class="list-group-item"><i class="fas fa-phone"></i>
-                <br><?php echo $ktk->no_hp  ?>
-            </li>
-            <li class="list-group-item"><i class="fas fa-envelope"></i>
-                <br><?php echo $ktk->email  ?>
-            </li>
-            <li class="list-group-item"><i class="fas fa-home"></i>
-                <br><?php echo $ktk->alamat  ?>
-            </li>
-        </ul>     
-    <?php endforeach;?>    
->>>>>>> 8be47789b5ad0a5d80a22a2cea9271f49e51b305
         </div>
 
 

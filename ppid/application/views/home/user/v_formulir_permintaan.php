@@ -1,4 +1,16 @@
-<?php $this->load->view('home/v_header.php');?>
+   <!-- jumbotron -->
+
+   <?php foreach($profil as $pf): ?>
+    <?php foreach($permohon as $pm): ?>
+   <div class="card bg-dark text-white">
+        <img class="card-img" src="<?php echo base_url() ?>/assets/home/img/Profil1.jpg" alt="Card image">
+        <div class="card-img-overlay text-center">
+            <h1 class="card-title ">Formulir PERMINTAAN</h1>
+            <p>nama</p>
+        </div>
+    </div>
+    <!-- akhir jumbotron -->
+
  <div class="row no-gutters my-5 justify-content-center">
 
         <div class="col-lg-6 mb-5">
@@ -14,7 +26,7 @@
                         Silahkan Registrasi Terlebih Dahulu
                       </div>
                             <div class="card-body">
-                                 <form class="mb-3">
+                                 <form class="mb-3" method="POST" action="<?php echo base_url() ?>user/dashboard/acfp">
                                             <div class="form-group">
                                                  <label for="">Rincian Informasi Yang Di Butuhkan</label>
                                                 <textarea name="rincian" id="" class="form-control"
@@ -65,37 +77,28 @@
         <div class="col-lg-4 offset-lg-1 mb-10">
              <div class="sidebar-box">
                 <div class="mb-5 mx-5 mt-2">
-                              <img src="#" alt="Image" class="img-fluid rounded-circle" style="max-height: 150px; width: auto; display: block; margin: 0 auto;">           
-              <br>
-              <h3 class="text-black text-center">noor moch umar amrulloh m</h3>
+                <img src="<?php echo base_url() ?>assets/ktp/<?php echo $pm->ktp  ?>" alt="Image" class="img-fluid rounded-circle" style="max-height: 150px; width: auto; display: block; margin: 0 auto;">           
+                  <br>
+              <h3 class="text-black text-center"><?php echo $pf->nama ?></h3>
               <ul class="list-unstyled footer-link">
-                <li class="d-block mb-3">
-                  <span class="d-block text-black">Tanggal Lahir </span>
-                  <span>13-11-1999</span>
-                </li>
-                <li class="d-block mb-3">
-                  <span class="d-block text-black">Jenis Kelamin</span>
-                  <span>Laki-laki</span>
-                </li>
+              
+              
                 <li class="d-block mb-3">
                   <span class="d-block text-black">Alamat</span>
-                  <span>Jalan poros no 1 desa mukti utama</span>
+                  <span><?php echo $pf->alamat ?></span>
                 </li>
-                <li class="d-block mb-3">
-                  <span class="d-block text-black">Kota</span>
-                  <span>Kutai timur</span>
-                </li>
+               
                 <li class="d-block mb-3">
                   <span class="d-block text-black">E-mail</span>
-                  <span>kingoemar11@gmail.com </span>
+                  <span><?php echo $pf->email ?></span>
                 </li>
                 <li class="d-block mb-3">
                   <span class="d-block text-black"> No. Telp</span>
-                  <span>081253401949</span>
+                  <span><?php echo $pf->notelp ?></span>
                 </li>
               </ul>
-              <a href="#" class="btn btn-primary btn-md text-white upd">Update Profil</a><p></p>
-            <br>
+              <a href="<?php echo base_url("user/dashboard/update_profile/").$pf->id ?>" class="btn btn-primary btn-md text-white upd">Update Profil</a><p></p>
+              <br>
         </div>
     </div>
             <div class="list-kategori mb-5 mx-5 mt-2">
@@ -115,18 +118,24 @@
             </div>
 
 
-            <ul class="list-group text-center mt-5">
-                <li class="list-group-item">
-                    <h1>KONTAK KAMI</h1>
-                </li>
-                <li class="list-group-item"><i class="fas fa-phone"></i>
-                    <br>0852 5052 4499</li>
-                <li class="list-group-item"><i class="fas fa-envelope"></i>
-                    <br>bawaslu.kutim@gmail.com</li>
-                <li class="list-group-item"><i class="fas fa-home"></i>
-                    <br>Jalan Yos Sudarso III Samping Bank BCA Kec. Sangatta Utara</li>
-            </ul>
+            <?php foreach($kontak as $ktk): ?>       
+        <ul class="list-group text-center mt-5">
+            <li class="list-group-item">
+                <h1>KONTAK KAMI</h1>
+            </li>
+            <li class="list-group-item"><i class="fas fa-phone"></i>
+                <br><?php echo $ktk->no_hp  ?>
+            </li>
+            <li class="list-group-item"><i class="fas fa-envelope"></i>
+                <br><?php echo $ktk->email  ?>
+            </li>
+            <li class="list-group-item"><i class="fas fa-home"></i>
+                <br><?php echo $ktk->alamat  ?>
+            </li>
+        </ul>     
+    <?php endforeach;?>    
         </div>
     </div>
     <!-- akhir sidebar-->
-<?php $this->load->view('home/v_footer.php');?>
+    <?php endforeach;?>    
+    <?php endforeach;?>    

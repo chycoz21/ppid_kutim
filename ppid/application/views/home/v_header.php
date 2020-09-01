@@ -62,10 +62,10 @@ s0.parentNode.insertBefore(s1,s0);
                         </div>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Formulir Permintaan <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="<?php echo base_url() ?>u/formulir">Formulir Permintaan <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Daftar permintaan <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="<?php echo base_url() ?>u/daftar">Daftar permintaan <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item active">

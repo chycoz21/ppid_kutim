@@ -97,6 +97,8 @@ $route['u/berkala'] = 'user/dashboard/berkala';
 $route['u/serta_merta'] = 'user/dashboard/serta_merta';
 $route['u/dikecualikan'] = 'user/dashboard/dikecualikan';
 $route['u/simpan_edit'] = 'user/dashboard/simpan_edit';
+$route['u/daftar'] = 'user/dashboard/daftar_permintaan';
+$route['u/formulir'] = 'user/dashboard/formulir';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;

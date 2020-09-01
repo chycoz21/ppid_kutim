@@ -71,7 +71,8 @@ class Auth extends CI_Controller {
             'pekerjaan' => htmlspecialchars($this->input->post('pekerjaan', true)),
             'notelp' => htmlspecialchars($this->input->post('notelp', true)),
             'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-            'status' => 1
+            'status' => 1,
+            'ktp' => $ktp,
         );
 
         $this->db->insert('register_pemohon', $data);
@@ -84,6 +85,7 @@ class Auth extends CI_Controller {
         'mendapatkan' => htmlspecialchars($this->input->post('mendapatkan', true)),
         'ktp' => $ktp,
         'status' => 1,
+        'status_permintaan' => 1,
 
 
         );

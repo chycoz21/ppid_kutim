@@ -135,5 +135,54 @@ class Dashboard extends CI_Controller {
 		echo 'Fone';
 
 	}
+
+	public function daftar_permintaan()
+	{
+		$data = array(
+			'title' => 'PPID | Dashboard',
+			'data' => $this->m_data->daftar_permintaan()
+		
+			
+		);
+		$this->load->view('home/v_header', $data, FALSE);
+		$this->load->view('home/user/v_daftar_permintaan', $data, FALSE);
+		$this->load->view('home/v_footer', $data, FALSE);
+	}
+
+	public function formulir()
+	{
+		$data = array(
+			'title' => 'PPID | Dashboard',
+			'permohon' => $this->m_data->permohon(),
+			'info' => $this->m_kategori->getsaatini()->result_array(),
+			'kontak' => $this->db->get('alamat')->result(),
+			'profil' => $this->m_data->profile()
+			
+			
+		);
+		$this->load->view('home/v_header', $data, FALSE);
+		$this->load->view('home/user/v_formulir_permintaan', $data, FALSE);
+		$this->load->view('home/v_footer', $data, FALSE);
+	}
+
+	public function acfp()
+	{
+	
+       
+        $pem = array(
+        'id_register' => $this->session->userdata('id'),
+        'rincian' => htmlspecialchars($this->input->post('rincian', true)),
+        'tujuan' => htmlspecialchars($this->input->post('tujuan', true)),
+        'memperoleh' => htmlspecialchars($this->input->post('memperoleh', true)),
+        'mendapatkan' => htmlspecialchars($this->input->post('mendapatkan', true)),
+        'status_permintaan' => 1,
+
+
+        );
+
+        $this->db->insert('permohonan_informasi', $pem);
+        redirect('u/daftar');
+	}
+
 }
     

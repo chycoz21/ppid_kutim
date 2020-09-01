@@ -2,6 +2,7 @@
 
 class M_data extends CI_Model
 {
+	
 	function gethitungkategoriinformasi($where = '')
 	{
 		return $this->db->query("SELECT count(id_kategori) as kategori  FROM kategori $where;");
@@ -242,6 +243,27 @@ class M_data extends CI_Model
 		}
 	}
 
+	public function daftar_permintaan()
+	{
+		$profile = $this->db->where('id_register',$this->session->userdata('id'))->get('permohonan_informasi');
+		if ($profile->num_rows() > 0) {
+			return $profile->result();
+   
+		}else{
+			return false;
+		}
+	}
+
+	public function cekuser($id)
+	{
+		$profile = $this->db->where('id',$id)->get('register_pemohon');
+		if ($profile->num_rows() > 0) {
+			return $profile->result();
+   
+		}else{
+			return false;
+		}
+	}
 	
 }
 ?>

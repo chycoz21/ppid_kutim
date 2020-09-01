@@ -138,6 +138,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="<?php echo base_url().'admin/dashboard/permohonan_informasi'?>" class="nav-link">
+              <i class="nav-icon fas fa-pencil-alt"></i>
+              <p>
+                Permohonan Informasi
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="<?php echo base_url().'admin/dashboard/page'?>" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
               <p>
