@@ -1,6 +1,6 @@
 <?php foreach($profil as $pf): ?>
 
-    <?php foreach($permohon as $pm): ?>
+
 
 
   <!-- jumbotron -->
@@ -152,7 +152,7 @@
         <div class="col-lg-4 offset-lg-1 mb-10">
              <div class="sidebar-box">
                 <div class="mb-5 mx-5 mt-2">
-                              <img src="<?php echo base_url() ?>assets/ktp/<?php echo $pm->ktp  ?>" alt="Image" class="img-fluid rounded-circle" style="max-height: 150px; width: auto; display: block; margin: 0 auto;">           
+                              <img src="<?php echo base_url() ?>assets/ktp/<?php echo $pf->ktp  ?>" alt="Image" class="img-fluid rounded-circle" style="max-height: 150px; width: auto; display: block; margin: 0 auto;">           
               <br>
               <h3 class="text-black text-center"><?php echo $pf->nama ?></h3>
               <ul class="list-unstyled footer-link">
@@ -222,4 +222,4 @@
 
 <?php endforeach; ?>
 
-<?php endforeach; ?>
+

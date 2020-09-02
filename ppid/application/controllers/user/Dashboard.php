@@ -13,6 +13,7 @@ class Dashboard extends CI_Controller {
 		   }
 		$this->load->model('m_beranda');   
 		$this->load->model('m_kategori');
+		$this->load->library('session');
 	}
 	
 
@@ -20,7 +21,7 @@ class Dashboard extends CI_Controller {
 	{
 		$data = array(
 			'title' => 'PPID | Dashboard',
-			'permohon' => $this->m_data->permohon(),
+			// 'permohon' => $this->m_data->permohon(),
 			'info' => $this->m_kategori->getsaatini()->result_array(),
 			'judul' => 'SETIAP SAAT',
 			'socmed' => $this->m_beranda->getmediasocial()->result_array(),
