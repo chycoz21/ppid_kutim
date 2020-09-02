@@ -37,7 +37,19 @@ class Dashboard extends CI_controller {
 		);
 		$this->db->update('register_pemohon', $data, array('id' => $id));
 		$this->db->update('permohonan_informasi', $data, array('id_register' => $id));
-		$this->session->set_flashdata('berhasil', 'Berhasil Update Register');
+		$this->session->set_flashdata('berhasil', 'Berhasil Konfirmasi Data User');
+		redirect(base_url('admin/dashboard/index'), 'refresh');
+	}
+
+	public function actionpermohonaninformasi()
+	{
+		$id = $this->input->post('id', TRUE);
+		$status_permintaan = $this->input->post('status_permintaan', TRUE);
+		$data = array(
+			'status_permintaan' => $status_permintaan,
+		);
+		$this->m_data->UpdateData('permohonan_informasi', $data, array('id' => $id));
+		$this->session->set_flashdata('sukses', 'Berhasil Konfirmasi Permintaan User');
 		redirect(base_url('admin/dashboard/index'), 'refresh');
 	}
 

@@ -16,7 +16,6 @@
 
     <!-- table -->
     <div class="col-md-8 ">
-            <div class="">
               
               <div class="row">
                 
@@ -90,7 +89,6 @@
           </div>
       </div>
   </div>
-</div>
 </div>
 </div>
 </div>
