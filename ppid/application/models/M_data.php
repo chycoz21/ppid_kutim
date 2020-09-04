@@ -172,6 +172,7 @@ class M_data extends CI_Model
 
 	public function profile()
 	{
+		
 		$profile = $this->db->where('id',$this->session->userdata('id') )->get('register_pemohon');
 		if ($profile->num_rows() > 0) {
 			return $profile->result();
