@@ -125,10 +125,11 @@ class Dashboard extends CI_controller {
 	{
 		$kategori = $this->m_data->getkategoriinformasi("WHERE id_kategori='$id_kategori' ")->result_array();
 		$data = array(
-			'subtitle' => 'Edit Kategori',
+			'subtitle' => 'Edit Kategori Informasi',
 			'id_kategori' => $kategori[0]['id_kategori'],
 			'nama_kategori' => $kategori[0]['nama_kategori'],
-			'icon' => $kategori[0]['icon']
+			'icon' => $kategori[0]['icon'],
+			'link' => $kategori[0]['link']
 		);
 		$this->load->view('admin/kategori_informasi/v_edit_data', $data);
 	}
@@ -150,14 +151,66 @@ class Dashboard extends CI_controller {
 		}
 		if($statusdata == "Update Data")
 		{
-			$id_kategori = $this->input->post('id_kategori', TRUE);
-			$data = array(
-				'nama_kategori' => $nm_kategori,
-				'icon' => $icn_kategori
-			);
-			$this->m_data->UpdateData('kategori', $data, array('id_kategori' => $id_kategori));
-			$this->session->set_flashdata('berhasil', 'Berhasil Update Kategori Informasi');
-			redirect(base_url('admin/dashboard/kategori_informasi'), 'refresh');
+			$valid = $this->form_validation;
+
+		    $valid->set_rules('icon','Icon Kategori','required',
+			array('required' => 'Icon Kategori harus diisi'));
+
+		    if ($valid->run() === FALSE)
+		    {
+				$old_name	= $_FILES["icon"]["name"];
+				$ext 		= pathinfo($old_name, PATHINFO_EXTENSION);
+				$new_name	= time().'.'.$ext;
+				$config = array(
+					'upload_path' 		=> './assets/admin/upload/kategori/',
+					'allowed_types' 	=> 'jpg|png',
+					'file_name'			=> $new_name,
+					'image_library'		=> 'gd2',
+					'source_image'		=> './assets/admin/upload/kategori/'.$new_name,
+					'create_thumb'		=> true,
+					'maintain_ratio'	=> true,
+					'thumb_marker'     	=> '',	
+				);
+		      	$this->load->library('upload', $config);
+				if (! $this->upload->do_upload('icon')) 
+				{
+					$id_kategori = $this->input->post('id_kategori');
+					$data = array(
+								'nama_kategori'  => $this->input->post('nama_kategori', TRUE),
+								'link'   	=> $this->input->post('link', TRUE),
+					);
+			
+					$id = $this->db->where('id_kategori', $id_kategori);
+					$query = $this->db->get('kategori');
+					$row = $query->row();
+			
+					$this->m_data->UpdateData('kategori', $data, array('id_kategori' => $id_kategori));
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Kategori Informasi');
+					redirect(base_url("admin/dashboard/kategori_informasi"));
+		      	}else{
+			      	$upload_data   = array('uploads' => $this->upload->data());				  
+
+			      	$this->load->library('image_lib', $config);
+			      	$this->image_lib->resize();
+			      	$id_kategori = $this->input->post('id_kategori');
+				    $data = array(
+				    			'icon'   	=> $new_name,
+				    			'nama_kategori'   => $this->input->post('nama_kategori', TRUE),
+				    			'link'   	=> $this->input->post('link', TRUE),
+				    );
+
+				    $id = $this->db->where('id_kategori', $id_kategori);
+				    $query = $this->db->get('kategori');
+				    $row = $query->row();
+
+					unlink("./assets/admin/upload/kategori/$row->icon");
+					$this->m_data->UpdateData('kategori', $data, array('id_kategori' => $id_kategori));
+
+					$this->session->set_flashdata('berhasil', 'Berhasil Update Kategori Informasi');
+		      	} 
+		      	redirect(base_url("admin/dashboard/kategori_informasi"));
+		    }
 		}
 		if($statusdata == "Hapus Data")
 		{

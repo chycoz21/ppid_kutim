@@ -21,8 +21,9 @@ class Dashboard extends CI_Controller {
 		$data = array(
 			'title' => 'PPID | Dashboard',
 			'permohon' => $this->m_data->permohon(),
-			'info' => $this->m_kategori->getsaatini()->result_array(),
+			'info' => $this->m_kategori->getseluruhinformasi()->result_array(),
 			'judul' => 'SETIAP SAAT',
+			'listkategori' => $this->m_kategori->getkategori()->result_array(),
 			'socmed' => $this->m_beranda->getmediasocial()->result_array(),
 			'kontak' => $this->db->get('alamat')->result(),
 			'profil' => $this->m_data->profile()

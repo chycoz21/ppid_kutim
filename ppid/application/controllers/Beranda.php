@@ -7,6 +7,7 @@ class Beranda extends CI_controller
 	{
 		parent::__construct();
 		$this->load->model('m_beranda');
+		$this->load->model('m_kategori');
 	}
 
 	public function index()
@@ -15,6 +16,7 @@ class Beranda extends CI_controller
 			'title' => 'PPID BAWASLU KUTIM',
 			'kontak' => $this->db->get('alamat')->result(),
 			'socmed' => $this->m_beranda->getmediasocial()->result_array(),
+			'listkategori' => $this->m_kategori->getkategori()->result_array(),
 			'listsliderimage' => $this->m_beranda->getsliderimage()->result_array()
 		);
 		$this->load->view('home/v_beranda', $data);

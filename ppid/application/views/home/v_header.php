@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= base_url();?>assets/home/css/style.css">
+    <link rel="stylesheet" href="<?= base_url();?>assets/home/css/bootstrap.css">
     <link rel="stylesheet" href="<?= base_url();?>assets/home/font/css/all.css">
     <link rel="icon" type="image/png" href="<?= base_url();?>assets/home/img/logo_bawas.png">
     <!-- Font Awesome -->

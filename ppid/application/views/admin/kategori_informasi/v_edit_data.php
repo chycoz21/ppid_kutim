@@ -28,7 +28,7 @@
           <!-- /.card-header -->
           <div class="card-body pad">
             <div class="mb-3">
-              <form method="post" action="<?= base_url('admin/dashboard/actionkategoriinformasi') ?>">
+              <form method="post" action="<?= base_url('admin/dashboard/actionkategoriinformasi') ?>" enctype="multipart/form-data">
                   <div class="form-group">
                     <label>Nama Kategori</label>
                     <input type="hidden" name="statusdata" value="Update Data">
@@ -36,8 +36,15 @@
                     <input type="text" name="nama_kategori" id="nama_kategori" class="form-control" value="<?= (isset($nama_kategori)) ? $nama_kategori : "";?>">
                   </div>
                   <div class="form-group">
+                    <img src="<?= base_url('assets/admin/upload/kategori/'.$icon);?>" alt="Icon Kategori" width="auto" height="70">
+                  </div>
+                  <div class="form-group">
                     <label>Icon Kategori</label>
-                    <input type="text" name="icon_kategori" id="icon_kategori" class="form-control" value="<?= (isset($icon)) ? $icon : "";?>">
+                    <input type="file" name="icon" id="icon" class="form-control" value="<?= (isset($icon)) ? $icon : "";?>">
+                  </div>
+                  <div class="form-group">
+                    <label>Link Kategori</label>
+                    <input type="text" name="link" id="link" class="form-control" value="<?= (isset($link)) ? $link : "";?>">
                   </div>
                   <div class="form-group">
                     <button type="submit" name="update" class="btn-sm btn-primary">Update Data</button>

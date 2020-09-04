@@ -7,6 +7,16 @@ class M_kategori extends CI_Model
 	{
 		return $this->db->query("SELECT * FROM media_sosial $where");
 	}
+
+	function getkategori($where = '')
+	{
+		return $this->db->query("SELECT * FROM kategori $where");
+	}	
+
+	function getseluruhinformasi($where = '')
+	{
+		return $this->db->query("SELECT daftar_informasi.*,kategori.nama_kategori FROM daftar_informasi LEFT JOIN kategori ON daftar_informasi.id_kategori = kategori.id_kategori $where;");
+	}
 	
 	function getsaatini($where = '')
 	{

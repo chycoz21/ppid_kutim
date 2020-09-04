@@ -310,13 +310,13 @@
                           </td>
                           <td>
                             <?php if ($data['status'] == "1") { ?>
-                              <a class="mt-1 btn-sm btn btn-primary" href="<?= base_url('admin/dashboard/actiondaftarinformasi');?>" data-toggle="modal" data-target="#konfirmasi-data<?= $data['id'];?>"><i class="fa fa-pencil-alt"></i></a>
+                              <a class="mt-1 btn-sm btn btn-primary" href="<?= base_url('admin/dashboard/actionregistrasi');?>" data-toggle="modal" data-target="#konfirmasi-users<?= $data['id'];?>"><i class="fa fa-pencil-alt"></i></a>
                              <?php }else{ ?>
                             <?php } ?>
                           </td>
                         </tr>
                         <!-- Modal -->
-                        <div class="modal fade" id="konfirmasi-data<?= $data['id'];?>" tabindex="-1" aria-labelledby="hapus-data" aria-hidden="true">
+                        <div class="modal fade" id="konfirmasi-users<?= $data['id'];?>" tabindex="-1" aria-labelledby="hapus-data" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <form method="post" action="<?= base_url('admin/dashboard/actionregistrasi');?>">

@@ -1,6 +1,6 @@
     <!-- footer -->
     <footer style="background-color: #ee9b20;">
-        <div class="container text-center ">
+        <div class="container-fluid text-center ">
             <div class="row pt-4">
                 <div class="col">
                     <p>&copy; 2020 - Bawaslu Kabupaten Kutai Timur | All rights reserved</p>
