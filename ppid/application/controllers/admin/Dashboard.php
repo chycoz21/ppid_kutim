@@ -13,8 +13,31 @@ class Dashboard extends CI_controller {
 			redirect(base_url().'login?alert=belum_login');
 		}
 		$this->load->model('m_data');
-	}
 
+		$status = $this->m_data->ceksession();
+		foreach ($status as $ste) {
+
+			if ($ste->status == 3) {
+			 
+				$data_riwayat = array(
+					'username' => $this->session->userdata('username'),
+					'ip' => $this->input->ip_address(),
+					'sistem_oprasi' => $this->agent->platform(),
+					'browser' => $this->agent->browser(),
+					'tanggal_login' => date('d-m-Y'),
+					'jam' => date('h:i:sa'),
+					'status' => 2,
+					'level' => 1
+		
+				);
+				$this->db->insert('riwayat_login',$data_riwayat);
+				$this->session->sess_destroy();
+				redirect(base_url('admin/login?alert=device'));
+
+
+			}
+		}
+	}
 	public function index()
 	{
 		$data = array(
@@ -54,6 +77,18 @@ class Dashboard extends CI_controller {
 	}
 
 	public function keluar(){
+		$data_riwayat = array(
+			'username' => $this->session->userdata('username'),
+			'ip' => $this->input->ip_address(),
+			'sistem_oprasi' => $this->agent->platform(),
+			'browser' => $this->agent->browser(),
+			'tanggal_login' => date('d-m-Y'),
+			'jam' => date('h:i:sa'),
+			'status' => 2,
+			'level' => 1
+
+		);
+		$this->db->insert('riwayat_login',$data_riwayat);
 		$this->session->sess_destroy();
 		redirect(base_url('admin/login?alert=logout'));
 	}

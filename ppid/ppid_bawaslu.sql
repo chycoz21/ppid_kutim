@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Agu 2020 pada 18.08
+-- Waktu pembuatan: 05 Sep 2020 pada 21.14
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -79,11 +79,11 @@ CREATE TABLE `daftar_informasi` (
 --
 
 INSERT INTO `daftar_informasi` (`id_daftar_informasi`, `id_kategori`, `nama_file`, `link_file`, `status`) VALUES
-(1, 1, 'Laporan Realisasi Anggaran Satker Periode Juni 202', 'https://drive.google.com/file/d/1N6n1LhpUx1GjHczEaHCkwdFPlnpMFt-S/view', '0'),
-(3, 1, 'E Book Kinerja Pengawas Pemilu di Kalimantan Timur', 'https://drive.google.com/file/d/13t2R2T7EPGaERfoXk_pUvz1P6zzrFCFX/view', '0'),
-(4, 1, 'E Book Jejak Pengawalan Demokrasi di Bumi Etam', 'https://drive.google.com/file/d/1PCB6YM4Umjei8Tj8s9WJ5fwxYOIZwG3u/view', '0'),
-(5, 1, 'Buletin April - Juni 2020', 'https://drive.google.com/file/d/1S3kC8oH9GPzfruMb6D-yDq9OTLyv2P2J/view', '0'),
-(6, 1, 'Ringkasan Anggaran 2019 dan 2020', 'https://drive.google.com/file/d/1K3A-WX0-Ah7QE5AFOdl9pz9umSiA1jvx/view', '0'),
+(1, 1, 'Laporan Realisasi Anggaran Satker Periode Juni 202', 'https://drive.google.com/file/d/1N6n1LhpUx1GjHczEaHCkwdFPlnpMFt-S/view', '1'),
+(3, 1, 'E Book Kinerja Pengawas Pemilu di Kalimantan Timur', 'https://drive.google.com/file/d/13t2R2T7EPGaERfoXk_pUvz1P6zzrFCFX/view', '1'),
+(4, 1, 'E Book Jejak Pengawalan Demokrasi di Bumi Etam', 'https://drive.google.com/file/d/1PCB6YM4Umjei8Tj8s9WJ5fwxYOIZwG3u/view', '1'),
+(5, 1, 'Buletin April - Juni 2020', 'https://drive.google.com/file/d/1S3kC8oH9GPzfruMb6D-yDq9OTLyv2P2J/view', '1'),
+(6, 1, 'Ringkasan Anggaran 2019 dan 2020', 'https://drive.google.com/file/d/1K3A-WX0-Ah7QE5AFOdl9pz9umSiA1jvx/view', '1'),
 (7, 2, 'Rekapitulasi Penindakan Pelanggaran Pemilu 2019', 'https://drive.google.com/file/d/1dF6bGiSIqxzp25vtq7E3ieRzU5g_LViZ/view', '0'),
 (8, 2, 'Rekapitulasi Penyelesaian Sengketa Pemilu 2019', 'https://drive.google.com/file/d/1095eSHDOtF8jA4PC1aJ1L5h32OFDSOSS/view', '0'),
 (9, 2, 'Rekap Penyerahan Dukungan Bapaslon Perseorangan Pi', 'https://drive.google.com/file/d/1Lm2oRMDrawo0kC8C-0SMeC2pu6IKUrng/view', '0'),
@@ -129,6 +129,46 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `icon`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `kewajiban_bawaslu`
+--
+
+CREATE TABLE `kewajiban_bawaslu` (
+  `id_kewajiban_bawaslu` int(5) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `kewajiban_bawaslu`
+--
+
+INSERT INTO `kewajiban_bawaslu` (`id_kewajiban_bawaslu`, `judul`, `deskripsi`) VALUES
+(1, 'HAK DAN KEWAJIBAN BAWASLU DALAM PELAYANAN INFORMASI', '<h6><span style=\"font-family: Arial;\">﻿</span><span style=\"font-family: Arial;\">﻿</span><span style=\"font-family: Arial;\">HAK BAWASLU DALAM PELAYANAN INFORMASI</span><br></h6><p><span style=\"font-family: Arial; font-weight: 700; color: rgb(147, 147, 147); font-size: 1.5rem; text-transform: uppercase;\"></span></p>'),
+(2, 'KEWAJIBAN BAWASLU DALAM PELAYANAN INFORMASI', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kewajiban_pemohon`
+--
+
+CREATE TABLE `kewajiban_pemohon` (
+  `id_kewajiban_pemohon` int(5) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `kewajiban_pemohon`
+--
+
+INSERT INTO `kewajiban_pemohon` (`id_kewajiban_pemohon`, `judul`, `deskripsi`) VALUES
+(1, 'HAK PEMOHON INFORMASI', '<p>a.&nbsp;<span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon berhak mengajukan permohonan dengan sarana yang telah disediakan oleh Bawaslu;<br>b.&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon berhak mendapatkan bantuan pada saat mengajukan permohonan informasi atau pendampingan bagi </span>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">pemohon berkebutuhan khusus.</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\"><br>c.&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon berhak menyampaikan pertanyaan, saran, dan pengaduan terkait pelayanan informasi;<br>d.&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon berhak mendapatkan bukti tanda terima permohonan informasi;<br>e.&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon berhak mendapatkan pemberitahuan atas permohonan yang diajukan;<br>f.&nbsp;&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon berhak mendapatkan informasi tentang perpanjangan masa pemberitahuan dari Bawaslu;<br>g.&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon berhak mendapatkan bukti tanda terima pemberian informasi;<br>h.&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon berhak mengajukan keberatan terhadap prosedur pelayanan, biaya pelayanan atau terhadap </span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">penolakan </span>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">permohonan informasi;<br>i.&nbsp;&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon berhak mendapatkan informasi sesuai permintaan (subjek informasi, cara mendapatkan, bentuk informasi);<br>j.&nbsp;&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon berhak mendapatkan informasi tentang prosedur pelayanan, maklumat pelayanan, hak pemohon, dan </span>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">informasi lain terkait proses pemenuhan hak atas informasi;<br>k.&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon berhak mendapatkan perlindungan data pribadi;<br>l.&nbsp;&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon berhak mengajukan permohonan sengketa ke Komisi Informasi jika tidak dapat menerima atau tidak puas </span>&nbsp;&nbsp;&nbsp;<span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">dengan respon Badan Publik (Atasan PPID) terhadap keberatan yang diajukan pemohon.</span></p>'),
+(2, 'KEWAJIBAN PEMOHON DAN PENGGUNA INFORMASI', '<p>a.&nbsp;<span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pemohon wajib memenuhi syarat yang ditetapkan peraturan perundang-undangan dalam mengajukan <br>permohonan&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">atau </span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">keberatan;<br>b.&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pengguna informasi wajib menggunakan informasi publik sesuai ketentuan peraturan perundang-undangan;<br>c.&nbsp;</span><span style=\"color: rgb(83, 83, 83); font-family: sans-serif; font-size: 13.6px;\">Pengguna informai wajib mencantumkan sumber informasi sesuai ketentuan peraturan perundang-undangan;</span></p>');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `maklumat_pelayanan`
 --
 
@@ -143,6 +183,7 @@ CREATE TABLE `maklumat_pelayanan` (
 --
 
 INSERT INTO `maklumat_pelayanan` (`id_maklumat_pelayanan`, `judul`, `foto`) VALUES
+(1, 'MAKLUMAT PELAYANAN', '1598190981.jpg'),
 (1, 'MAKLUMAT PELAYANAN', '1598144099.jpg'),
 (1, 'MAKLUMAT PELAYANAN', '1598144099.jpg');
 
@@ -155,6 +196,7 @@ INSERT INTO `maklumat_pelayanan` (`id_maklumat_pelayanan`, `judul`, `foto`) VALU
 CREATE TABLE `media_sosial` (
   `id` int(11) NOT NULL,
   `media_sosial` varchar(225) NOT NULL,
+  `icon` varchar(30) NOT NULL,
   `url` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -162,9 +204,11 @@ CREATE TABLE `media_sosial` (
 -- Dumping data untuk tabel `media_sosial`
 --
 
-INSERT INTO `media_sosial` (`id`, `media_sosial`, `url`) VALUES
-(1, 'facebook', 'https://www.youtube.com/watch?v=txuSN332M1U'),
-(2, 'sad', 'https://www.youtube.com/watch?v=txuSN332M1U');
+INSERT INTO `media_sosial` (`id`, `media_sosial`, `icon`, `url`) VALUES
+(1, 'Facebook', 'fab fa-facebook', ''),
+(2, 'Instagram', 'fab fa-instagram', ''),
+(3, 'Twitter', 'fab fa-twitter', ''),
+(4, 'YouTube', 'fab fa-youtube', '');
 
 -- --------------------------------------------------------
 
@@ -177,6 +221,13 @@ CREATE TABLE `page` (
   `judul` varchar(225) NOT NULL,
   `deskripsi` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `page`
+--
+
+INSERT INTO `page` (`id`, `judul`, `deskripsi`) VALUES
+(1, 'dsdffsf', 'dfsdfsdfsdfsdfs');
 
 -- --------------------------------------------------------
 
@@ -230,22 +281,31 @@ INSERT INTO `pemohon_informasi` (`id_pemohon_informasi`, `judul`, `deskripsi`) V
 
 CREATE TABLE `permohonan_informasi` (
   `id` int(11) NOT NULL,
-  `tanggal` varchar(225) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp(),
   `id_register` int(11) NOT NULL,
   `rincian` mediumtext NOT NULL,
   `tujuan` mediumtext NOT NULL,
   `memperoleh` int(11) NOT NULL,
   `ktp` varchar(225) NOT NULL,
   `status` int(11) NOT NULL,
-  `mendapatkan` int(11) NOT NULL
+  `mendapatkan` int(11) NOT NULL,
+  `status_permintaan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `permohonan_informasi`
 --
 
-INSERT INTO `permohonan_informasi` (`id`, `tanggal`, `id_register`, `rincian`, `tujuan`, `memperoleh`, `ktp`, `status`, `mendapatkan`) VALUES
-(5, '', 6, 'asda', 'asd', 1, '001619c6b37452a213d0df8cdd41fff3.jpg', 1, 2);
+INSERT INTO `permohonan_informasi` (`id`, `tanggal`, `id_register`, `rincian`, `tujuan`, `memperoleh`, `ktp`, `status`, `mendapatkan`, `status_permintaan`) VALUES
+(5, '0000-00-00 00:00:00', 5, 'asda', 'asd', 1, '001619c6b37452a213d0df8cdd41fff3.jpg', 2, 2, 2),
+(6, '0000-00-00 00:00:00', 6, 'sjdksdfkjsdfksdf', 'skdfjksjfksjfks', 1, 'd8102856fc400cea22344bb12bacc60f.png', 2, 2, 2),
+(7, '0000-00-00 00:00:00', 7, 'sjidjfksjfksdfksd', 'skdfjkfksf', 1, '5be30235b1ee6d443cda157f40edbf65.png', 2, 4, 3),
+(8, '2020-08-28 03:27:33', 0, 'asd', 'asd', 1, 'c9770318629b32f8d581527dbff8d553.jpeg', 1, 2, 3),
+(9, '2020-08-28 03:43:39', 12, 'ads', 'asd', 2, 'a7a081c5f9626c49cad0e8e0ebed5eaa.jpeg', 2, 2, 1),
+(10, '2020-09-01 18:30:30', 5, 'Halo', 'Test', 1, '', 1, 2, 1),
+(11, '2020-09-01 18:31:26', 5, 'asd', 'asd', 1, '', 0, 2, 1),
+(12, '2020-09-01 19:18:01', 13, 'Anu', 'Anu', 2, '4ac572d3643e509b902e622384c77f66.jpg', 1, 2, 1),
+(13, '2020-09-01 19:23:24', 14, 'ads', 'sda', 1, '575420055346c5b35027a8681c10b248.jpg', 1, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -282,6 +342,7 @@ CREATE TABLE `prosedur_pelayanan` (
 --
 
 INSERT INTO `prosedur_pelayanan` (`id_prosedur_pelayanan`, `judul`, `foto`) VALUES
+(1, 'PROSEDUR PELAYANAN INFORMASI', '1598185873.png'),
 (1, 'PROSEDUR PELAYANAN INFORMASI', '1598185873.png');
 
 -- --------------------------------------------------------
@@ -301,6 +362,7 @@ CREATE TABLE `prosedur_pengajuan` (
 --
 
 INSERT INTO `prosedur_pengajuan` (`id_prosedur_pengajuan`, `judul`, `foto`) VALUES
+(1, 'PROSEDUR PENGAJUAN KEBERATAN', '1598187372.png'),
 (1, 'PROSEDUR PENGAJUAN KEBERATAN', '1598187372.png');
 
 -- --------------------------------------------------------
@@ -320,6 +382,7 @@ CREATE TABLE `prosedur_permohonan` (
 --
 
 INSERT INTO `prosedur_permohonan` (`id_prosedur_permohonan`, `judul`, `foto`) VALUES
+(1, 'PROSEDUR PERMOHONAN PENYELESAIAN SENGKETA INFORMASI', '1598188742.png'),
 (1, 'PROSEDUR PERMOHONAN PENYELESAIAN SENGKETA INFORMASI', '1598188742.png');
 
 -- --------------------------------------------------------
@@ -337,15 +400,65 @@ CREATE TABLE `register_pemohon` (
   `email` varchar(225) NOT NULL,
   `notelp` varchar(225) NOT NULL,
   `password` varchar(225) NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL,
+  `ktp` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `register_pemohon`
 --
 
-INSERT INTO `register_pemohon` (`id`, `nik`, `nama`, `alamat`, `pekerjaan`, `email`, `notelp`, `password`, `status`) VALUES
-(6, 'asddd', 'Aditya', 'sad', 'asd', 'bijionta@gmail.com', '0812321313', '$2y$10$D.B7jI1mstqqg2QNGL1TkenL4tYotUKakMQbN8Wp40faR.BRSGKbG', 2);
+INSERT INTO `register_pemohon` (`id`, `nik`, `nama`, `alamat`, `pekerjaan`, `email`, `notelp`, `password`, `status`, `ktp`) VALUES
+(5, 'asddd', 'Aditya', 'sad', 'asd', 'bijionta@gmail.com', '0812321313', '$2y$10$D.B7jI1mstqqg2QNGL1TkenL4tYotUKakMQbN8Wp40faR.BRSGKbG', 2, ''),
+(6, '5654645', 'Fanta', 'sdfsdfsdf', 'Big Boss', 'gudang123@yahoo.com', '345353', '$2y$10$uEgYP6CiVi/P1TOPECJRYOCCWgNvMT47Dt4r2BmyLFF3x3.PgCSbW', 2, ''),
+(7, '3453535', 'David', 'skjdfsdhfk', 'jksdfhksfjl', 'gondrong.coding26@gmail.com', '453534', '$2y$10$U.915KP48fifTSZ6RwX6WeJsTsp9mtCCD97LodhaiAjstve6W/qIq', 2, ''),
+(8, '6408181311990001', 'Aditya', 'asdsdsdsdsdsdsd', 'sdsdads', 'user@root.com', 'dasasas', '$2y$10$FE/7r.VhLimQyMSY/gX02OoeBbLj1ycqbtlMVzoX3gTtXVyKPDhqa', 1, ''),
+(12, 'asddd', 'sad', 'das', 'asd', 'batu@anu.co', 'asdasdasdasdasdasdasdasd', '$2y$10$be5CjYwhGrCRxtwm899fH.UMstEtC8yJPH/V8tLU2EGle9KpFOdVW', 2, ''),
+(13, '6408181311990001', 'Aditya Sundawa', 'Jl Diponegori XII', 'Web Developer', 'utter@gmail.com', '081232131324', '$2y$10$Y8I9iP.RTPQglEYBcJbfhuoRg5wYteHVwM0y/cj9CnGTNzE1mMgWy', 2, ''),
+(14, '64081813119900012', 'Hendra', 'Jl Imam Besuki', 'Web Developer', 'hendra0maulidan@gmail.com', '081232131324', '$2y$10$YGWeUo0aBWyQEdP9rwcdH.zsPr9kgk53X4ygXwRM/pNtCccABt29S', 2, '575420055346c5b35027a8681c10b248.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `regulasi`
+--
+
+CREATE TABLE `regulasi` (
+  `id_regulasi` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `tentang` varchar(255) NOT NULL,
+  `link_file` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `regulasi`
+--
+
+INSERT INTO `regulasi` (`id_regulasi`, `judul`, `tentang`, `link_file`) VALUES
+(2, 'Undang-Undang No 14 Tahun 2008', 'Keterbukaan Informasi Publik', 'tesssassdfsdfsdfsdfsdfsdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `ringkasan_layanan`
+--
+
+CREATE TABLE `ringkasan_layanan` (
+  `id_ringkasan_layanan` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `link_file` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `ringkasan_layanan`
+--
+
+INSERT INTO `ringkasan_layanan` (`id_ringkasan_layanan`, `judul`, `link_file`) VALUES
+(1, 'Ringkasan Permohonan Informasi Bulanan', 'https://www.google.com/search?q=google&rlz=1C1CHBF_enID913ID913&oq=google&aqs=chrome..69i57j69i59l3j69i60l3j69i65.4110j0j7&sourceid=chrome&ie=UTF-8'),
+(2, 'Jumlah Permohonan Informasi yang Diberikan', 'https://www.google.com/search?q=google&rlz=1C1CHBF_enID913ID913&oq=google&aqs=chrome..69i57j69i59l3j69i60l3j69i65.4110j0j7&sourceid=chrome&ie=UTF-8'),
+(3, 'Jumlah Permohonan Informasi yang Diberikan Sebagian dan Seluruhnya', 'https://www.google.com/search?q=google&rlz=1C1CHBF_enID913ID913&oq=google&aqs=chrome..69i57j69i59l3j69i60l3j69i65.4110j0j7&sourceid=chrome&ie=UTF-8'),
+(4, 'Waktu Pemenuhan Permohonan Informasi Berdasarkan Hari', 'https://www.google.com/search?q=google&rlz=1C1CHBF_enID913ID913&oq=google&aqs=chrome..69i57j69i59l3j69i60l3j69i65.4110j0j7&sourceid=chrome&ie=UTF-8'),
+(5, 'Ringkasan Laporan Layanan Informasi berdasarkan Alasan Penolakan', 'https://www.google.com/search?q=google&rlz=1C1CHBF_enID913ID913&oq=google&aqs=chrome..69i57j69i59l3j69i60l3j69i65.4110j0j7&sourceid=chrome&ie=UTF-8');
 
 -- --------------------------------------------------------
 
@@ -355,33 +468,80 @@ INSERT INTO `register_pemohon` (`id`, `nik`, `nama`, `alamat`, `pekerjaan`, `ema
 
 CREATE TABLE `riwayat_login` (
   `id` int(11) NOT NULL,
-  `username` varchar(225) NOT NULL,
-  `ip` varchar(225) NOT NULL,
-  `sistem_oprasi` varchar(225) NOT NULL,
-  `browser` varchar(225) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `ip` varchar(255) NOT NULL,
+  `sistem_oprasi` varchar(125) NOT NULL,
+  `browser` varchar(125) NOT NULL,
   `tanggal_login` text NOT NULL,
   `jam` varchar(12) NOT NULL,
-  `level` int(11) NOT NULL
+  `level` int(11) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `riwayat_login`
 --
 
-INSERT INTO `riwayat_login` (`id`, `username`, `ip`, `sistem_oprasi`, `browser`, `tanggal_login`, `jam`, `level`) VALUES
-(3, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '06:39:57pm', 1),
-(4, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '10:25:46pm', 1),
-(5, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '11:20:17pm', 1),
-(6, 'administrator', '::1', 'Windows 10', 'Chrome', '22-08-2020', '02:16:54am', 1),
-(7, 'administrator', '::1', 'Windows 10', 'Chrome', '23-08-2020', '09:06:10am', 1),
-(8, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '02:10:07pm', 1),
-(9, 'Aditya232es', '::1', 'Windows 10', 'Chrome', '24-08-2020', '03:00:14pm', 1),
-(10, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '03:00:46pm', 1),
-(11, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '03:01:04pm', 1),
-(12, 'Aditya232es', '::1', 'Windows 10', 'Chrome', '24-08-2020', '03:01:21pm', 1),
-(13, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '03:02:02pm', 1),
-(14, 'administrator', '::1', 'Windows 10', 'Chrome', '25-08-2020', '10:01:09pm', 1),
-(15, 'administrator', '::1', 'Windows 10', 'Chrome', '25-08-2020', '10:48:06pm', 1);
+INSERT INTO `riwayat_login` (`id`, `username`, `ip`, `sistem_oprasi`, `browser`, `tanggal_login`, `jam`, `level`, `status`) VALUES
+(1, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '05:52:01am', 1, 0),
+(2, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '05:52:59am', 1, 0),
+(3, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '05:55:05am', 1, 0),
+(4, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '05:59:09am', 1, 0),
+(5, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '06:18:51am', 1, 0),
+(6, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '06:19:36am', 1, 0),
+(7, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '06:44:19am', 1, 0),
+(8, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '06:44:30am', 1, 0),
+(9, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '06:45:07am', 1, 0),
+(10, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '07:08:08am', 1, 0),
+(11, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '07:10:23am', 1, 0),
+(12, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '07:31:34am', 1, 0),
+(13, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '07:31:56am', 1, 0),
+(14, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '03:18:59pm', 1, 0),
+(15, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '03:36:57pm', 1, 0),
+(16, 'administrator', '::1', 'Windows 10', 'Chrome', '21-08-2020', '06:02:07pm', 1, 0),
+(17, 'administrator', '::1', 'Windows 10', 'Chrome', '22-08-2020', '12:12:31am', 1, 0),
+(18, 'administrator', '::1', 'Windows 10', 'Chrome', '22-08-2020', '04:01:57am', 1, 0),
+(19, 'administrator', '::1', 'Windows 10', 'Chrome', '22-08-2020', '05:20:22am', 1, 0),
+(20, 'administrator', '::1', 'Windows 10', 'Chrome', '22-08-2020', '03:36:18pm', 1, 0),
+(21, 'administrator', '::1', 'Windows 10', 'Chrome', '22-08-2020', '06:09:41pm', 1, 0),
+(22, 'administrator', '::1', 'Windows 10', 'Chrome', '22-08-2020', '09:13:59pm', 1, 0),
+(23, 'administrator', '::1', 'Windows 10', 'Chrome', '23-08-2020', '01:54:15am', 1, 0),
+(24, 'administrator', '::1', 'Windows 10', 'Chrome', '23-08-2020', '02:46:26am', 1, 0),
+(25, 'administrator', '::1', 'Windows 10', 'Chrome', '23-08-2020', '04:14:13am', 1, 0),
+(26, 'administrator', '::1', 'Windows 10', 'Chrome', '23-08-2020', '04:49:11pm', 1, 0),
+(27, 'administrator', '::1', 'Windows 10', 'Chrome', '23-08-2020', '07:21:42pm', 1, 0),
+(28, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '01:12:21am', 1, 0),
+(29, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '03:20:41am', 1, 0),
+(30, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '10:50:25pm', 1, 0),
+(31, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '10:55:04pm', 1, 0),
+(32, 'administrator', '::1', 'Windows 10', 'Chrome', '24-08-2020', '10:55:21pm', 1, 0),
+(33, 'administrator', '::1', 'Windows 10', 'Chrome', '25-08-2020', '12:55:23am', 1, 0),
+(34, 'administrator', '::1', 'Windows 10', 'Chrome', '25-08-2020', '02:33:04am', 1, 0),
+(35, 'administrator', '::1', 'Windows 10', 'Chrome', '25-08-2020', '04:10:19am', 1, 0),
+(36, 'administrator', '::1', 'Windows 10', 'Chrome', '25-08-2020', '08:32:08pm', 1, 0),
+(37, 'administrator', '::1', 'Windows 10', 'Chrome', '25-08-2020', '08:38:21pm', 1, 0),
+(38, 'administrator', '::1', 'Windows 10', 'Chrome', '26-08-2020', '03:48:26am', 1, 0),
+(39, 'administrator', '::1', 'Windows 10', 'Chrome', '26-08-2020', '12:10:43pm', 1, 0),
+(40, 'administrator', '::1', 'Windows 10', 'Chrome', '26-08-2020', '05:43:28pm', 1, 0),
+(41, 'administrator', '::1', 'Windows 10', 'Chrome', '26-08-2020', '05:49:46pm', 1, 0),
+(42, 'administrator', '::1', 'Windows 10', 'Chrome', '28-08-2020', '10:28:02am', 1, 0),
+(43, 'administrator', '::1', 'Windows 10', 'Chrome', '31-08-2020', '09:36:27pm', 1, 0),
+(44, 'administrator', '::1', 'Windows 10', 'Chrome', '02-09-2020', '12:37:27am', 1, 0),
+(45, 'administrator', '::1', 'Windows 10', 'Chrome', '02-09-2020', '01:31:46am', 1, 0),
+(46, 'administrator', '::1', 'Windows 10', 'Chrome', '02-09-2020', '02:18:12am', 1, 0),
+(47, 'administrator', '::1', 'Windows 10', 'Chrome', '02-09-2020', '02:21:15am', 1, 0),
+(48, 'administrator', '::1', 'Windows 10', 'Chrome', '02-09-2020', '02:24:14am', 1, 0),
+(49, 'administrator', '::1', 'Windows 10', 'Chrome', '06-09-2020', '01:29:39am', 1, 1),
+(50, 'administrator', '::1', 'Windows 10', 'Chrome', '06-09-2020', '01:52:14am', 1, 1),
+(51, 'administrator', '::1', 'Windows 10', 'Chrome', '05-09-2020', '08:52:20pm', 1, 2),
+(52, 'administrator', '::1', 'Windows 10', 'Chrome', '06-09-2020', '01:57:48am', 1, 1),
+(53, 'administrator', '::1', 'Windows 10', 'Chrome', '05-09-2020', '09:06:05pm', 1, 2),
+(54, 'administrator', '192.168.0.101', 'Android', 'Chrome', '06-09-2020', '02:06:35am', 1, 1),
+(55, 'administrator', '::1', 'Windows 10', 'Chrome', '05-09-2020', '09:12:56pm', 1, 3),
+(56, 'administrator', '192.168.0.101', 'Android', 'Chrome', '05-09-2020', '09:12:59pm', 1, 2),
+(57, 'administrator', '::1', 'Windows 10', 'Chrome', '06-09-2020', '02:13:04am', 1, 1),
+(58, 'administrator', '192.168.0.101', 'Android', 'Chrome', '05-09-2020', '09:13:49pm', 1, 3),
+(59, 'administrator', '::1', 'Windows 10', 'Chrome', '05-09-2020', '09:13:56pm', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -401,6 +561,9 @@ CREATE TABLE `slider_image` (
 --
 
 INSERT INTO `slider_image` (`id_slider`, `src_image`, `caption`, `link_url`) VALUES
+(1, '', '', ''),
+(2, '', '', ''),
+(3, '', '', ''),
 (1, '', '', ''),
 (2, '', '', ''),
 (3, '', '', '');
@@ -435,7 +598,7 @@ CREATE TABLE `user` (
   `user_email` varchar(255) NOT NULL,
   `user_usrnm` varchar(50) NOT NULL,
   `user_pass` varchar(255) NOT NULL,
-  `user_lvl` varchar(14) NOT NULL,
+  `user_lvl` enum('1','2','3') NOT NULL,
   `user_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -444,8 +607,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_nm`, `user_email`, `user_usrnm`, `user_pass`, `user_lvl`, `user_status`) VALUES
-(1, 'tono', 'administrator@test.com', 'administrator', '0192023a7bbd73250516f069df18b500', '1', 1),
-(2, 'Aditya', 'bangjekwartal31@gmail.com', 'Aditya232es', '956e70451d813c7c7a9b2680387bbf51', '2', 1);
+(1, 'tono', 'administrator@test.com', 'administrator', '0192023a7bbd73250516f069df18b500', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -476,18 +638,17 @@ INSERT INTO `user_management` (`id`, `email`, `nama`, `password`, `level`) VALUE
 --
 
 CREATE TABLE `visi_misi` (
-  `id` int(11) NOT NULL,
-  `judul` varchar(225) NOT NULL,
-  `deskripsi` longtext NOT NULL
+  `id_visi_misi` int(1) NOT NULL,
+  `judul` varchar(150) NOT NULL,
+  `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `visi_misi`
 --
 
-INSERT INTO `visi_misi` (`id`, `judul`, `deskripsi`) VALUES
-(1, 'visiasd', 'dasad'),
-(2, 'misi', 'das');
+INSERT INTO `visi_misi` (`id_visi_misi`, `judul`, `foto`) VALUES
+(1, 'Visi Misi', '1598304353.jpg');
 
 -- --------------------------------------------------------
 
@@ -531,12 +692,6 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indeks untuk tabel `media_sosial`
---
-ALTER TABLE `media_sosial`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indeks untuk tabel `page`
 --
 ALTER TABLE `page`
@@ -549,27 +704,27 @@ ALTER TABLE `permohonan_informasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `profil_singkat`
---
-ALTER TABLE `profil_singkat`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indeks untuk tabel `register_pemohon`
 --
 ALTER TABLE `register_pemohon`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `regulasi`
+--
+ALTER TABLE `regulasi`
+  ADD PRIMARY KEY (`id_regulasi`);
+
+--
+-- Indeks untuk tabel `ringkasan_layanan`
+--
+ALTER TABLE `ringkasan_layanan`
+  ADD PRIMARY KEY (`id_ringkasan_layanan`);
+
+--
 -- Indeks untuk tabel `riwayat_login`
 --
 ALTER TABLE `riwayat_login`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `struktur_ppid`
---
-ALTER TABLE `struktur_ppid`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -579,44 +734,20 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indeks untuk tabel `user_management`
---
-ALTER TABLE `user_management`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `visi_misi`
---
-ALTER TABLE `visi_misi`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
-
---
--- AUTO_INCREMENT untuk tabel `alamat`
---
-ALTER TABLE `alamat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `daftar_informasi`
 --
 ALTER TABLE `daftar_informasi`
-  MODIFY `id_daftar_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_daftar_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT untuk tabel `media_sosial`
---
-ALTER TABLE `media_sosial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `page`
@@ -628,49 +759,37 @@ ALTER TABLE `page`
 -- AUTO_INCREMENT untuk tabel `permohonan_informasi`
 --
 ALTER TABLE `permohonan_informasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT untuk tabel `profil_singkat`
---
-ALTER TABLE `profil_singkat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `register_pemohon`
 --
 ALTER TABLE `register_pemohon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT untuk tabel `regulasi`
+--
+ALTER TABLE `regulasi`
+  MODIFY `id_regulasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `ringkasan_layanan`
+--
+ALTER TABLE `ringkasan_layanan`
+  MODIFY `id_ringkasan_layanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `riwayat_login`
 --
 ALTER TABLE `riwayat_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT untuk tabel `struktur_ppid`
---
-ALTER TABLE `struktur_ppid`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `user_management`
---
-ALTER TABLE `user_management`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `visi_misi`
---
-ALTER TABLE `visi_misi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
