@@ -10,6 +10,11 @@ class Login extends CI_controller {
 		parent::__construct();
 		
 	}
+
+	public function asda()
+	{ 
+		
+	}
 	
 
 	public function index()
@@ -33,9 +38,6 @@ class Login extends CI_controller {
 					//menangkap data user dan pass
 					$username=$this->input->post('username');
 					$password=$this->input->post('password');
-		
-					
-		
 					$where=array(
 							'user_usrnm' =>$username,
 							'user_pass' =>md5($password),
@@ -91,7 +93,7 @@ class Login extends CI_controller {
 				}
 
 
-			}else{
+			}else if($ste->status == 1){
 				$data_riwayat = array(
 					'username' => $this->input->post('username'),
 					'ip' => $this->input->ip_address(),
@@ -101,7 +103,6 @@ class Login extends CI_controller {
 					'jam' => date('h:i:sa'),
 					'status' => 3,
 					'level' => 1
-
 				);
 				$this->db->insert('riwayat_login',$data_riwayat);
 				redirect(base_url('admin/login?alert=device'));
