@@ -34,6 +34,8 @@
       echo "<div class='alert alert-danger font-weight-bold text-center'>Anda Harus Login Terlebih Dulu!</div>";
     }else if($_GET['alert']=="logout"){
       echo "<div class='alert alert-success font-weight-bold text-center'>Anda Telah Logout!</div>";
+    }else if($_GET['alert']=="device"){
+      echo "<div class='alert alert-danger font-weight-bold text-center'>Akun Anda Login Di Device Lain</div>";
     }
   }
   ?>

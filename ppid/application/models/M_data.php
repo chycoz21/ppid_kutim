@@ -2,7 +2,13 @@
 
 class M_data extends CI_Model
 {
+
+	public function ceksession()
+	{
+
+		return $this->db->order_by('id', 'desc')->limit(1)->get('riwayat_login')->result();
 	
+	}
 	function gethitungkategoriinformasi($where = '')
 	{
 		return $this->db->query("SELECT count(id_kategori) as kategori  FROM kategori $where;");
