@@ -91,7 +91,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard'?>" class="nav-link active">
+            <a href="<?php echo base_url().'admin/dashboard'?>" class="nav-link <?=$this->uri->segment(3) == '' ? 'active' : 'dashboard' ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -99,7 +99,12 @@
             </a>
           </li>  
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link
+              <?=
+                $this->uri->segment(3) == 'kategori_informasi'  ||
+                $this->uri->segment(3) == 'daftar_informasi' ? 'active' : '' 
+              ?>
+              ">
               <i class="nav-icon fa fa-th"></i>
               <p>
                 KATEGORI
@@ -108,13 +113,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= base_url('admin/dashboard/kategori_informasi');?>" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/kategori_informasi');?>" class="nav-link <?=$this->uri->segment(3) == 'kategori_informasi' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_kategori_informasi' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kategori Informasi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('admin/dashboard/daftar_informasi');?>" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/daftar_informasi');?>" class="nav-link <?=$this->uri->segment(3) == 'daftar_informasi' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'tambah_daftar_informasi' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_daftar_informasi' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Daftar Informasi</p>
                 </a>
@@ -122,18 +127,10 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard/ringkasan_layanan'?>" class="nav-link">
+            <a href="<?php echo base_url().'admin/dashboard/ringkasan_layanan'?>" class="nav-link <?=$this->uri->segment(3) == 'ringkasan_layanan' ? 'active' : '' ?>">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 RINGKASAN LAYANAN
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard/artikel'?>" class="nav-link">
-              <i class="nav-icon fas fa-pencil-alt"></i>
-              <p>
-                ARTIKEL
               </p>
             </a>
           </li>
@@ -146,7 +143,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard/page'?>" class="nav-link">
+            <a href="<?php echo base_url().'admin/dashboard/page'?>" class="nav-link <?=$this->uri->segment(3) == 'page' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'tambah_page' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'page_edit' ? 'active' : '' ?> ">
               <i class="nav-icon fa fa-file"></i>
               <p>
                 PAGES
@@ -154,7 +151,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard/user_management'?>" class="nav-link">
+            <a href="<?php echo base_url().'admin/dashboard/user_management'?>" class="nav-link <?=$this->uri->segment(3) == 'user_management' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'tambah_user_management' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_user_management' ? 'active' : '' ?> ">
               <i class="nav-icon fa fa-users"></i>
               <p>
                 USER & HAK AKSES
@@ -162,7 +159,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard/peraturan'?>" class="nav-link">
+            <a href="<?php echo base_url().'admin/dashboard/peraturan'?>" class="nav-link <?=$this->uri->segment(3) == 'peraturan' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_socmed' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_pengaturan_alamat' ? 'active' : '' ?> ">
               <i class="nav-icon fa fa-edit"></i>
               <p>
                 PERATURAN
@@ -170,7 +167,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard/slider_image'?>" class="nav-link">
+            <a href="<?php echo base_url().'admin/dashboard/slider_image'?>" class="nav-link <?=$this->uri->segment(3) == 'slider_image' ? 'active' : '' ?>">
               <i class="nav-icon far fa-image"></i>
               <p>
                 SLIDER IMAGE
@@ -178,7 +175,15 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link
+              <?=
+                $this->uri->segment(3) == 'visi_misi'  ||
+                $this->uri->segment(3) == 'struktur_ppid'  ||
+                $this->uri->segment(3) == 'profil_singkat'  ||
+                $this->uri->segment(3) == 'dasar_hukum'  ||
+                $this->uri->segment(3) == 'tugas_fungsi' ? 'active' : '' 
+              ?>
+              ">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 PROFIL
@@ -187,37 +192,31 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url().'admin/dashboard/visi_misi'?>" class="nav-link">
+                <a href="<?php echo base_url().'admin/dashboard/visi_misi'?>" class="nav-link <?=$this->uri->segment(3) == 'visi_misi' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_visi_misi' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Visi & Misi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>#</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url().'admin/dashboard/struktur_ppid'?>" class="nav-link">
+                <a href="<?php echo base_url().'admin/dashboard/struktur_ppid'?>" class="nav-link <?=$this->uri->segment(3) == 'struktur_ppid' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_struktur_ppid' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Struktur PPID</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url().'admin/dashboard/profil_singkat'?>" class="nav-link">
+                <a href="<?php echo base_url().'admin/dashboard/profil_singkat'?>" class="nav-link <?=$this->uri->segment(3) == 'profil_singkat' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_profil_singkat' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profil Singkat PPID</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url().'admin/dashboard/dasar_hukum'?>" class="nav-link">
+                <a href="<?php echo base_url().'admin/dashboard/dasar_hukum'?>" class="nav-link  <?=$this->uri->segment(3) == 'dasar_hukum' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_dasar_hukum' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dasar Hukum</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url().'admin/dashboard/tugas_fungsi'?>" class="nav-link">
+                <a href="<?php echo base_url().'admin/dashboard/tugas_fungsi'?>" class="nav-link <?=$this->uri->segment(3) == 'tugas_fungsi' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_tugas_fungsi' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tugas Dan Fungsi</p>
                 </a>
@@ -225,7 +224,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard/regulasi'?>" class="nav-link">
+            <a href="<?php echo base_url().'admin/dashboard/regulasi'?>" class="nav-link <?=$this->uri->segment(3) == 'regulasi' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'tambah_regulasi' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_regulasi' ? 'active' : '' ?> ">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 REGULASI
@@ -233,7 +232,18 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link
+              <?=
+                $this->uri->segment(3) == 'kewajiban_pemohon'  ||
+                $this->uri->segment(3) == 'kewajiban_bawaslu'  ||
+                $this->uri->segment(3) == 'maklumat_pelayanan'  ||
+                $this->uri->segment(3) == 'prosedur_pelayanan'  ||
+                $this->uri->segment(3) == 'prosedur_pengajuan'  ||
+                $this->uri->segment(3) == 'prosedur_permohonan'  ||
+                $this->uri->segment(3) == 'waktu_layanan'  ||
+                $this->uri->segment(3) == 'biaya_layanan' ? 'active' : '' 
+              ?>
+              ">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 STANDART LAYANAN
@@ -241,50 +251,50 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <li class="nav-item <?=$this->uri->segment(3) == 'kewajiban_pemohon' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_kewajiban_pemohon' ? 'active' : '' ?>">
                 <a href="<?= base_url('admin/dashboard/kewajiban_pemohon');?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kewajiban Pemohon</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('admin/dashboard/kewajiban_bawaslu');?>" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/kewajiban_bawaslu');?>" class="nav-link <?=$this->uri->segment(3) == 'kewajiban_bawaslu' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_kewajiban_bawaslu' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kewajiban Bawaslu</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('admin/dashboard/maklumat_pelayanan');?>" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/maklumat_pelayanan');?>" class="nav-link <?=$this->uri->segment(3) == 'maklumat_pelayanan' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_maklumat_pelayanan' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Maklumat Pelayanan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('admin/dashboard/prosedur_pelayanan');?>" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/prosedur_pelayanan');?>" class="nav-link <?=$this->uri->segment(3) == 'prosedur_pelayanan' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_prosedur_pelayanan' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Prosedur Pelayanan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('admin/dashboard/prosedur_pengajuan');?>" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/prosedur_pengajuan');?>" class="nav-link <?=$this->uri->segment(3) == 'prosedur_pengajuan' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_prosedur_pengajuan' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Prosedur Pengajuan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('admin/dashboard/prosedur_permohonan');?>" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/prosedur_permohonan');?>" class="nav-link <?=$this->uri->segment(3) == 'prosedur_permohonan' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_prosedur_permohonan' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Prosedur Permohonan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('admin/dashboard/waktu_layanan');?>" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/waktu_layanan');?>" class="nav-link <?=$this->uri->segment(3) == 'waktu_layanan' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_waktu_layanan' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Waktu Layanan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('admin/dashboard/biaya_layanan');?>" class="nav-link">
+                <a href="<?= base_url('admin/dashboard/biaya_layanan');?>" class="nav-link <?=$this->uri->segment(3) == 'biaya_layanan' ? 'active' : '' ?> or <?=$this->uri->segment(3) == 'edit_biaya_layanan' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Biaya Layanan</p>
                 </a>
@@ -292,7 +302,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'admin/dashboard/ganti_password'?>" class="nav-link">
+            <a href="<?php echo base_url().'admin/dashboard/ganti_password'?>" class="nav-link <?=$this->uri->segment(3) == 'ganti_password' ? 'active' : '' ?>">
               <i class="nav-icon fa fa-lock"></i>
               <p>
                 GANTI PASSWORD
