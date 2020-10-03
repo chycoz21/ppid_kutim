@@ -41,20 +41,50 @@
                 <hr>
             </div>
         </div>
-        <div class="row mt-5">
-            <?php foreach ($listkategori as $data) { ?>
-                <div class="col-md-3 col-lg-3 mt-2">
-                    <a href="<?= base_url(''.$data['link']);?>">
-                        <div class="block__35630">
-                            <div class="icon mb-0 text-center">
-                                <img src="<?= base_url('assets/admin/upload/kategori/'.$data['icon']);?>" alt="" style="height: 70px; width: auto;">
-                            </div>
-                            <h3 class="mb-3 mt-5" style="text-align: center; height: 90px;"><?= $data['nama_kategori'];?></h3>
+        <div class="kotak">
+         <div class="row mt-5">
+            <div class="col-md-3 col-lg-3">
+                <a href="<?= base_url('in/Setiap-Saat');?>">
+                    <div class="block__35630">
+                        <div class="icon mb-0 text-center">
+                            <img src="<?= base_url();?>assets/home/img/i_tiap_saat.png" alt="" style="height: 70px; width: auto;">
                         </div>
-                    </a>
-                </div>
-            <?php } ?>    
+                        <h3 class="mb-3 mt-5" style="text-align: center; height: 90px;">Informasi Setiap Saat</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <a href="<?= base_url('in/Berkala');?>">
+                    <div class="block__35630">
+                        <div class="icon mb-0 text-center">
+                            <img src="<?= base_url();?>assets/home/img/i_berkala.png" alt="" style="height: 70px; width: auto;">
+                        </div>
+                        <h3 class="mb-3 mt-5" style="text-align: center; height: 90px;">Informasi Berkala</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <a href="<?= base_url('in/Serta-Merta');?>">
+                    <div class="block__35630">
+                        <div class="icon mb-0 text-center">
+                            <img src="<?= base_url();?>assets/home/img/i_merta.png" alt="" style="height: 70px; width: auto;">
+                        </div>
+                        <h3 class="mb-3 mt-5" style="text-align: center; height: 90px;">Informasi Serta Merta</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <a href="<?= base_url('in/Dikecualikan');?>">
+                    <div class="block__35630">
+                        <div class="icon mb-0 text-center">
+                            <img src="<?= base_url();?>assets/home/img/i_kecuali.png" alt="" style="height: 70px; width: auto;">
+                        </div>
+                        <h3 class="mb-3 mt-5" style="text-align: center; height: 90px;"><p class="test">Informasi di<br>Kecualikan</p></h3>
+                    </div>
+                </a>
+            </div>
         </div>
+    </div>    
     </div>
 </section>
 
