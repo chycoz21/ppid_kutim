@@ -49,7 +49,7 @@
                         <div class="icon mb-0 text-center">
                             <img src="<?= base_url();?>assets/home/img/i_tiap_saat.png" alt="" style="height: 70px; width: auto;">
                         </div>
-                        <h3 class="mb-3 mt-5" style="text-align: center; height: 90px;">Informasi Setiap Saat</h3>
+                        <h3 class="mb-3 mt-5" style="text-align: center; height: 90px;"><p class="test">Informasi Setiap Saat<p></h3>
                     </div>
                 </a>
             </div>
@@ -59,7 +59,7 @@
                         <div class="icon mb-0 text-center">
                             <img src="<?= base_url();?>assets/home/img/i_berkala.png" alt="" style="height: 70px; width: auto;">
                         </div>
-                        <h3 class="mb-3 mt-5" style="text-align: center; height: 90px;">Informasi Berkala</h3>
+                        <h3 class="mb-3 mt-5" style="text-align: center; height: 90px;"><p class="test">Informasi Berkala</p></h3>
                     </div>
                 </a>
             </div>
@@ -69,7 +69,7 @@
                         <div class="icon mb-0 text-center">
                             <img src="<?= base_url();?>assets/home/img/i_merta.png" alt="" style="height: 70px; width: auto;">
                         </div>
-                        <h3 class="mb-3 mt-5" style="text-align: center; height: 90px;">Informasi Serta Merta</h3>
+                        <h3 class="mb-3 mt-5" style="text-align: center; height: 90px;"><p class="test">Informasi Serta Merta</p></h3>
                     </div>
                 </a>
             </div>
